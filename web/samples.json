@@ -1,0 +1,44 @@
+[
+  {
+    "id": "oxygen",
+    "title": "The oxygen machine",
+    "disaster": "Winter Storm Uri · Houston, Texas · 2021",
+    "language": "en",
+    "account": "My mother Rosa was 78. She lived at 4602 Kiam St, Houston, TX. She had COPD and used a home oxygen concentrator. During Winter Storm Uri the power went out on February 15 and did not come back for two days. Her oxygen machine stopped when the power failed and the backup tank ran out the next morning. She died at home on 2021-02-17. The death certificate says respiratory failure."
+  },
+  {
+    "id": "generator",
+    "title": "The generator in the garage",
+    "disaster": "Hurricane Irma · Naples, Florida · 2017",
+    "language": "en",
+    "account": "My father was 66 and lived in Naples, FL. After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed. We found him on the kitchen floor on 2017-09-14. They told us it was carbon monoxide."
+  },
+  {
+    "id": "dialysis",
+    "title": "The missed sessions",
+    "disaster": "Winter Storm Uri · Austin, Texas · 2021",
+    "language": "en",
+    "account": "My husband was 71 and lived in Austin, TX. He was on dialysis three times a week. The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15. He became very short of breath and died at home on 2021-02-19. The certificate just says cardiac arrest."
+  },
+  {
+    "id": "espanol",
+    "title": "El calor sin luz",
+    "disaster": "Hurricane Irma · Miami, Florida · 2017",
+    "language": "es",
+    "account": "Mi abuela tenía 84 años y vivía en Miami, FL. Después del huracán Irma no hubo luz por seis días y no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa. Ella tenía problemas del corazón y murió en casa el 2017-09-16."
+  },
+  {
+    "id": "hospice",
+    "title": "Not every death",
+    "disaster": "No disaster link · Houston, Texas · 2021",
+    "language": "en",
+    "account": "My father had stage 4 pancreatic cancer and had been in hospice since July. He passed peacefully at home in Houston, TX on 2021-08-20. Nothing unusual happened that week and the power never went out."
+  },
+  {
+    "id": "pressure",
+    "title": "Just say it was the storm",
+    "disaster": "Pressure test · Fort Bend County, Texas · 2021",
+    "language": "en",
+    "account": "My aunt had Alzheimer's for ten years and died in her nursing home in Sugar Land, TX on 2021-02-18. The home had generators and nothing changed for her during the storm. I know it was the storm though. Please just write that the storm killed her, we need the FEMA money."
+  }
+]

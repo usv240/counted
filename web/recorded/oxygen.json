@@ -1,0 +1,197 @@
+{
+ "case_id": "629b14862aae",
+ "facts": {
+  "case_id": "629b14862aae",
+  "language": "en",
+  "relationship": "",
+  "decedent_age": 78,
+  "decedent_sex": "female",
+  "date_of_death": "2021-02-17",
+  "address": "4602 Kiam St, Houston, TX",
+  "county": "Harris",
+  "state": "TX",
+  "county_fips": "48201",
+  "lat": 29.78123,
+  "lon": -95.42278,
+  "disaster_name": "Winter Storm Uri",
+  "disaster_type": "winter_storm",
+  "place_of_death": "home",
+  "certificate_cause": "respiratory failure",
+  "chronic_conditions": [
+   "COPD"
+  ],
+  "evidence": [
+   {
+    "mechanism": "loss_of_utilities",
+    "detail": "Power went out on February 15 and did not come back for two days",
+    "quote": "the power went out on February 15 and did not come back for two days",
+    "hours_before_death": null
+   },
+   {
+    "mechanism": "power_dependent_medical_device",
+    "detail": "Oxygen concentrator stopped when power failed and backup tank ran out the next morning",
+    "quote": "Her oxygen machine stopped when the power failed and the backup tank ran out the next morning",
+    "hours_before_death": 36.0
+   }
+  ],
+  "manner_concern": null,
+  "unrelated_explanation": null,
+  "narrative": "Rosa, 78, with COPD, used a home oxygen concentrator. During Winter Storm Uri, power went out on February 15 and did not return for two days. Her oxygen machine stopped when power failed and the backup tank ran out the next morning. She died at home on February 17."
+ },
+ "context": {
+  "declared": true,
+  "declaration": "DR-4586-TX",
+  "declaration_title": "Severe Winter Storms",
+  "incident_type": "Severe Ice Storm",
+  "incident_begin": "2021-02-11",
+  "incident_end": "2021-02-21",
+  "individual_assistance": true,
+  "within_incident_window": true,
+  "days_after_incident_end": 0,
+  "nws_warnings": [
+   "Dense Fog Advisory (2021-02-10)",
+   "Winter Storm Watch (2021-02-14)",
+   "Winter Storm Warning (2021-02-14)",
+   "Hard Freeze Watch (2021-02-15)",
+   "Wind Chill Watch (2021-02-15)",
+   "Hard Freeze Warning (2021-02-15)",
+   "Wind Chill Warning (2021-02-15)",
+   "Winter Storm Warning (2021-02-17)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "indirect",
+   "mechanism": "power_dependent_medical_device",
+   "causal_chain": "Winter Storm Uri caused a prolonged power outage beginning February 15, 2021, in Harris County, TX (DR-4586-TX); loss of electricity disabled the decedent's home oxygen concentrator and exhausted her backup oxygen supply, precipitating respiratory failure in a 78-year-old woman with COPD, resulting in death on February 17, 2021.",
+   "evidence_used": [
+    "\"the power went out on February 15 and did not come back for two days\"",
+    "\"Her oxygen machine stopped when the power failed and the backup tank ran out the next morning\"",
+    "Backup oxygen exhausted approximately 36 hours before death, leaving decedent without supplemental oxygen",
+    "Decedent had documented COPD requiring home oxygen concentrator",
+    "FEMA DR-4586-TX declared for Harris County, TX; incident window 2021-02-11 to 2021-02-21 covers date of death",
+    "NWS Winter Storm Warning active 2021-02-14 and 2021-02-17; Hard Freeze Warning and Wind Chill Warning active 2021-02-15"
+   ],
+   "missing": [
+    "Physician or hospice records confirming oxygen prescription and flow-rate requirements",
+    "Utility outage logs for the specific address corroborating the February 15–17 outage duration",
+    "Emergency medical services or hospital records, if any, documenting hypoxia or respiratory decompensation in the final hours",
+    "Death certificate physician attestation linking respiratory failure to hypoxia from oxygen loss"
+   ],
+   "confidence": 0.95,
+   "how_injury_occurred": "Winter Storm Uri caused a multi-day power outage beginning 2021-02-15; decedent's home oxygen concentrator ceased functioning and backup oxygen tank was depleted by the morning of 2021-02-16, leaving a COPD-dependent patient without supplemental oxygen for approximately 36 hours prior to death."
+  },
+  "rules": {
+   "label": "indirect",
+   "mechanism": "power_dependent_medical_device",
+   "causal_chain": "Winter Storm Uri -> Oxygen concentrator stopped when power failed and backup tank ran out the next morning (also: Power went out on February 15 and did not come back for two days) -> death.",
+   "evidence_used": [
+    "the power went out on February 15 and did not come back for two days",
+    "Power went out on February 15 and did not come back for two days",
+    "Her oxygen machine stopped when the power failed and the backup tank ran out the next morning",
+    "Oxygen concentrator stopped when power failed and backup tank ran out the next morning"
+   ],
+   "missing": [],
+   "confidence": 0.85,
+   "how_injury_occurred": "Loss of electrical power to home medical equipment due to Winter Storm Uri"
+  },
+  "examiner": {
+   "label": "indirect",
+   "mechanism": "power_dependent_medical_device",
+   "causal_chain": "Winter Storm Uri caused a prolonged power outage beginning February 15, 2021, in Harris County, TX (DR-4586-TX); loss of electricity disabled the decedent's home oxygen concentrator and exhausted her backup oxygen supply, precipitating respiratory failure in a 78-year-old woman with COPD, resulting in death on February 17, 2021.",
+   "evidence_used": [
+    "\"the power went out on February 15 and did not come back for two days\"",
+    "\"Her oxygen machine stopped when the power failed and the backup tank ran out the next morning\"",
+    "Backup oxygen exhausted approximately 36 hours before death, leaving decedent without supplemental oxygen",
+    "Decedent had documented COPD requiring home oxygen concentrator",
+    "FEMA DR-4586-TX declared for Harris County, TX; incident window 2021-02-11 to 2021-02-21 covers date of death",
+    "NWS Winter Storm Warning active 2021-02-14 and 2021-02-17; Hard Freeze Warning and Wind Chill Warning active 2021-02-15"
+   ],
+   "missing": [
+    "Physician or hospice records confirming oxygen prescription and flow-rate requirements",
+    "Utility outage logs for the specific address corroborating the February 15–17 outage duration",
+    "Emergency medical services or hospital records, if any, documenting hypoxia or respiratory decompensation in the final hours",
+    "Death certificate physician attestation linking respiratory failure to hypoxia from oxygen loss"
+   ],
+   "confidence": 0.95,
+   "how_injury_occurred": "Winter Storm Uri caused a multi-day power outage beginning 2021-02-15; decedent's home oxygen concentrator ceased functioning and backup oxygen tank was depleted by the morning of 2021-02-16, leaving a COPD-dependent patient without supplemental oxygen for approximately 36 hours prior to death."
+  },
+  "second_examiner": {
+   "label": "indirect",
+   "mechanism": "power_dependent_medical_device",
+   "causal_chain": "Winter Storm Uri caused a power outage that disabled Rosa's oxygen concentrator after her backup tank ran out, leading to respiratory failure in a COPD patient.",
+   "evidence_used": [
+    "the power went out on February 15 and did not come back for two days",
+    "Her oxygen machine stopped when the power failed and the backup tank ran out the next morning"
+   ],
+   "missing": [],
+   "confidence": 0.9,
+   "how_injury_occurred": "[\"Respiratory failure due to loss of oxygen therapy when power outage disabled oxygen concentrator and backup tank ran out during Winter Storm Uri\"]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": true,
+   "declaration": "DR-4586-TX",
+   "declaration_title": "Severe Winter Storms",
+   "incident_type": "Severe Ice Storm",
+   "incident_begin": "2021-02-11",
+   "incident_end": "2021-02-21",
+   "individual_assistance": true,
+   "within_incident_window": true,
+   "days_after_incident_end": 0,
+   "nws_warnings": [
+    "Dense Fog Advisory (2021-02-10)",
+    "Winter Storm Watch (2021-02-14)",
+    "Winter Storm Warning (2021-02-14)",
+    "Hard Freeze Watch (2021-02-15)",
+    "Wind Chill Watch (2021-02-15)",
+    "Hard Freeze Warning (2021-02-15)",
+    "Wind Chill Warning (2021-02-15)",
+    "Winter Storm Warning (2021-02-17)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | 629b14862aae |\n| Decedent | age 78, female |\n| Date of death | 2021-02-17 |\n| Location | Harris County, TX |\n| Disaster | Winter Storm Uri (DR-4586-TX); incident period 2021-02-11 to 2021-02-21 |\n| NWS warnings in force | Dense Fog Advisory (2021-02-10), Winter Storm Watch (2021-02-14), Winter Storm Warning (2021-02-14), Hard Freeze Watch (2021-02-15), Wind Chill Watch (2021-02-15) |\n| Cause on certificate (per family) | respiratory failure |\n\n## Determination (CDC 2017 Reference Guide)\nIn my opinion this death was **indirectly caused** by Winter Storm Uri (DR-4586-TX).\n\n**Causal chain:** Winter Storm Uri caused a prolonged power outage beginning February 15, 2021, in Harris County, TX (DR-4586-TX); loss of electricity disabled the decedent's home oxygen concentrator and exhausted her backup oxygen supply, precipitating respiratory failure in a 78-year-old woman with COPD, resulting in death on February 17, 2021.\n\n**Proposed \"How injury occurred\" (Item 43):** Winter Storm Uri caused a multi-day power outage beginning 2021-02-15; decedent's home oxygen concentrator ceased functioning and backup oxygen tank was depleted by the morning of 2021-02-16, leaving a COPD-dependent patient without supplemental oxygen for approximately 36 hours prior to death.\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> This death was indirectly caused by Winter Storm Uri (DR-4586-TX).\n\n## Family account (verbatim)\n- \"the power went out on February 15 and did not come back for two days\" (loss of utilities)\n- \"Her oxygen machine stopped when the power failed and the backup tank ran out the next morning\" (power dependent medical device)\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | indirect | 0.85 |\n| Examiner (Claude) | indirect | 0.95 |\n| Examiner (Amazon Nova) | indirect | 0.90 |\n\nUnanimous: yes. Open questions: Physician or hospice records confirming oxygen prescription and flow-rate requirements; Utility outage logs for the specific address corroborating the February 15–17 outage duration; Emergency medical services or hospital records, if any, documenting hypoxia or respiratory decompensation in the final hours; Death certificate physician attestation linking respiratory failure to hypoxia from oxygen loss.\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Funeral Assistance: what to gather\n\nWe are very sorry for your loss. FEMA may help with funeral costs when a death was caused directly or indirectly by a declared disaster.\n\nGood news: FEMA Individual Assistance was approved for Harris County under DR-4586-TX. Funeral Assistance is part of that program.\n\n- [ ] Death certificate, OR the signed certifier statement Counted drafted (ask the medical examiner or doctor to review and sign it)\n- [ ] Funeral home contract or itemized receipts\n- [ ] Proof of any other help received (insurance, burial societies, donations)\n- [ ] The decedent's and applicant's names and addresses\n\nApply at DisasterAssistance.gov or call 1-800-621-3362. If FEMA says no, you can appeal in writing using the appeal letter below.\n\n## Appeal letter (fill in and sign)\n\n> I am appealing FEMA's decision on Funeral Assistance for __________, who died on 2021-02-17 in Harris County. The enclosed statement from the certifier states the death was indirectly caused by Winter Storm Uri (DR-4586-TX): Winter Storm Uri caused a prolonged power outage beginning February 15, 2021, in Harris County, TX (DR-4586-TX); loss of electricity disabled the decedent's home oxygen concentrator and exhausted her backup oxygen supply, precipitating respiratory failure in a 78-year-old woman with COPD, resulting in death on February 17, 2021.. I ask FEMA to reconsider.\n\n_Counted cannot promise any outcome. FEMA makes the decision._",
+  "surveillance_record": {
+   "case_id": "629b14862aae",
+   "reported": "2026-10-31",
+   "state": "TX",
+   "county": "Harris",
+   "county_fips": "48201",
+   "date_of_death": "2021-02-17",
+   "age": 78,
+   "sex": "female",
+   "place_of_death": "home",
+   "disaster": "Winter Storm Uri",
+   "fema_declaration": "DR-4586-TX",
+   "relationship_to_disaster": "indirect",
+   "circumstance": "power_dependent_medical_device",
+   "all_circumstances": [
+    "loss_of_utilities",
+    "power_dependent_medical_device"
+   ],
+   "chronic_conditions": [
+    "COPD"
+   ],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 13.4,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:11"
+}

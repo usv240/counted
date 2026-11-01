@@ -1,0 +1,170 @@
+{
+ "case_id": "6671c8ab0386",
+ "facts": {
+  "case_id": "6671c8ab0386",
+  "language": "en",
+  "relationship": "",
+  "decedent_age": null,
+  "decedent_sex": null,
+  "date_of_death": "2021-08-20",
+  "address": "Houston, TX",
+  "county": "Harris",
+  "state": "TX",
+  "county_fips": "48201",
+  "lat": 29.76078,
+  "lon": -95.36952,
+  "disaster_name": null,
+  "disaster_type": null,
+  "place_of_death": "home",
+  "certificate_cause": null,
+  "chronic_conditions": [
+   "stage 4 pancreatic cancer"
+  ],
+  "evidence": [],
+  "manner_concern": null,
+  "unrelated_explanation": "Father had stage 4 pancreatic cancer and had been in hospice since July. He passed peacefully at home. Nothing unusual happened that week and the power never went out.",
+  "narrative": "Father with stage 4 pancreatic cancer in hospice since July passed peacefully at home in Houston, TX on August 20, 2021. No unusual events or power outages occurred."
+ },
+ "context": {
+  "declared": false,
+  "declaration": null,
+  "declaration_title": null,
+  "incident_type": null,
+  "incident_begin": null,
+  "incident_end": null,
+  "individual_assistance": false,
+  "within_incident_window": null,
+  "days_after_incident_end": null,
+  "nws_warnings": [
+   "Flood Advisory (2021-08-13)",
+   "Flood Advisory (2021-08-15)",
+   "Flood Advisory (2021-08-16)",
+   "Flash Flood Warning (2021-08-16)",
+   "Flood Warning (2021-08-16)",
+   "Flood Advisory (2021-08-17)",
+   "Flood Advisory (2021-08-18)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "Decedent had stage 4 pancreatic cancer and was enrolled in hospice care since July 2021; he died at home on August 20, 2021 as the expected terminal progression of his underlying malignancy, with no credible pathway to any disaster event.",
+   "evidence_used": [
+    "Father had stage 4 pancreatic cancer and had been in hospice since July.",
+    "He passed peacefully at home.",
+    "Nothing unusual happened that week and the power never went out.",
+    "No FEMA disaster declaration for Harris County, TX at or around the time of death.",
+    "NWS flood advisories/warnings ended August 18, two days prior to death, with no declared incident."
+   ],
+   "missing": [
+    "Formal death certificate cause of death to confirm terminal cancer as primary cause.",
+    "Hospice provider records confirming uninterrupted care through date of death."
+   ],
+   "confidence": 0.97,
+   "how_injury_occurred": ""
+  },
+  "rules": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "No disaster-related circumstance described; Father had stage 4 pancreatic cancer and had been in hospice since July. He passed peacefully at home. Nothing unusual happened that week and the power never went out..",
+   "evidence_used": [
+    "Father had stage 4 pancreatic cancer and had been in hospice since July. He passed peacefully at home. Nothing unusual happened that week and the power never went out."
+   ],
+   "missing": [],
+   "confidence": 0.8,
+   "how_injury_occurred": ""
+  },
+  "examiner": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "Decedent had stage 4 pancreatic cancer and was enrolled in hospice care since July 2021; he died at home on August 20, 2021 as the expected terminal progression of his underlying malignancy, with no credible pathway to any disaster event.",
+   "evidence_used": [
+    "Father had stage 4 pancreatic cancer and had been in hospice since July.",
+    "He passed peacefully at home.",
+    "Nothing unusual happened that week and the power never went out.",
+    "No FEMA disaster declaration for Harris County, TX at or around the time of death.",
+    "NWS flood advisories/warnings ended August 18, two days prior to death, with no declared incident."
+   ],
+   "missing": [
+    "Formal death certificate cause of death to confirm terminal cancer as primary cause.",
+    "Hospice provider records confirming uninterrupted care through date of death."
+   ],
+   "confidence": 0.97,
+   "how_injury_occurred": ""
+  },
+  "second_examiner": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "The death was due to stage 4 pancreatic cancer, with no evidence of disaster-related conditions or stressors. The family explicitly states there were no unusual events or power outages.",
+   "evidence_used": [
+    "Father had stage 4 pancreatic cancer and had been in hospice since July. He passed peacefully at home. Nothing unusual happened that week and the power never went out.",
+    "Father with stage 4 pancreatic cancer in hospice since July passed peacefully at home in Houston, TX on August 20, 2021. No unusual events or power outages occurred."
+   ],
+   "missing": [],
+   "confidence": 1.0,
+   "how_injury_occurred": "[]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": false,
+   "declaration": null,
+   "declaration_title": null,
+   "incident_type": null,
+   "incident_begin": null,
+   "incident_end": null,
+   "individual_assistance": false,
+   "within_incident_window": null,
+   "days_after_incident_end": null,
+   "nws_warnings": [
+    "Flood Advisory (2021-08-13)",
+    "Flood Advisory (2021-08-15)",
+    "Flood Advisory (2021-08-16)",
+    "Flash Flood Warning (2021-08-16)",
+    "Flood Warning (2021-08-16)",
+    "Flood Advisory (2021-08-17)",
+    "Flood Advisory (2021-08-18)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | 6671c8ab0386 |\n| Decedent | age unknown, sex not stated |\n| Date of death | 2021-08-20 |\n| Location | Harris County, TX |\n| Disaster | the declared disaster; incident period None to ongoing |\n| NWS warnings in force | Flood Advisory (2021-08-13), Flood Advisory (2021-08-15), Flood Advisory (2021-08-16), Flash Flood Warning (2021-08-16), Flood Warning (2021-08-16) |\n| Cause on certificate (per family) | not known |\n\n## Determination (CDC 2017 Reference Guide)\nThe information gathered does **not** support attributing this death to the declared disaster.\n\n**Causal chain:** Decedent had stage 4 pancreatic cancer and was enrolled in hospice care since July 2021; he died at home on August 20, 2021 as the expected terminal progression of his underlying malignancy, with no credible pathway to any disaster event.\n\n**Proposed \"How injury occurred\" (Item 43):** n/a\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> Not applicable.\n\n## Family account (verbatim)\n- none recorded\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | not_related | 0.80 |\n| Examiner (Claude) | not_related | 0.97 |\n| Examiner (Amazon Nova) | not_related | 1.00 |\n\nUnanimous: yes. Open questions: Formal death certificate cause of death to confirm terminal cancer as primary cause.; Hospice provider records confirming uninterrupted care through date of death..\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Funeral Assistance: what to gather\n\nWe are very sorry for your loss. FEMA may help with funeral costs when a death was caused directly or indirectly by a declared disaster.\n\nWe could not confirm Individual Assistance for Harris County yet. Check DisasterAssistance.gov or call 1-800-621-3362; declarations are often expanded later.\n\n- [ ] Death certificate, OR the signed certifier statement Counted drafted (ask the medical examiner or doctor to review and sign it)\n- [ ] Funeral home contract or itemized receipts\n- [ ] Proof of any other help received (insurance, burial societies, donations)\n- [ ] The decedent's and applicant's names and addresses\n\nApply at DisasterAssistance.gov or call 1-800-621-3362. If FEMA says no, you can appeal in writing using the appeal letter below.\n\n_Counted cannot promise any outcome. FEMA makes the decision._",
+  "surveillance_record": {
+   "case_id": "6671c8ab0386",
+   "reported": "2026-10-31",
+   "state": "TX",
+   "county": "Harris",
+   "county_fips": "48201",
+   "date_of_death": "2021-08-20",
+   "age": null,
+   "sex": null,
+   "place_of_death": "home",
+   "disaster": null,
+   "fema_declaration": null,
+   "relationship_to_disaster": "not_related",
+   "circumstance": null,
+   "all_circumstances": [],
+   "chronic_conditions": [
+    "stage 4 pancreatic cancer"
+   ],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 11.0,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:21"
+}

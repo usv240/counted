@@ -1,0 +1,187 @@
+{
+ "case_id": "6cbe2c307eb3",
+ "facts": {
+  "case_id": "6cbe2c307eb3",
+  "language": "en",
+  "relationship": "son/daughter",
+  "decedent_age": 66,
+  "decedent_sex": "male",
+  "date_of_death": "2017-09-14",
+  "address": "Naples, FL",
+  "county": "Collier",
+  "state": "FL",
+  "county_fips": "12021",
+  "lat": 26.13934,
+  "lon": -81.79583,
+  "disaster_name": "Hurricane Irma",
+  "disaster_type": "hurricane",
+  "place_of_death": "home",
+  "certificate_cause": "carbon monoxide",
+  "chronic_conditions": [],
+  "evidence": [
+   {
+    "mechanism": "carbon_monoxide",
+    "detail": "Generator ran in garage with door half closed during five-day power outage after Hurricane Irma, causing carbon monoxide exposure",
+    "quote": "After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed",
+    "hours_before_death": null
+   }
+  ],
+  "manner_concern": null,
+  "unrelated_explanation": null,
+  "narrative": "After Hurricane Irma, the family had no power for five days. The father ran a generator in the garage with the door half closed. He was found on the kitchen floor."
+ },
+ "context": {
+  "declared": true,
+  "declaration": "DR-4337-FL",
+  "declaration_title": "Hurricane Irma",
+  "incident_type": "Hurricane",
+  "incident_begin": "2017-09-04",
+  "incident_end": "2017-10-18",
+  "individual_assistance": true,
+  "within_incident_window": true,
+  "days_after_incident_end": 0,
+  "nws_warnings": [
+   "Storm Surge Watch (2017-09-07)",
+   "Hurricane Watch (2017-09-07)",
+   "Storm Surge Warning (2017-09-08)",
+   "Hurricane Warning (2017-09-08)",
+   "Flood Watch (2017-09-08)",
+   "Tornado Warning (2017-09-09)",
+   "Tornado Watch (2017-09-09)",
+   "Tornado Watch (2017-09-10)",
+   "Flood Warning (2017-09-10)",
+   "Extreme Wind Warning (2017-09-10)",
+   "Flash Flood Warning (2017-09-10)",
+   "Tropical Storm Warning (2017-09-11)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "indirect",
+   "mechanism": "carbon_monoxide",
+   "causal_chain": "Hurricane Irma caused a five-day power outage; loss of utility power led the decedent to operate a gasoline-powered generator inside a partially enclosed garage, producing lethal carbon monoxide accumulation, resulting in carbon monoxide poisoning death at home.",
+   "evidence_used": [
+    "\"After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed\"",
+    "Decedent found on kitchen floor — consistent with CO incapacitation before escape",
+    "FEMA DR-4337-FL declared for Hurricane Irma, Collier County FL, incident window 2017-09-04 to 2017-10-18; date of death 2017-09-14 falls within window",
+    "Certificate cause of death: carbon monoxide",
+    "NWS Hurricane Warning and Extreme Wind Warning issued for Collier County confirming disaster impact"
+   ],
+   "missing": [
+    "Autopsy or toxicology report confirming elevated carboxyhemoglobin (COHb) saturation",
+    "Medical examiner or coroner official cause-of-death confirmation specifying carbon monoxide poisoning",
+    "Utility outage records for the specific address corroborating the five-day power loss"
+   ],
+   "confidence": 0.97,
+   "how_injury_occurred": "During a five-day power outage caused by Hurricane Irma (DR-4337-FL), decedent operated a gasoline-powered generator inside a residential garage with the door partially closed; accumulated carbon monoxide migrated into the living space and caused fatal poisoning."
+  },
+  "rules": {
+   "label": "indirect",
+   "mechanism": "carbon_monoxide",
+   "causal_chain": "Hurricane Irma -> Generator ran in garage with door half closed during five-day power outage after Hurricane Irma, causing carbon monoxide exposure -> death.",
+   "evidence_used": [
+    "After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed",
+    "Generator ran in garage with door half closed during five-day power outage after Hurricane Irma, causing carbon monoxide exposure"
+   ],
+   "missing": [],
+   "confidence": 0.85,
+   "how_injury_occurred": "Carbon monoxide from generator or fuel-burning device used during power outage from Hurricane Irma"
+  },
+  "examiner": {
+   "label": "indirect",
+   "mechanism": "carbon_monoxide",
+   "causal_chain": "Hurricane Irma caused a five-day power outage; loss of utility power led the decedent to operate a gasoline-powered generator inside a partially enclosed garage, producing lethal carbon monoxide accumulation, resulting in carbon monoxide poisoning death at home.",
+   "evidence_used": [
+    "\"After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed\"",
+    "Decedent found on kitchen floor — consistent with CO incapacitation before escape",
+    "FEMA DR-4337-FL declared for Hurricane Irma, Collier County FL, incident window 2017-09-04 to 2017-10-18; date of death 2017-09-14 falls within window",
+    "Certificate cause of death: carbon monoxide",
+    "NWS Hurricane Warning and Extreme Wind Warning issued for Collier County confirming disaster impact"
+   ],
+   "missing": [
+    "Autopsy or toxicology report confirming elevated carboxyhemoglobin (COHb) saturation",
+    "Medical examiner or coroner official cause-of-death confirmation specifying carbon monoxide poisoning",
+    "Utility outage records for the specific address corroborating the five-day power loss"
+   ],
+   "confidence": 0.97,
+   "how_injury_occurred": "During a five-day power outage caused by Hurricane Irma (DR-4337-FL), decedent operated a gasoline-powered generator inside a residential garage with the door partially closed; accumulated carbon monoxide migrated into the living space and caused fatal poisoning."
+  },
+  "second_examiner": {
+   "label": "indirect",
+   "mechanism": "carbon_monoxide",
+   "causal_chain": "Hurricane Irma caused a five-day power outage; the family ran a generator in the garage with the door half closed, leading to carbon monoxide exposure that resulted in death.",
+   "evidence_used": [
+    "After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed"
+   ],
+   "missing": [],
+   "confidence": 0.95,
+   "how_injury_occurred": "[\"Exposure to carbon monoxide from generator running in garage with door half closed during power outage after Hurricane Irma\"]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": true,
+   "declaration": "DR-4337-FL",
+   "declaration_title": "Hurricane Irma",
+   "incident_type": "Hurricane",
+   "incident_begin": "2017-09-04",
+   "incident_end": "2017-10-18",
+   "individual_assistance": true,
+   "within_incident_window": true,
+   "days_after_incident_end": 0,
+   "nws_warnings": [
+    "Storm Surge Watch (2017-09-07)",
+    "Hurricane Watch (2017-09-07)",
+    "Storm Surge Warning (2017-09-08)",
+    "Hurricane Warning (2017-09-08)",
+    "Flood Watch (2017-09-08)",
+    "Tornado Warning (2017-09-09)",
+    "Tornado Watch (2017-09-09)",
+    "Tornado Watch (2017-09-10)",
+    "Flood Warning (2017-09-10)",
+    "Extreme Wind Warning (2017-09-10)",
+    "Flash Flood Warning (2017-09-10)",
+    "Tropical Storm Warning (2017-09-11)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | 6cbe2c307eb3 |\n| Decedent | age 66, male |\n| Date of death | 2017-09-14 |\n| Location | Collier County, FL |\n| Disaster | Hurricane Irma (DR-4337-FL); incident period 2017-09-04 to 2017-10-18 |\n| NWS warnings in force | Storm Surge Watch (2017-09-07), Hurricane Watch (2017-09-07), Storm Surge Warning (2017-09-08), Hurricane Warning (2017-09-08), Flood Watch (2017-09-08) |\n| Cause on certificate (per family) | carbon monoxide |\n\n## Determination (CDC 2017 Reference Guide)\nIn my opinion this death was **indirectly caused** by Hurricane Irma (DR-4337-FL).\n\n**Causal chain:** Hurricane Irma caused a five-day power outage; loss of utility power led the decedent to operate a gasoline-powered generator inside a partially enclosed garage, producing lethal carbon monoxide accumulation, resulting in carbon monoxide poisoning death at home.\n\n**Proposed \"How injury occurred\" (Item 43):** During a five-day power outage caused by Hurricane Irma (DR-4337-FL), decedent operated a gasoline-powered generator inside a residential garage with the door partially closed; accumulated carbon monoxide migrated into the living space and caused fatal poisoning.\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> This death was indirectly caused by Hurricane Irma (DR-4337-FL).\n\n## Family account (verbatim)\n- \"After Hurricane Irma we had no power for five days, so he ran the generator in the garage with the door half closed\" (carbon monoxide)\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | indirect | 0.85 |\n| Examiner (Claude) | indirect | 0.97 |\n| Examiner (Amazon Nova) | indirect | 0.95 |\n\nUnanimous: yes. Open questions: Autopsy or toxicology report confirming elevated carboxyhemoglobin (COHb) saturation; Medical examiner or coroner official cause-of-death confirmation specifying carbon monoxide poisoning; Utility outage records for the specific address corroborating the five-day power loss.\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Funeral Assistance: what to gather\n\nWe are very sorry for your loss. FEMA may help with funeral costs when a death was caused directly or indirectly by a declared disaster.\n\nGood news: FEMA Individual Assistance was approved for Collier County under DR-4337-FL. Funeral Assistance is part of that program.\n\n- [ ] Death certificate, OR the signed certifier statement Counted drafted (ask the medical examiner or doctor to review and sign it)\n- [ ] Funeral home contract or itemized receipts\n- [ ] Proof of any other help received (insurance, burial societies, donations)\n- [ ] The decedent's and applicant's names and addresses\n\nApply at DisasterAssistance.gov or call 1-800-621-3362. If FEMA says no, you can appeal in writing using the appeal letter below.\n\n## Appeal letter (fill in and sign)\n\n> I am appealing FEMA's decision on Funeral Assistance for __________, who died on 2017-09-14 in Collier County. The enclosed statement from the certifier states the death was indirectly caused by Hurricane Irma (DR-4337-FL): Hurricane Irma caused a five-day power outage; loss of utility power led the decedent to operate a gasoline-powered generator inside a partially enclosed garage, producing lethal carbon monoxide accumulation, resulting in carbon monoxide poisoning death at home.. I ask FEMA to reconsider.\n\n_Counted cannot promise any outcome. FEMA makes the decision._",
+  "surveillance_record": {
+   "case_id": "6cbe2c307eb3",
+   "reported": "2026-10-31",
+   "state": "FL",
+   "county": "Collier",
+   "county_fips": "12021",
+   "date_of_death": "2017-09-14",
+   "age": 66,
+   "sex": "male",
+   "place_of_death": "home",
+   "disaster": "Hurricane Irma",
+   "fema_declaration": "DR-4337-FL",
+   "relationship_to_disaster": "indirect",
+   "circumstance": "carbon_monoxide",
+   "all_circumstances": [
+    "carbon_monoxide"
+   ],
+   "chronic_conditions": [],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 11.3,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:09"
+}

@@ -1,0 +1,269 @@
+{
+ "source": {
+  "title": "Deaths Associated with Hurricane Sandy - October-November 2012",
+  "journal": "MMWR Morb Mortal Wkly Rep 2013;62(20):393-397",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4604935/",
+  "retrieved": "2026-10-31",
+  "licence": "US government work, public domain",
+  "extraction_method": "Europe PMC full-text XML of PMC4604935"
+ },
+ "caveat": "Data are American Red Cross mortality-tracking forms, not death certificates; classification 'direct / indirect / unknown or possibly related' follows the same CDC (Combs) definitions.",
+ "period": "October 28 - November 30, 2012; CT, MD, NJ, NY, PA, WV",
+ "totals": {
+  "direct": 67,
+  "indirect": 38,
+  "possible": 12,
+  "total": 117,
+  "note": "'Unknown/Possibly related' used as the possible class"
+ },
+ "rows": [
+  {
+   "circumstance": "Directly related",
+   "mechanism": null,
+   "level": 0,
+   "n": 67,
+   "pct": 57.3,
+   "cdc_category_mapping": "direct",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Directly related",
+   "mechanism": "Drowning",
+   "level": 1,
+   "n": 40,
+   "pct": 34.2,
+   "cdc_category_mapping": "drowning",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Directly related",
+   "mechanism": "Trauma-crush/cut/struck",
+   "level": 1,
+   "n": 19,
+   "pct": 16.2,
+   "cdc_category_mapping": "traumatic_injury",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Directly related",
+   "mechanism": "Fall",
+   "level": 1,
+   "n": 4,
+   "pct": 3.4,
+   "cdc_category_mapping": "falls",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Directly related",
+   "mechanism": "Motor vehicle",
+   "level": 1,
+   "n": 2,
+   "pct": 1.7,
+   "cdc_category_mapping": "traumatic_injury",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Directly related",
+   "mechanism": "Unknown",
+   "level": 1,
+   "n": 2,
+   "pct": 1.7,
+   "cdc_category_mapping": null,
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": null,
+   "level": 0,
+   "n": 38,
+   "pct": 32.5,
+   "cdc_category_mapping": "indirect",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Poisoning",
+   "level": 1,
+   "n": 10,
+   "pct": 8.5,
+   "cdc_category_mapping": "carbon_monoxide_poisoning (9 of 10 CO per text)",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Fall",
+   "level": 1,
+   "n": 7,
+   "pct": 6.0,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Burn/Electric current",
+   "level": 1,
+   "n": 6,
+   "pct": 5.1,
+   "cdc_category_mapping": "fire_from_alternative_heat / return_to_unsafe_structures",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Trauma-crush/cut/struck",
+   "level": 1,
+   "n": 5,
+   "pct": 4.3,
+   "cdc_category_mapping": "cleanup_after_disaster",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Motor vehicle",
+   "level": 1,
+   "n": 4,
+   "pct": 3.4,
+   "cdc_category_mapping": "motor_vehicle_crash_during_event",
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Other",
+   "level": 1,
+   "n": 4,
+   "pct": 3.4,
+   "cdc_category_mapping": null,
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Indirectly related",
+   "mechanism": "Unknown",
+   "level": 1,
+   "n": 2,
+   "pct": 1.7,
+   "cdc_category_mapping": null,
+   "source_page": "MMWR 62(20):393-397, Table"
+  },
+  {
+   "circumstance": "Unknown/Possibly related",
+   "mechanism": null,
+   "level": 0,
+   "n": 12,
+   "pct": 10.3,
+   "cdc_category_mapping": "possible",
+   "source_page": "MMWR 62(20):393-397, Table"
+  }
+ ],
+ "demographics_all_deaths_N117": {
+  "age": {
+   "mean": 60,
+   "median": 65,
+   "range": "1-94",
+   "unknown": [
+    5,
+    4.3
+   ]
+  },
+  "sex": {
+   "Male": [
+    71,
+    60.7
+   ],
+   "Female": [
+    40,
+    34.2
+   ],
+   "Unknown": [
+    6,
+    5.1
+   ]
+  },
+  "race": {
+   "White": [
+    63,
+    53.8
+   ],
+   "Black": [
+    15,
+    12.8
+   ],
+   "Asian": [
+    1,
+    0.9
+   ],
+   "Other": [
+    8,
+    6.8
+   ],
+   "Unknown": [
+    30,
+    25.6
+   ]
+  },
+  "state_location_of_death": {
+   "New York": [
+    53,
+    45.3
+   ],
+   "New Jersey": [
+    34,
+    29.1
+   ],
+   "Pennsylvania": [
+    12,
+    10.3
+   ],
+   "West Virginia": [
+    6,
+    5.1
+   ],
+   "Connecticut": [
+    4,
+    3.4
+   ],
+   "Maryland": [
+    1,
+    0.9
+   ],
+   "Unknown": [
+    7,
+    6.0
+   ]
+  },
+  "source_of_information": {
+   "Medical examiner/Coroner": [
+    94,
+    80.3
+   ],
+   "Family of decedent": [
+    10,
+    8.5
+   ],
+   "Fire department/Police": [
+    4,
+    3.4
+   ],
+   "Other": [
+    3,
+    2.6
+   ],
+   "Unknown": [
+    6,
+    5.1
+   ]
+  }
+ },
+ "drowning_subset_n40": {
+  "in_home": "21 (52.5%)",
+  "outside": "11 (27.5%)",
+  "new_york": "32 (80.0%)",
+  "note": "Table also reports drowning-subset columns; see source"
+ },
+ "text_notes": [
+  "Of the 10 indirect poisonings, nine were caused by carbon monoxide.",
+  "20 decedents drowned in flooded homes in New York; 18 (90.0%) lived in Evacuation Zone A."
+ ],
+ "definitions_text": "Directly related deaths are deaths caused by the environmental force of the disaster (e.g., wind or flood) or by the direct consequences of these forces (e.g., structural collapse). Indirectly related deaths are defined as deaths occurring in a situation in which the disaster led to unsafe conditions (e.g., hazardous roads) or caused a loss or disruption of usual services that contributed to the death (e.g., loss of electrical services). Deaths without direct or indirect classification were reported as unknown or possibly related deaths.",
+ "discrepancies": [
+  "No arithmetic discrepancy found: 67 + 38 + 12 = 117; mechanism rows sum to class totals; sex, race, state and source columns each sum to 117."
+ ]
+}

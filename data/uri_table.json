@@ -1,0 +1,443 @@
+{
+ "source": {
+  "title": "February 2021 Winter Storm-Related Deaths - Texas (Winter Storm Uri mortality surveillance report)",
+  "publisher": "Texas DSHS State Medical Operations Center, Disaster Mortality Surveillance Unit",
+  "url": "https://www.dshs.texas.gov/sites/default/files/news/updates/SMOC_FebWinterStorm_MortalitySurvReport_12-30-21.pdf",
+  "report_date_on_document": "Dec. 31, 2021 (file name says 12-30-21)",
+  "retrieved": "2026-10-31",
+  "licence": "Texas state government publication; reproduced as factual data with attribution"
+ },
+ "period": {
+  "deaths": "February 11, 2021 to June 4, 2021",
+  "surveillance": "February 15 - October 27, 2021 (data current as of October 27, 2021)",
+  "death_certificate_review": "February 9 - August 30, 2021",
+  "DRMSF_reporting": "February 16 - August 27, 2021"
+ },
+ "totals": {
+  "direct": 148,
+  "indirect": 92,
+  "possible": 6,
+  "total": 246
+ },
+ "totals_pct": {
+  "direct": 60.2,
+  "indirect": 37.4,
+  "possible": 2.4,
+  "note": "percentages computed here (148/246 etc.), not printed in the report; Table 3 prints only the n (%) of total per circumstance row"
+ },
+ "definitions_used": "Centers for Disease Control and Prevention definitions for direct, indirect and possible related disaster deaths were used for case ascertainment. DSHS only reports a death as related to the winter storm when verified by a medical certifier.",
+ "rows": [
+  {
+   "circumstance": "Extreme cold exposure",
+   "cause": null,
+   "level": 0,
+   "direct": 148,
+   "indirect": 11,
+   "possible": 2,
+   "total": 161,
+   "pct": 65.4,
+   "cdc_category_mapping": "hypothermia / heat_cold_exposure_due_to_disaster",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Extreme cold exposure",
+   "cause": "Hypothermia",
+   "level": 1,
+   "direct": 146,
+   "indirect": 10,
+   "possible": 2,
+   "total": 158,
+   "pct": 64.2,
+   "cdc_category_mapping": "hypothermia (direct); indirect when due to disrupted heating",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Extreme cold exposure",
+   "cause": "Frostbite",
+   "level": 1,
+   "direct": 2,
+   "indirect": 1,
+   "possible": 0,
+   "total": 3,
+   "pct": 1.2,
+   "cdc_category_mapping": "hypothermia (direct); indirect when due to disrupted heating",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Exacerbation of pre-existing illness",
+   "cause": null,
+   "level": 0,
+   "direct": 0,
+   "indirect": 25,
+   "possible": 0,
+   "total": 25,
+   "pct": 10.2,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Exacerbation of pre-existing illness",
+   "cause": "Respiratory illness",
+   "level": 1,
+   "direct": 0,
+   "indirect": 8,
+   "possible": 0,
+   "total": 8,
+   "pct": 3.3,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Exacerbation of pre-existing illness",
+   "cause": "Renal failure/illness",
+   "level": 1,
+   "direct": 0,
+   "indirect": 6,
+   "possible": 0,
+   "total": 6,
+   "pct": 2.4,
+   "cdc_category_mapping": "loss_disruption_healthcare_access (dialysis)",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Exacerbation of pre-existing illness",
+   "cause": "Cardiovascular illness",
+   "level": 1,
+   "direct": 0,
+   "indirect": 5,
+   "possible": 0,
+   "total": 5,
+   "pct": 2.0,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Exacerbation of pre-existing illness",
+   "cause": "Other",
+   "level": 1,
+   "direct": 0,
+   "indirect": 6,
+   "possible": 0,
+   "total": 6,
+   "pct": 2.4,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Motor vehicle accident",
+   "cause": null,
+   "level": 0,
+   "direct": 0,
+   "indirect": 22,
+   "possible": 0,
+   "total": 22,
+   "pct": 8.9,
+   "cdc_category_mapping": "motor_vehicle_crash_during_event",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Motor vehicle accident",
+   "cause": "Blunt/other trauma",
+   "level": 1,
+   "direct": 0,
+   "indirect": 20,
+   "possible": 0,
+   "total": 20,
+   "pct": 8.1,
+   "cdc_category_mapping": "motor_vehicle_crash_during_event",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Motor vehicle accident",
+   "cause": "Drowning",
+   "level": 1,
+   "direct": 0,
+   "indirect": 2,
+   "possible": 0,
+   "total": 2,
+   "pct": 0.8,
+   "cdc_category_mapping": "motor_vehicle_crash_during_event",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Carbon monoxide exposure",
+   "cause": null,
+   "level": 0,
+   "direct": 0,
+   "indirect": 18,
+   "possible": 1,
+   "total": 19,
+   "pct": 7.7,
+   "cdc_category_mapping": "carbon_monoxide_poisoning",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Carbon monoxide exposure",
+   "cause": "Carbon monoxide poisoning",
+   "level": 1,
+   "direct": 0,
+   "indirect": 18,
+   "possible": 1,
+   "total": 19,
+   "pct": 7.7,
+   "cdc_category_mapping": "carbon_monoxide_poisoning",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fire",
+   "cause": null,
+   "level": 0,
+   "direct": 0,
+   "indirect": 7,
+   "possible": 3,
+   "total": 10,
+   "pct": 4.1,
+   "cdc_category_mapping": "fire_from_alternative_heat",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fire",
+   "cause": "Burns or soot/smoke inhalation",
+   "level": 1,
+   "direct": 0,
+   "indirect": 7,
+   "possible": 3,
+   "total": 10,
+   "pct": 4.1,
+   "cdc_category_mapping": "fire_from_alternative_heat",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fall",
+   "cause": null,
+   "level": 0,
+   "direct": 0,
+   "indirect": 9,
+   "possible": 0,
+   "total": 9,
+   "pct": 3.7,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fall",
+   "cause": "Blunt/other trauma",
+   "level": 1,
+   "direct": 0,
+   "indirect": 5,
+   "possible": 0,
+   "total": 5,
+   "pct": 2.0,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fall",
+   "cause": "Post-trauma condition",
+   "level": 1,
+   "direct": 0,
+   "indirect": 3,
+   "possible": 0,
+   "total": 3,
+   "pct": 1.2,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "DSHS p. 7 (Table 3)"
+  },
+  {
+   "circumstance": "Fall",
+   "cause": "Drowning",
+   "level": 1,
+   "direct": 0,
+   "indirect": 1,
+   "possible": 0,
+   "total": 1,
+   "pct": 0.4,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "DSHS p. 7 (Table 3)"
+  }
+ ],
+ "rows_note": "level 0 = circumstance subtotal row, level 1 = cause rows under it. Leaf (level 1) rows sum to totals; parent rows also sum to totals. '-' in the source is recorded as 0.",
+ "demographics": {
+  "source_page": "DSHS p. 6 (Table 2)",
+  "n": 246,
+  "sex": {
+   "Male": [
+    161,
+    65.4
+   ],
+   "Female": [
+    85,
+    34.6
+   ]
+  },
+  "age_years": {
+   "0-19": [
+    8,
+    3.3
+   ],
+   "20-39": [
+    30,
+    12.2
+   ],
+   "40-59": [
+    60,
+    24.4
+   ],
+   "60-79": [
+    100,
+    40.7
+   ],
+   "80-99": [
+    43,
+    17.5
+   ],
+   "100+": [
+    4,
+    1.6
+   ],
+   "Missing": [
+    1,
+    0.4
+   ]
+  },
+  "race_ethnicity": {
+   "White, Non-Hispanic": [
+    132,
+    53.7
+   ],
+   "Hispanic": [
+    53,
+    21.5
+   ],
+   "Black, Non-Hispanic": [
+    48,
+    19.5
+   ],
+   "Asian, Non-Hispanic": [
+    9,
+    3.7
+   ],
+   "American Indian, Non-Hispanic": [
+    1,
+    0.4
+   ],
+   "Other, Non-Hispanic": [
+    2,
+    0.8
+   ],
+   "Missing": [
+    1,
+    0.4
+   ]
+  },
+  "note": "Values are [n, percent as printed]. Percentages may not equal 100% due to rounding."
+ },
+ "location_of_death": {
+  "source_page": "DSHS p. 4 (Table 1)",
+  "by_county": {
+   "Angelina": 1,
+   "Hale": 1,
+   "Nacogdoches": 4,
+   "Aransas": 1,
+   "Harris": 43,
+   "Parker": 1,
+   "Armstrong": 1,
+   "Harrison": 1,
+   "Pecos": 1,
+   "Bandera": 1,
+   "Henderson": 3,
+   "Polk": 2,
+   "Bastrop": 1,
+   "Hill": 2,
+   "Randall": 1,
+   "Bexar": 16,
+   "Hockley": 2,
+   "Rusk": 1,
+   "Brazoria": 1,
+   "Hopkins": 1,
+   "San Jacinto": 1,
+   "Brazos": 1,
+   "Howard": 1,
+   "San Saba": 1,
+   "Brooks": 1,
+   "Hunt": 1,
+   "Schleicher": 1,
+   "Burnet": 2,
+   "Jasper": 1,
+   "Sutton": 1,
+   "Cass": 1,
+   "Jefferson": 1,
+   "Tarrant": 11,
+   "Cherokee": 1,
+   "Kaufman": 1,
+   "Taylor": 7,
+   "Clay": 1,
+   "Kendall": 1,
+   "Terry": 1,
+   "Coleman": 2,
+   "Kerr": 1,
+   "Travis": 28,
+   "Collin": 2,
+   "Kimble": 1,
+   "Trinity": 1,
+   "Culberson": 4,
+   "Lamar": 1,
+   "Tyler": 1,
+   "Dallas": 22,
+   "Lavaca": 2,
+   "Uvalde": 1,
+   "Ector": 1,
+   "Lee": 1,
+   "Val Verde": 1,
+   "Ellis": 2,
+   "Leon": 2,
+   "Webb": 3,
+   "Falls": 1,
+   "Limestone": 1,
+   "Wharton": 1,
+   "Fayette": 1,
+   "Llano": 1,
+   "Wichita": 3,
+   "Fort Bend": 7,
+   "Lubbock": 1,
+   "Williamson": 6,
+   "Freestone": 2,
+   "Maverick": 2,
+   "Wise": 1,
+   "Frio": 1,
+   "McLennan": 3,
+   "Wood": 2,
+   "Galveston": 10,
+   "Milam": 1,
+   "Zapata": 1,
+   "Grayson": 1,
+   "Montgomery": 3
+  },
+  "counties": 77,
+  "n": 246,
+  "residency": "Among the 244 (99.2%) decedents with available state residency information, 229 (93.9%) were Texas residents, and 15 (6.1%) resided in other states or countries. (p. 2)",
+  "note": "Report gives location of death only by county (Table 1); no place-type (home/hospital) table."
+ },
+ "text_statistics": {
+  "source_page": "DSHS pp. 2-3",
+  "counties_with_deaths": 77,
+  "age_range": "less than one to 102 years",
+  "dates_of_death_known": "245 (99.6%)",
+  "hypothermia_n": 158,
+  "hypothermia_aged_60_plus": "107 (67.7%)",
+  "hypothermia_alcohol": "22 (13.9%)",
+  "hypothermia_illicit_drugs": "8 (5.0%)",
+  "hypothermia_alcohol_and_drugs": "3 (1.9%)",
+  "exacerbation_pre_existing_illness": "25 (10.2%): disruptions to dialysis or oxygen treatment, freezing of medical devices and medication, disruption of hospice care, outdoor repair activity, or loss of power while on electricity dependent equipment",
+  "motor_vehicle": "22 (8.9%)",
+  "carbon_monoxide_text": "Nineteen (7.7%) fatal carbon monoxide poisonings (Table 3 splits 18 indirect + 1 possible)",
+  "fire": "Ten (4.1%)",
+  "falls_and_other": "nine (3.7%): falls and slips on ice, a fall-through ice resulting in drowning, injury complications after a fall (pulmonary embolism from deep vein thrombosis; hemorrhagic stroke from head trauma)"
+ },
+ "discrepancies": [
+  "No arithmetic discrepancy: 148 + 92 + 6 = 246; all circumstance and cause rows sum to the reported totals; the 77 county counts sum to 246.",
+  "Report title date is 'Dec. 31, 2021' on page 1 although the file is named 12-30-21.",
+  "Text on p. 2 calls CO poisoning '19 (7.7%)' while Table 3 shows 18 indirect + 1 possible; consistent, not a conflict.",
+  "Table 3 prints a single 'n (%)' column (percent of 246); direct/indirect/possible columns are counts only."
+ ]
+}

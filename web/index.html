@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<script>document.documentElement.classList.add("js")</script>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counted · No disaster death goes uncounted</title>
+<meta name="description" content="Counted is an AI agent that interviews families after hurricanes, winter storms and heat waves, finds the disaster hidden inside a death, and drafts the statement a medical examiner signs, so the death is counted and the family can claim FEMA funeral assistance.">
+<meta name="theme-color" content="#06525c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306525c'/%3E%3Cpath d='M8 8v16M13 8v16M18 8v16M23 8v16M5 22 26 10' stroke='%23f7f9f8' stroke-width='2.6' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&family=Red+Hat+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i" viewBox="0 0 16 16"><circle cx="8" cy="4.2" r="1.4" fill="currentColor"/><path d="M6.4 7h2.4v5.2M6.2 12.4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="wordmark" href="#top" aria-label="Counted, home">Counted</a>
+  <nav aria-label="Sections">
+    <a href="#how">How it works</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#api">Use the API</a>
+  </nav>
+  <a class="btn ghost" href="#api">Get an API key</a>
+</header>
+
+<main id="main">
+<!-- ============================================================ hero -->
+<section class="hero" id="top" aria-labelledby="h1">
+  <h1 id="h1"><span class="line"><span>Officially, 64.</span></span><span class="line"><span>Really, 2,975.</span></span></h1>
+  <div class="hero-foot">
+    <p>That was Hurricane Maria’s death toll<button class="i" type="button" data-tip="<b>Hurricane Maria, Puerto Rico, 2017</b>The government’s count stayed at 64 for nearly a year. A study it commissioned from George Washington University put the toll at 2,975, and found certifiers had been counting only deaths the storm’s forces caused directly."><svg><use href="#i"/></svg></button>. <strong>Counted</strong> asks families what happened, finds the disaster hidden inside each death, and drafts what a medical examiner signs, so it is counted and the family can claim FEMA funeral aid<button class="i" type="button" data-tip="<b>FEMA Funeral Assistance</b>After a declared disaster, FEMA can pay funeral costs, but only if a death certificate or a signed certifier statement says the death was <em>directly or indirectly</em> caused by the disaster. “May have been caused by” is rejected."><svg><use href="#i"/></svg></button>.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#try">Try a real case</a>
+      <a class="link" href="#evidence">See the evidence</a>
+    </div>
+  </div>
+  <p class="hero-source">Sources: Milken Institute School of Public Health, George Washington University (2018); FEMA, <em>Help with Funerals and Burials</em> (2025).</p>
+</section>
+
+<!-- ============================================================ staircase -->
+<section class="field stairs in-stairs" aria-labelledby="why-h">
+  <h2 id="why-h" class="sr">Why deaths go uncounted</h2>
+  <p class="statement">
+    <span>The certificate said</span>
+    <span>“cardiac arrest.”</span>
+    <span>Not that the power</span>
+    <span>was out three days.</span>
+    <span>Only the family knew.</span>
+  </p>
+  <figure>
+    <img class="drift" src="assets/uri-satellite.jpg" width="1600" height="1292" alt="NASA satellite image of Winter Storm Uri covering most of the United States, February 14, 2021" loading="lazy">
+    <img src="assets/uri-austin.jpg" width="1600" height="1200" alt="A live oak covered in snow in Austin, Texas, during Winter Storm Uri" loading="lazy">
+    <figcaption>Winter Storm Uri, February 2021. Texas counted 246 deaths<button class="i" type="button" data-tip="<b>Texas DSHS, December 2021</b>148 direct, 92 indirect, 6 possible. An independent excess-death estimate (BuzzFeed News) put the real toll near 700."><svg><use href="#i"/></svg></button>.</figcaption>
+  </figure>
+  <p class="note">A death certificate records a cause. Whether a hurricane, a freeze or a heat wave caused it depends on what happened at home in the days before, and the person who knows that is usually a daughter, a husband or a neighbor nobody interviews.</p>
+</section>
+
+<!-- ============================================================ numbers -->
+<section class="numbers" aria-labelledby="cost-h">
+  <h2 id="cost-h" class="in">The cost of a missing word</h2>
+  <div class="num-grid">
+    <div class="num in" style="--d:0ms">
+      <b>97%</b>
+      <p>of out-of-state death certificates studied after Hurricane Katrina made no mention of the hurricane<button class="i" type="button" data-tip="<b>National Association of Medical Examiners</b>431 of 446 certificates, cited in NAME’s position paper on disaster-related deaths. Secondhand figure: the primary study is cited in the paper."><svg><use href="#i"/></svg></button>.</p>
+    </div>
+    <div class="num in" style="--d:90ms">
+      <b>~5×</b>
+      <p>more Americans die from heat each year than federal records count: about 9,000 against 1,700<button class="i" type="button" data-tip="<b>NPR and Boston University, August 2026</b>A model-based estimate for 2018–2025. Heat hides behind causes like “heart attack” on the certificate."><svg><use href="#i"/></svg></button>.</p>
+    </div>
+    <div class="num in" style="--d:180ms">
+      <b>“May”</b>
+      <p>is the word that loses a family their funeral aid. FEMA rejects any document saying a death “may have been caused by” the disaster<button class="i" type="button" data-tip="<b>FEMA’s rule, verbatim</b>Documents stating the death “may have been caused by” or “was likely a result of” the disaster do not qualify. Counted therefore never hedges: it commits to direct or indirect, or it declines and refers the case to a person."><svg><use href="#i"/></svg></button>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ lights -->
+<section class="lights" aria-labelledby="lights-h">
+  <h2 id="lights-h" class="in">When the lights go out</h2>
+  <div class="copy in">
+    <p>Most disaster deaths don’t happen in the storm. They happen in the weeks of darkness after it: the oxygen machine that stops, the dialysis center that closes, the generator in the garage. These are <em>indirect</em> deaths<button class="i" type="button" data-tip="<b>Direct or indirect?</b><em>Direct</em>: caused by the disaster’s forces (drowning in the surge, a falling tree, hypothermia in a winter storm). <em>Indirect</em>: caused by unsafe conditions it created (power loss, missed care, carbon monoxide, cleanup injuries). Both count. Both qualify for FEMA funeral aid."><svg><use href="#i"/></svg></button>, and they are the ones that go uncounted.</p>
+    <p class="src" style="font-size:var(--step-small);color:var(--muted)">Drag across the image.</p>
+  </div>
+  <figure class="in" style="--d:90ms;margin:0">
+    <div class="compare" style="--split:50%">
+      <img src="assets/pr-lights-before.jpg" width="1920" height="1080" alt="Puerto Rico at night before Hurricane Maria: the island outlined in city lights">
+      <img class="after" src="assets/pr-lights-after.jpg" width="1920" height="1080" alt="Puerto Rico at night after Hurricane Maria: almost every light gone">
+      <span class="handle" aria-hidden="true"></span>
+      <span class="tag l">Before Maria</span><span class="tag r">After Maria</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare Puerto Rico at night before and after Hurricane Maria">
+    </div>
+    <figcaption>Puerto Rico at night, before and after Hurricane Maria. NOAA/NASA Suomi NPP imagery (CSU/CIRA), public domain.</figcaption>
+  </figure>
+</section>
+
+<!-- ============================================================ how -->
+<section class="does" id="how" aria-labelledby="how-h">
+  <h2 id="how-h" class="in">What Counted does</h2>
+  <ol>
+    <li class="in"><span class="verb">Asks</span>
+      <div class="what"><strong>A gentle interview, in English or Spanish.</strong>One question at a time, like a trained death investigator. It records only what the family says, in their own words.
+        <p class="tech">Strands agent with steering<button class="i" type="button" data-tip="<b>Steering</b>A second, small model reviews every tool call and nudges the interviewer if it records something the family didn’t say or rushes a grieving person."><svg><use href="#i"/></svg></button> and a deterministic check that every recorded quote appears word for word in what the family typed.</p></div></li>
+    <li class="in"><span class="verb">Checks</span>
+      <div class="what"><strong>Public records, not memory.</strong>Was a disaster declared here? Did the death fall in its window? Was FEMA Individual Assistance approved? What was the Weather Service warning about that day?
+        <p class="tech">OpenFEMA<button class="i" type="button" data-tip="<b>OpenFEMA</b>FEMA’s public API of every disaster declaration since 1953: which counties, which dates, which assistance programs. Counted queries it live for each case."><svg><use href="#i"/></svg></button>, the National Weather Service warnings archive, and Amazon Location Service with the US Census geocoder as backup.</p></div></li>
+    <li class="in"><span class="verb">Decides</span>
+      <div class="what"><strong>Three examiners, then a tie-breaker.</strong>The CDC decision tree written as code, a Claude examiner and an Amazon Nova examiner decide independently. A fourth model adjudicates only if they disagree.
+        <p class="tech">Strands Graph<button class="i" type="button" data-tip="<b>Why a panel?</b>Medical examiners resolve hard cases by independent review and adjudication. Counted copies that: two different model families plus rules that cannot be talked into anything. When they agree, the adjudicator never runs."><svg><use href="#i"/></svg></button> with a conditional edge; ModelRouter fails over to a backup model if one is unavailable.</p></div></li>
+    <li class="in"><span class="verb">Drafts</span>
+      <div class="what"><strong>The papers that make a death count.</strong>A certifier statement in CDC language for the medical examiner to sign, a FEMA funeral-assistance packet and appeal letter for the family, and a surveillance record for the county.
+        <p class="tech">Rendered from templates, not written by a model, so wording cannot drift.</p></div></li>
+    <li class="in"><span class="verb">Refuses</span>
+      <div class="what"><strong>The things a person must decide.</strong>It never signs, never promises money, never blames the family, and never invents a disaster link, even when someone asks it to.
+        <p class="tech">Cedar authorization policy<button class="i" type="button" data-tip="<b>Cedar</b>An open policy language from AWS. Before every tool call, Counted checks a policy: only a principal with the certifier role can sign, and no determination can be requested before the public records have been checked."><svg><use href="#i"/></svg></button> plus Strands interventions for consent, identifier redaction and certifying language.</p></div></li>
+  </ol>
+</section>
+
+<!-- ============================================================ demo -->
+<section class="demo" id="try" aria-labelledby="try-h">
+  <div class="demo-head">
+    <h2 id="try-h" class="in">Try a real case</h2>
+    <p class="in" style="--d:90ms">Pick a case or write your own. Counted runs the whole pipeline live, public-record checks included, in about fifteen seconds. Every case here is illustrative<button class="i" type="button" data-tip="<b>About these cases</b>They are written for this demo from circumstances in official reports (Texas DSHS, CDC MMWR). No real family’s data is used anywhere on this site."><svg><use href="#i"/></svg></button>.</p>
+  </div>
+
+  <div class="app">
+    <div class="app-left">
+      <div class="modes" role="tablist" aria-label="How to give Counted the account">
+        <button role="tab" aria-selected="true" data-mode="read">Read an account</button>
+        <button role="tab" aria-selected="false" data-mode="talk">Talk to Counted</button>
+      </div>
+      <div class="chips" id="chips" aria-label="Sample cases"></div>
+
+      <div id="read-pane" class="row" style="flex-direction:column;align-items:stretch;flex:1;gap:12px">
+        <label class="lbl" for="account">What happened, in the family’s words<button class="i" type="button" data-tip="<b>Write it as a relative would</b>Age, where they lived, the date of death, the disaster, and what changed in the days before. Phone numbers and SSNs are stripped automatically before anything is stored."><svg><use href="#i"/></svg></button></label>
+        <textarea id="account" placeholder="My father was 81 and lived in Lake Charles, LA. After Hurricane Laura…"></textarea>
+        <div class="row">
+          <button class="btn" id="run" type="button">Find the disaster</button>
+          <span class="status" id="status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div id="talk-pane" hidden style="display:flex;flex-direction:column;gap:12px;flex:1">
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <label class="consent"><input type="checkbox" id="consent"> <span>I agree Counted may prepare a draft determination for the medical examiner<button class="i" type="button" data-tip="<b>Consent is enforced in code</b>A Strands intervention pauses the agent before any determination until the family agrees. Untick it and the agent will keep listening but will not decide."><svg><use href="#i"/></svg></button></span></label>
+        <form id="talk-form" class="row" style="flex-wrap:nowrap">
+          <label for="say" class="sr">Your message</label>
+          <input type="text" id="say" autocomplete="off" placeholder="Type your answer…">
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app-right casefile" aria-label="Live case file" data-ui>
+      <div class="recorded" id="recorded" hidden></div>
+      <div class="step" id="s-facts"><h3>What the family said<button class="i" type="button" data-tip="<b>Evidence, with receipts</b>Each circumstance is stored with the family’s exact words and the CDC category it maps to. The examiners can only cite what is here."><svg><use href="#i"/></svg></button></h3><div class="facts" id="facts"><p class="status">Nothing yet.</p></div></div>
+      <div class="step" id="s-records"><h3>Public records<button class="i" type="button" data-tip="<b>Checked, not assumed</b>FEMA declaration and incident period, whether Individual Assistance (the program that pays funeral aid) was approved for the county, and Weather Service warnings in force that week."><svg><use href="#i"/></svg></button></h3><dl class="kv" id="records"><dt>Status</dt><dd>Waiting for an address and a date.</dd></dl></div>
+      <div class="step" id="s-panel"><h3>The panel<button class="i" type="button" data-tip="<b>Three seats and a chair</b>CDC rules (code), Claude and Amazon Nova decide independently. The adjudicator (Claude Opus) is called only on disagreement."><svg><use href="#i"/></svg></button></h3>
+        <div class="seats" id="seats">
+          <div class="seat"><span class="who">CDC decision tree</span><span class="lab">·</span></div>
+          <div class="seat"><span class="who">Claude examiner</span><span class="lab">·</span></div>
+          <div class="seat"><span class="who">Amazon Nova examiner</span><span class="lab">·</span></div>
+          <div class="seat"><span class="who">Adjudicator</span><span class="lab">·</span></div>
+        </div>
+      </div>
+      <div class="step" id="s-verdict"><div class="verdict not_related" id="verdict"><div class="big">Awaiting a case</div><p class="chain">The determination appears here with its causal chain and the line for the certificate.</p></div></div>
+      <div class="step" id="s-docs"><h3>What it leaves behind<button class="i" type="button" data-tip="<b>Three documents</b>A draft certifier statement (the medical examiner reviews and signs), a FEMA funeral-assistance packet for the family in their language, and a CDC-style surveillance record for the county."><svg><use href="#i"/></svg></button></h3>
+        <div class="docs-tabs" role="tablist" id="doc-tabs">
+          <button role="tab" aria-selected="true" data-doc="certifier_statement">Certifier statement</button>
+          <button role="tab" aria-selected="false" data-doc="family_packet">Family packet</button>
+          <button role="tab" aria-selected="false" data-doc="surveillance_record">Surveillance record</button>
+        </div>
+        <div class="doc" id="doc" tabindex="0"><p>Documents appear after a determination.</p></div>
+        <div class="row" style="margin-top:10px"><button class="btn ghost" id="dl" type="button" disabled>Download this document</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ evidence -->
+<section class="evidence" id="evidence" aria-labelledby="ev-h">
+  <div class="evidence-head">
+    <h2 id="ev-h" class="in">Tested on real storms</h2>
+    <p class="in" style="--d:90ms">We replayed two real disasters death by death, using the classifications Texas health officials and the CDC published, and compared Counted with the convention that undercounted Maria<button class="i" type="button" data-tip="<b>How the replay works</b>Each official death becomes one case, built from its published circumstance row (for example “carbon monoxide poisoning”). The label is the government’s. The wording is ours, generated from templates that never contain the answer. See the repository for every case."><svg><use href="#i"/></svg></button>.</p>
+  </div>
+  <div class="headline-result">
+    <div class="bars" id="bars" data-ui aria-label="Storm-related deaths each system finds in the Hurricane Irma replay"></div>
+    <p class="result-say" id="say-uri">Loading results…</p>
+  </div>
+  <div class="sets">
+    <table class="res" id="res-table">
+      <caption class="sr">Accuracy and errors for every system on every test set</caption>
+      <thead><tr><th scope="col">Test set</th><th scope="col">Cases</th><th scope="col">Direct-only convention</th><th scope="col">Keyword rules</th><th scope="col">One LLM call</th><th scope="col">Counted</th></tr></thead>
+      <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+    </table>
+  </div>
+  <div class="limits">
+    <h3>Where it is weaker<button class="i" type="button" data-tip="<b>Measured, not hidden</b>Limits are stated as measured properties of the system. The full predictions file is in the repository so anyone can recheck them."><svg><use href="#i"/></svg></button></h3>
+    <ul id="limits">
+      <li>Some official categories split across labels (Uri’s hypothermia deaths were 146 direct, 10 indirect and 2 possible), so even a perfect reader of the circumstances cannot reproduce every label. We report that ceiling beside each score.</li>
+      <li>Replay accounts are generated from official tables: the labels are the government’s, the wording is synthetic. Real interviews will be messier.</li>
+      <li>On the Uri replay, plain keyword rules score 92% to Counted’s 91%: template wording is kind to keywords. On CDC’s own written scenarios the same rules fall to 59% while Counted holds at 95%, and keywords made 4 false disaster links on deaths with none. Counted made 0.</li>
+      <li>Stress-related cardiac deaths are where examiners themselves disagree most; Counted declines to commit unless the family describes a concrete stressor.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ guarantees -->
+<section class="field never" aria-labelledby="never-h">
+  <h2 id="never-h">What it will never do</h2>
+  <div class="never-grid">
+    <div>
+      <p class="big">The machine drafts. A person decides.</p>
+    </div>
+    <dl>
+      <div><dt>Sign anything</dt><dd>Every document is a draft. Signing is a tool only a certifier’s key can call; the policy denies it to everyone else, the agent included.</dd></div>
+      <div><dt>Record words the family didn’t say</dt><dd>A circumstance is stored only if its quote appears in the family’s own messages. Otherwise the agent is told to ask again.</dd></div>
+      <div><dt>Invent a disaster link under pressure</dt><dd>“Just say it was the storm” changes nothing. In testing, pressure scripts produced zero false attributions.</dd></div>
+      <div><dt>Hedge in a way that costs the family</dt><dd>It commits to direct or indirect, or it declines and refers the case to a person. It never writes “may have been caused by”.</dd></div>
+      <div><dt>Decide without consent</dt><dd>The determination step pauses until the family agrees.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================================================ api -->
+<section class="api" id="api" aria-labelledby="api-h">
+  <h2 id="api-h" class="in">Use Counted in your own service</h2>
+  <div class="api-grid">
+    <div class="api-steps">
+      <div>
+        <h3>Get a free API key</h3>
+        <p>For 211 helplines, disaster case managers, legal aid, county health departments and researchers. The key is shown once.</p>
+        <form class="keybox" id="key-form">
+          <label class="lbl" for="key-name">Who is using it</label>
+          <input type="text" id="key-name" placeholder="e.g. Harris County 211" required maxlength="80">
+          <button class="btn" type="submit">Create my key</button>
+          <div class="keyout" id="key-out" hidden></div>
+        </form>
+      </div>
+      <div>
+        <h3>Or connect your agent<button class="i" type="button" data-tip="<b>MCP and A2A</b>MCP lets an AI assistant (Claude Desktop, an IDE, your own agent) call Counted’s tools directly. A2A lets another agent hand Counted a case and get the determination back."><svg><use href="#i"/></svg></button></h3>
+        <div class="endpoints">
+          <div><code>POST /v1/assess</code> one account in, determination and documents out</div>
+          <div><code>POST /v1/interviews</code> a live interview, turn by turn</div>
+          <div><code>GET /v1/records</code> FEMA declaration and NWS warnings for a place and date</div>
+          <div><code>/mcp</code> MCP server: three tools, two resources, one prompt</div>
+          <div><code>/a2a</code> Agent-to-Agent endpoint with an agent card</div>
+          <div><a href="/docs">Full API reference</a></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="code-tabs" role="tablist" id="code-tabs">
+        <button role="tab" aria-selected="true" data-code="curl">curl</button>
+        <button role="tab" aria-selected="false" data-code="python">Python</button>
+        <button role="tab" aria-selected="false" data-code="mcp">MCP client</button>
+        <button role="tab" aria-selected="false" data-code="a2a">A2A</button>
+      </div>
+      <pre class="code" id="code" tabindex="0"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ stack -->
+<section class="stack" aria-labelledby="stack-h">
+  <h2 id="stack-h" class="in">How it’s built</h2>
+  <div class="stack-grid">
+    <p class="in">Built on the Strands Agents SDK and AWS. Each piece is there because the job needs it, not to fill a list.</p>
+    <div style="overflow-x:auto">
+      <table class="stk">
+        <thead><tr><th scope="col">Piece</th><th scope="col">What it does in Counted</th></tr></thead>
+        <tbody>
+          <tr><td>Strands Agent + steering</td><td>The interviewer, with an LLM steering handler that guards against leading questions.</td></tr>
+          <tr><td>Strands Graph</td><td>The examiner panel: two parallel examiners and a conditional adjudicator edge.</td></tr>
+          <tr><td>Strands interventions</td><td>Consent (Confirm), identifier redaction (Transform), no certifying language (Guide), verbatim-quote check.</td></tr>
+          <tr><td>Cedar authorization</td><td>Role-based tool policy: only certifiers sign; no determination before records are checked.</td></tr>
+          <tr><td>ModelRouter</td><td>Fails over to a backup Claude model when a primary is throttled or unavailable.</td></tr>
+          <tr><td>Structured output</td><td>Every examiner returns a typed verdict: label, mechanism, causal chain, evidence.</td></tr>
+          <tr><td>Strands Evals</td><td>ActorSimulator plays grieving relatives (terse, scattered, Spanish-speaking, distrustful) against the real interviewer; a replay harness scores every death against official tables.</td></tr>
+          <tr><td>MCP server + A2A server</td><td>Counted as a tool for other agents.</td></tr>
+          <tr><td>Amazon Bedrock</td><td>Claude Haiku 4.5 (interview), Claude Sonnet 4.6 (examiner), Amazon Nova 2 Lite (second examiner), Claude Opus 4.6 (adjudicator).</td></tr>
+          <tr><td>Amazon Bedrock AgentCore</td><td>Runtime entrypoint for the agent (one-shot assessments and turn-by-turn interviews), with AgentCore Memory so a family can stop and resume days later.</td></tr>
+          <tr><td>Amazon Location Service</td><td>Address to county, with the US Census geocoder as backup.</td></tr>
+          <tr><td>OpenFEMA + NWS archive</td><td>Declarations, incident windows, Individual Assistance status, warnings in force.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ faq -->
+<section class="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="in">Questions</h2>
+  <div>
+    <details><summary>Is this a death certificate?</summary><p>No. Counted drafts a statement for the certifying medical examiner, coroner or physician to review. Only they can sign it or amend a certificate. Every document says so at the top.</p></details>
+    <details><summary>Who is it for?</summary><p>Families after a disaster, and the people who help them: disaster case managers, 211 helplines, legal aid, funeral directors. On the other side, medical examiners and county health departments, who get a faster and better-documented record of indirect deaths.</p></details>
+    <details><summary>Why does counting matter if the person is already gone?</summary><p>Two reasons. The family may be owed FEMA funeral assistance, which needs the disaster named on the paperwork. And the count decides what happens next time: generator safety campaigns, backup power for oxygen users, dialysis plans. You can’t prevent deaths you never counted.</p></details>
+    <details><summary>What happens to what families tell it?</summary><p>Phone numbers, emails and Social Security numbers are removed before anything is stored. The case file holds only what the determination needs. This demo stores interviews in memory and discards them.</p></details>
+    <details><summary>What if it’s wrong?</summary><p>A human certifier reviews every determination. When the panel disagrees, Counted says so and shows each examiner’s view. When the evidence is thin, it declines instead of guessing.</p></details>
+    <details><summary>Does it work in Spanish?</summary><p>Yes. The interview follows the family’s language, and the family packet is written in English or Spanish.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="field">
+  <p class="name" aria-hidden="true">Counted</p>
+  <div class="foot-grid">
+    <div><h3>The project</h3><ul><li>Built for the AWS Strands SDK: Workshop to Ship hackathon, 2026</li><li><a href="https://github.com/">Source code (Apache-2.0)</a></li><li><a href="/docs">API reference</a></li></ul></div>
+    <div><h3>Sources</h3><ul>
+      <li><a href="https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf">CDC/NCHS disaster death certification guide (2017)</a></li>
+      <li><a href="https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf">FEMA, Help with Funerals and Burials (2025)</a></li>
+      <li><a href="https://www.dshs.texas.gov/sites/default/files/news/updates/SMOC_FebWinterStorm_MortalitySurvReport_12-30-21.pdf">Texas DSHS Winter Storm mortality report (2021)</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6072056/">CDC MMWR, deaths related to Hurricane Irma (2018)</a></li>
+    </ul></div>
+    <div><h3>Not medical or legal advice</h3><p>Counted prepares drafts for qualified certifiers. FEMA decides eligibility. If you are in crisis, call or text 988.</p></div>
+  </div>
+  <p class="credits" id="credits">Pictures: Puerto Rico at night before and after Hurricane Maria, JPSS imagery CSU/CIRA &amp; NOAA/NESDIS, public domain · Winter Storm Uri on 2021-02-14, NASA, public domain · Winter Storm Uri in Austin, Texas, David Kitto, CC0 · all via Wikimedia Commons.</p>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

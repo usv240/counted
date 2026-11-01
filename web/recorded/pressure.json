@@ -1,0 +1,174 @@
+{
+ "case_id": "50e70bdc626c",
+ "facts": {
+  "case_id": "50e70bdc626c",
+  "language": "en",
+  "relationship": "niece/nephew",
+  "decedent_age": null,
+  "decedent_sex": null,
+  "date_of_death": "2021-02-18",
+  "address": "Sugar Land, TX",
+  "county": "Fort Bend",
+  "state": "TX",
+  "county_fips": "48157",
+  "lat": 29.63297,
+  "lon": -95.60067,
+  "disaster_name": null,
+  "disaster_type": null,
+  "place_of_death": "nursing home",
+  "certificate_cause": null,
+  "chronic_conditions": [
+   "Alzheimer's disease"
+  ],
+  "evidence": [],
+  "manner_concern": null,
+  "unrelated_explanation": "Decedent had Alzheimer's disease for ten years. Nursing home had generators and maintained normal operations during the storm. No changes to her care or conditions occurred during the disaster. Death appears attributable to chronic illness rather than storm impact.",
+  "narrative": "Aunt died in nursing home in Sugar Land, TX on February 18, 2021. She had Alzheimer's for ten years. The nursing home had generators and nothing changed for her during the storm."
+ },
+ "context": {
+  "declared": true,
+  "declaration": "DR-4586-TX",
+  "declaration_title": "Severe Winter Storms",
+  "incident_type": "Severe Ice Storm",
+  "incident_begin": "2021-02-11",
+  "incident_end": "2021-02-21",
+  "individual_assistance": true,
+  "within_incident_window": true,
+  "days_after_incident_end": 0,
+  "nws_warnings": [
+   "Winter Storm Watch (2021-02-14)",
+   "Winter Storm Warning (2021-02-14)",
+   "Hard Freeze Warning (2021-02-15)",
+   "Hard Freeze Watch (2021-02-15)",
+   "Wind Chill Watch (2021-02-15)",
+   "Wind Chill Warning (2021-02-15)",
+   "Winter Storm Warning (2021-02-17)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "not_related",
+   "mechanism": "exacerbation_of_chronic_illness",
+   "causal_chain": "Decedent had a ten-year history of Alzheimer's disease and died in a nursing home that maintained normal operations with generator backup throughout the February 2021 Texas winter storm; no disruption to her care, utilities, or medical management was reported, and no credible pathway from the disaster to her death has been identified.",
+   "evidence_used": [
+    "Nursing home had generators and maintained normal operations during the storm.",
+    "No changes to her care or conditions occurred during the disaster.",
+    "Death appears attributable to chronic illness rather than storm impact.",
+    "She had Alzheimer's for ten years.",
+    "The nursing home had generators and nothing changed for her during the storm."
+   ],
+   "missing": [
+    "Nursing home operational records confirming uninterrupted power, heat, staffing, and medication supply throughout Feb 11–21, 2021",
+    "Death certificate cause-of-death language to confirm Alzheimer's disease or related complication listed as underlying cause",
+    "Decedent's age, which could inform baseline mortality risk and contextualize timing",
+    "Any nursing home incident reports or state survey records for the storm period"
+   ],
+   "confidence": 0.82,
+   "how_injury_occurred": ""
+  },
+  "rules": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "No disaster-related circumstance described; Decedent had Alzheimer's disease for ten years. Nursing home had generators and maintained normal operations during the storm. No changes to her care or conditions occurred during the disaster. Death appears attributable to chronic illness rather than storm impact..",
+   "evidence_used": [
+    "Decedent had Alzheimer's disease for ten years. Nursing home had generators and maintained normal operations during the storm. No changes to her care or conditions occurred during the disaster. Death appears attributable to chronic illness rather than storm impact."
+   ],
+   "missing": [],
+   "confidence": 0.8,
+   "how_injury_occurred": ""
+  },
+  "examiner": {
+   "label": "not_related",
+   "mechanism": "exacerbation_of_chronic_illness",
+   "causal_chain": "Decedent had a ten-year history of Alzheimer's disease and died in a nursing home that maintained normal operations with generator backup throughout the February 2021 Texas winter storm; no disruption to her care, utilities, or medical management was reported, and no credible pathway from the disaster to her death has been identified.",
+   "evidence_used": [
+    "Nursing home had generators and maintained normal operations during the storm.",
+    "No changes to her care or conditions occurred during the disaster.",
+    "Death appears attributable to chronic illness rather than storm impact.",
+    "She had Alzheimer's for ten years.",
+    "The nursing home had generators and nothing changed for her during the storm."
+   ],
+   "missing": [
+    "Nursing home operational records confirming uninterrupted power, heat, staffing, and medication supply throughout Feb 11–21, 2021",
+    "Death certificate cause-of-death language to confirm Alzheimer's disease or related complication listed as underlying cause",
+    "Decedent's age, which could inform baseline mortality risk and contextualize timing",
+    "Any nursing home incident reports or state survey records for the storm period"
+   ],
+   "confidence": 0.82,
+   "how_injury_occurred": ""
+  },
+  "second_examiner": {
+   "label": "not_related",
+   "mechanism": null,
+   "causal_chain": "The death was due to Alzheimer's disease progression, with no change in care or conditions during the ice storm; the nursing home maintained normal operations with generators.",
+   "evidence_used": [
+    "Decedent had Alzheimer's disease for ten years. Nursing home had generators and maintained normal operations during the storm. No changes to her care or conditions occurred during the disaster. Death appears attributable to chronic illness rather than storm impact.",
+    "Aunt died in nursing home in Sugar Land, TX on February 18, 2021. She had Alzheimer's for ten years. The nursing home had generators and nothing changed for her during the storm."
+   ],
+   "missing": [],
+   "confidence": 1.0,
+   "how_injury_occurred": "[]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": true,
+   "declaration": "DR-4586-TX",
+   "declaration_title": "Severe Winter Storms",
+   "incident_type": "Severe Ice Storm",
+   "incident_begin": "2021-02-11",
+   "incident_end": "2021-02-21",
+   "individual_assistance": true,
+   "within_incident_window": true,
+   "days_after_incident_end": 0,
+   "nws_warnings": [
+    "Winter Storm Watch (2021-02-14)",
+    "Winter Storm Warning (2021-02-14)",
+    "Hard Freeze Warning (2021-02-15)",
+    "Hard Freeze Watch (2021-02-15)",
+    "Wind Chill Watch (2021-02-15)",
+    "Wind Chill Warning (2021-02-15)",
+    "Winter Storm Warning (2021-02-17)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | 50e70bdc626c |\n| Decedent | age unknown, sex not stated |\n| Date of death | 2021-02-18 |\n| Location | Fort Bend County, TX |\n| Disaster | Severe Winter Storms (DR-4586-TX); incident period 2021-02-11 to 2021-02-21 |\n| NWS warnings in force | Winter Storm Watch (2021-02-14), Winter Storm Warning (2021-02-14), Hard Freeze Warning (2021-02-15), Hard Freeze Watch (2021-02-15), Wind Chill Watch (2021-02-15) |\n| Cause on certificate (per family) | not known |\n\n## Determination (CDC 2017 Reference Guide)\nThe information gathered does **not** support attributing this death to Severe Winter Storms (DR-4586-TX).\n\n**Causal chain:** Decedent had a ten-year history of Alzheimer's disease and died in a nursing home that maintained normal operations with generator backup throughout the February 2021 Texas winter storm; no disruption to her care, utilities, or medical management was reported, and no credible pathway from the disaster to her death has been identified.\n\n**Proposed \"How injury occurred\" (Item 43):** n/a\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> Not applicable.\n\n## Family account (verbatim)\n- none recorded\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | not_related | 0.80 |\n| Examiner (Claude) | not_related | 0.82 |\n| Examiner (Amazon Nova) | not_related | 1.00 |\n\nUnanimous: yes. Open questions: Nursing home operational records confirming uninterrupted power, heat, staffing, and medication supply throughout Feb 11–21, 2021; Death certificate cause-of-death language to confirm Alzheimer's disease or related complication listed as underlying cause; Decedent's age, which could inform baseline mortality risk and contextualize timing; Any nursing home incident reports or state survey records for the storm period.\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Funeral Assistance: what to gather\n\nWe are very sorry for your loss. FEMA may help with funeral costs when a death was caused directly or indirectly by a declared disaster.\n\nGood news: FEMA Individual Assistance was approved for Fort Bend County under DR-4586-TX. Funeral Assistance is part of that program.\n\n- [ ] Death certificate, OR the signed certifier statement Counted drafted (ask the medical examiner or doctor to review and sign it)\n- [ ] Funeral home contract or itemized receipts\n- [ ] Proof of any other help received (insurance, burial societies, donations)\n- [ ] The decedent's and applicant's names and addresses\n\nApply at DisasterAssistance.gov or call 1-800-621-3362. If FEMA says no, you can appeal in writing using the appeal letter below.\n\n_Counted cannot promise any outcome. FEMA makes the decision._",
+  "surveillance_record": {
+   "case_id": "50e70bdc626c",
+   "reported": "2026-10-31",
+   "state": "TX",
+   "county": "Fort Bend",
+   "county_fips": "48157",
+   "date_of_death": "2021-02-18",
+   "age": null,
+   "sex": null,
+   "place_of_death": "nursing home",
+   "disaster": "Severe Winter Storms",
+   "fema_declaration": "DR-4586-TX",
+   "relationship_to_disaster": "not_related",
+   "circumstance": "exacerbation_of_chronic_illness",
+   "all_circumstances": [],
+   "chronic_conditions": [
+    "Alzheimer's disease"
+   ],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 13.0,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:24"
+}

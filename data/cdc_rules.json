@@ -1,0 +1,554 @@
+{
+ "source": {
+  "primary": {
+   "title": "A Reference Guide for Certification of Deaths in the Event of a Natural, Human-induced, or Chemical/Radiological Disaster",
+   "publisher": "CDC/NCHS, Vital Statistics Reporting Guidance Report No. 1, October 2017 (DHHS Pub. No. 2018-1126)",
+   "url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "mirror": "https://stacks.cdc.gov/view/cdc/49294",
+   "short": "cdc_reference_guide_2017"
+  },
+  "secondary": [
+   {
+    "title": "Guidance for Certification of Deaths in the Event of a Natural, Human-Induced, or Chemical/Radiological Disaster (training deck)",
+    "publisher": "CDC NCEH, T. Bayleyegn",
+    "url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+    "short": "cdc_training_deck"
+   },
+   {
+    "title": "Medicolegal Death Investigator Quick Guide for Investigation During Disasters and Severe Weather",
+    "publisher": "CDC",
+    "url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/2024/11/MDI-Quick-Guide-508.pdf",
+    "short": "cdc_mdi_quick_guide"
+   }
+  ],
+  "retrieved": "2026-10-31",
+  "licence": "US government work, public domain"
+ },
+ "definitions": {
+  "direct": {
+   "text": "A directly related disaster death is defined as a death directly attributable to the forces of the disaster or by the direct consequences of these forces, such as structural collapse, flying debris, or radiation or chemical exposure (2).",
+   "key_question": "Was the death caused by the actual environmental forces of the disaster such as wind, rain, flood, earthquake, or blast wave, or by the direct consequences of these forces such as structural collapse, chemical spill, or flying debris? If so, this is a directly related death that was caused by natural or human-induced forces.",
+   "source_page": "vsrg01 pp. 1, 3-4"
+  },
+  "indirect": {
+   "text": "An indirectly related disaster death occurs when unsafe or unhealthy conditions are present during any phase of a disaster (i.e., pre-event or preparing for the disaster, during the disaster event, or post-event during cleanup after a disaster) and contributed to a death (2).",
+   "key_questions": [
+    "Did unsafe or unhealthy conditions from the environmental forces of the disaster contribute to the death? These conditions could be loss or disruption of usual services (e.g., utilities, transportation, or health care). If so, this is an indirectly related death.",
+    "Did the forces, whether natural or human-induced disaster, lead to temporary or permanent displacement, property damage, or other personal loss or stress that contributed to the death? These indirect circumstances involve personal loss or lifestyle disruption. If so, this is also an indirectly related death."
+   ],
+   "source_page": "vsrg01 pp. 1, 4"
+  },
+  "possible_or_undetermined": {
+   "text": "The 2017 Reference Guide defines only direct and indirect. The 'possible' class is not defined there. Operational definitions used by surveillance reports that apply the guide: 'Possibly related deaths include deaths attributed to the hurricane in which the indirect or direct relation of the death to the hurricane is not clear.' (MMWR 2018;67(30) Table footnote, Irma). Texas DSHS: 'Centers for Disease Control and Prevention definitions for direct, indirect and possible related disaster deaths were used for case ascertainment.' (Uri report p. 2). CDC training deck slide 24: 'If unable to determine whether a death is disaster-related, but it's likely or probable that it might be, then still document the disaster type and name and the circumstance of death on the death certificate.'",
+   "source_page": "vsrg01 (not defined); MMWR 67(30) Table footnote; DSHS Uri p.2; training deck slide 24",
+   "note": "Irma examples classed possible: homicide, suicide, undetermined (1 each). Uri possible: 2 hypothermia, 1 carbon monoxide poisoning, 3 fire."
+  }
+ },
+ "decision_steps": [
+  {
+   "step": 0,
+   "name": "Is there a recognised disaster?",
+   "text": "ME/Cs should use information obtained from reliable sources, such as National Weather Service (NWS) official warnings or watches, emergency management information, and official alerts (e.g., state of emergency or Federal Emergency Management Agency declaration), to determine whether a disaster has occurred in their jurisdiction.",
+   "source_page": "vsrg01 p. 3"
+  },
+  {
+   "step": 1,
+   "name": "Did the death occur during a disaster?",
+   "text": "STEP 1: Consider whether the death occurred during a disaster. Use sources such as local National Weather Service or emergency management official warnings or watches, and official alerts (e.g., state of emergency, FEMA declaration), when considering whether a death occurred in a disaster zone. Event types on flowchart: Industrial explosion or chemical release; chemical or biological contamination of environment; transportation incident; bombing; radiation emergency; excessive natural cold or heat; cataclysmic storm (hurricane, tornado, torrential rains, damaging winds, blizzard/snow/ice storm, hail); lightning; avalanche, landslide, or other earth movement; earthquake or tsunami; volcanic eruption; marine hazards; unsafe conditions caused by natural hazards (structural collapse, flying debris/falling trees, flooding or other high water, wildfires or structural fires, downed power lines, power outage, carbon monoxide exposure). If No: stop.",
+   "source_page": "vsrg01 p. 5 (Figure)"
+  },
+  {
+   "step": "2a",
+   "name": "Direct?",
+   "text": "STEP 2a. Applying the evidence from Step 1, was the death caused by the direct physical forces of the hazard or event? Flowchart prompts: Traumatic injury; Burn or smoke inhalation; Chemical or toxic exposure; Drowning; Electrocution; Hyperthermia or hypothermia; Radiation effects; Suffocation. (Not an exhaustive list; includes unintentional and intentional events.) If Yes: direct.",
+   "source_page": "vsrg01 p. 5 (Figure)"
+  },
+  {
+   "step": "2b",
+   "name": "Indirect?",
+   "text": "STEP 2b. Applying the evidence from Step 1, was the death a consequence of the unsafe or unhealthy conditions created by the hazard or event, or by preparations for or cleanup after the natural hazard or event, or by performing work to minimize consequences of the disaster? Flowchart prompts: Evacuation; Loss or disruption of health care; Loss or disruption of utilities; Loss or disruption of transportation; Preparation for disaster; Repair or cleanup activities; Returning to unsafe or unhealthy environments or structures. (Not an exhaustive list.) If Yes: indirect.",
+   "source_page": "vsrg01 p. 5 (Figure)"
+  },
+  {
+   "step": "but_for",
+   "name": "'But for' principle",
+   "text": "Consider using the 'but for' principle: 'But for the disaster (hostile environment), would the person have died when he/she did?' Use the evidence to formulate a decision on whether a death is disaster-related. Apply the evidence, including the death scene investigation, autopsy, and laboratory findings.",
+   "source_page": "vsrg01 p. 5; deck slide 15"
+  },
+  {
+   "step": 3,
+   "name": "Record on certificate",
+   "text": "STEP 3: If yes to 2a or 2b, record the disaster type and name (e.g., Joplin Tornado, Hurricane Sandy) on the death certificate (this can be done in Part I, Part II, or in the Describe How Injury Occurred field).",
+   "source_page": "vsrg01 p. 5"
+  },
+  {
+   "step": "neither",
+   "name": "Not related / possible",
+   "text": "If No to both 2a and 2b the flowchart ends without a disaster-related designation (not_related). The guide gives no worked not-related example. If relation is unclear but plausible, the deck says to still document it; surveillance reports (Irma, Uri, Sandy) classify these as 'possible' / 'unknown/possibly related'.",
+   "source_page": "vsrg01 p. 5; deck slide 24"
+  }
+ ],
+ "timing_rule": {
+  "text": "Deaths may occur before, during, or immediately after the disaster, or months or years after the event. Deaths may also occur among emergency responders and recovery workers during the course of providing services.",
+  "source_page": "vsrg01 p. 3"
+ },
+ "natural_death_rule": {
+  "text": "Natural deaths may be indirectly related to natural disasters, severe weather, or human-induced events. In some instances, chronic conditions may be exacerbated by an acute event. For example, asthma-related deaths have been associated with wildfires, and cardiovascular events with hurricanes. In these cases, if the medical certifier's opinion is that the event contributed to the death, the certifier should indicate the contribution of the disaster event on the death certificate.",
+  "source_page": "vsrg01 p. 4"
+ },
+ "indirect_categories": [
+  {
+   "id": "acute_exacerbation_chronic_condition",
+   "label": "Acute exacerbation of chronic condition(s)",
+   "description": "Box 4: 'Acute exacerbation of chronic condition(s) (e.g., asthma, cardiovascular)'.",
+   "examples": [
+    "asthma-related deaths associated with wildfires",
+    "cardiovascular events with hurricanes",
+    "diabetic ketoacidosis from lack of insulin (deck slide 23)",
+    "emphysema patient unable to use supplemental oxygen (deck slide 19)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "loss_disruption_public_utilities",
+   "label": "Loss/disruption of public utilities",
+   "description": "Box 4: 'Loss/disruption of public utilities (e.g., fall in home without power)'. Includes loss of electricity, water, heat/cooling.",
+   "examples": [
+    "fall in home without power",
+    "power outage making electricity-dependent medical equipment unusable",
+    "loss of air conditioning in heat after hurricane (Irma: 17 heat-related deaths)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "loss_disruption_transportation",
+   "label": "Loss/disruption of transportation-related services",
+   "description": "Box 4: 'Loss/disruption of transportation-related services (e.g., lack of medical transport to dialysis)'.",
+   "examples": [
+    "lack of medical transport to dialysis",
+    "EMS unable to respond to 911 call due to flooded roads after Hurricane Matthew (deck slide 32)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "loss_disruption_healthcare_access",
+   "label": "Loss/disruption of usual access to medical or mental health care",
+   "description": "Box 4: 'Loss/disruption of usual access to medical or mental health care (e.g., oxygen)'. Includes dialysis, oxygen, medications.",
+   "examples": [
+    "oxygen",
+    "dialysis missed for several days because of power outages after a hurricane (deck slide 24)",
+    "unable to receive dialysis for 6 days due to Hurricane Maria related power outage (deck slide 31)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "loss_disruption_emergency_services",
+   "label": "Loss/disruption of emergency services",
+   "description": "Not a Box 4 entry in the 2017 guide. Used by MMWR Irma scheme (based on Combs 1999): 'Loss/Disruption of emergency services (e.g., fire department)' and 'Emergency medical issue inadequately addressed because of loss/disruption of emergency transportation services'. Guide Step 2b covers it under loss or disruption of health care/transportation.",
+   "examples": [
+    "EMS unable to respond",
+    "fire department unable to respond, burn or smoke inhalation"
+   ],
+   "source_basis": "derived_mmwr_irma_box_combs1999",
+   "source_page": "MMWR 67(30) Box"
+  },
+  {
+   "id": "carbon_monoxide_poisoning",
+   "label": "Carbon monoxide poisoning (generator/alternative heat)",
+   "description": "Guide text, p. 4: 'An example of an indirectly related disaster death is a death resulting from carbon monoxide poisoning due to use of a generator to power a home for multiple days after a storm because of a prolonged power outage.' The guide's p. 10 sidebar asks the certifier to record source, location of source, circumstance(s) and manner.",
+   "examples": [
+    "generator running inside home after Hurricane Sandy blackout",
+    "charcoal in fireplace for heat during Hurricane Sandy blackout",
+    "Uri: generators, grills, heaters, vehicles running in enclosed spaces, ice-blocked vents (DSHS p. 3)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 pp. 4, 5, 10"
+  },
+  {
+   "id": "cleanup_after_disaster",
+   "label": "Cleanup after disaster",
+   "description": "Box 4: 'Cleanup after disaster (e.g., chain-saw injury, electrocution)'.",
+   "examples": [
+    "chain-saw injury",
+    "electrocution during cleanup",
+    "fall from roof/ladder during repair (Irma Box)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "preparation_for_disaster",
+   "label": "Preparation for disaster",
+   "description": "Box 4: 'Preparation for disaster (e.g., falling while putting up storm windows)'.",
+   "examples": [
+    "falling while putting up storm windows"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "evacuation",
+   "label": "Evacuation",
+   "description": "Box 4: 'Evacuation (e.g., motor vehicle crash while evacuating before the storm)'.",
+   "examples": [
+    "motor vehicle crash while evacuating before the storm",
+    "elderly person who has a heart attack after evacuating to a shelter (deck slide 24)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "escaping_or_fleeing",
+   "label": "Escaping or fleeing the disaster",
+   "description": "Box 4: 'Escaping or fleeing the disaster (e.g., saw the tornado and fell while rushing down storm shelter stairs [Note: This could be directly related if the tornado's winds led to the fall])'.",
+   "examples": [
+    "saw the tornado and fell while rushing down storm shelter stairs"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "motor_vehicle_crash_during_event",
+   "label": "Motor-vehicle crash during the event (hazardous roads, evacuation, response travel)",
+   "description": "Guide lists the evacuation crash (Box 4). Hazardous-road crashes are indirect in the surveillance reports: Irma 'Precipitated by hazardous road/traffic conditions' and 'in route to or from hurricane-affected area'; Uri: 22 motor vehicle accidents, all indirect (Table 3). MDI Quick Guide lists motor vehicle crashes as common causes in hurricanes and tornados.",
+   "examples": [
+    "car slid off wet road while evacuating for Hurricane Ike",
+    "icy-road crash during Uri (blunt trauma 20, drowning 2)"
+   ],
+   "source_basis": "derived_mmwr_irma_and_dshs_uri_with_guide_evacuation",
+   "source_page": "vsrg01 pp. 4, 11-12; MMWR 67(30); DSHS Uri Table 3; MDI p. 2"
+  },
+  {
+   "id": "exposure_industrial_chemical_hazards",
+   "label": "Exposure to industrial or chemical hazards",
+   "description": "Box 4: 'Exposure to industrial or chemical hazards (e.g., chemical release from hurricane-damaged refiners [Note: This could be directly related if the exposure was due to a human-induced disaster])'. Also p. 4: 'a hazardous material release from hurricane-damaged storage tanks during repairs'.",
+   "examples": [
+    "chlorine release from pipe cracked in earthquake (Northridge) - asthmatic worker",
+    "chlorine gas from hurricane-damaged storage tanks during repairs (deck slide 23)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 pp. 4, 13"
+  },
+  {
+   "id": "psychosocial_stress_anxiety",
+   "label": "Psychosocial stress or anxiety",
+   "description": "Box 4: 'Psychosocial stress or anxiety'. Irma MMWR: 'Primarily induced by stress/anxiety before, during, or after the storm where access to medical services was available (e.g. myocardial infarction)' (23 deaths).",
+   "examples": [
+    "stress-related cardiac event (myocardial infarction) around hurricane"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4); MMWR 67(30)"
+  },
+  {
+   "id": "social_disruption",
+   "label": "Social disruption, including riots or anarchy",
+   "description": "Box 4: 'Social disruption, including riots or anarchy'.",
+   "examples": [],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "return_to_unsafe_structures",
+   "label": "Return to unsafe, unhealthy structures or environment",
+   "description": "Box 4: 'Return to unsafe, unhealthy structures or environment (e.g., electrocution)'.",
+   "examples": [
+    "electrocution on return to storm-damaged home",
+    "collapse of unstable structures after storm (Irma Box)"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "temporary_sheltering_displacement",
+   "label": "Use of temporary sheltering or provisions; displacement",
+   "description": "Box 4: 'Use of temporary sheltering or provisions; displacement'.",
+   "examples": [
+    "heart attack after evacuating to a shelter"
+   ],
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 4)"
+  },
+  {
+   "id": "heat_cold_exposure_due_to_disaster",
+   "label": "Heat or cold exposure due to loss of heating/cooling (indirect form)",
+   "description": "The 2017 guide lists hyperthermia and hypothermia in Box 3 as DIRECT causes and its worked heat (Scenario VI) and cold (Scenario II) examples are consistent with that. However the Irma MMWR classes heat death from loss of air conditioning after power outage as INDIRECT (loss/disruption of heat or cooling systems), and Texas DSHS classes 10 of 158 hypothermia deaths and 1 of 3 frostbite as indirect (Uri Table 3). Working rule: direct when the weather itself is the hazard (heat wave, blizzard exposure); indirect when the exposure results from disrupted utilities/services. This split is a surveillance-practice judgement, not a stated rule in the guide.",
+   "examples": [
+    "Irma: 17 heat-related deaths with no air conditioning after power loss (14 at one facility)",
+    "Uri: 10 indirect hypothermia deaths, 1 indirect frostbite"
+   ],
+   "source_basis": "derived_mmwr_irma_and_dshs_uri",
+   "source_page": "MMWR 67(30) Table; DSHS Uri Table 3; vsrg01 p. 4 Box 3"
+  },
+  {
+   "id": "fire_from_alternative_heat",
+   "label": "Fires from candles, space heaters or alternative heat",
+   "description": "Not a Box 4 entry. DSHS Uri: fire deaths 'sustained during house fires or while space heaters were in close proximity to ignitable materials' (7 indirect, 3 possible). Falls under loss/disruption of utilities. Box 3 lists 'Fire or smoke inhalation' as a direct cause (e.g., wildfire), so a house fire is indirect only when caused by storm-driven alternative heating/lighting.",
+   "examples": [
+    "space heater near ignitable materials during Uri",
+    "candles used during power outage"
+   ],
+   "source_basis": "derived_dshs_uri",
+   "source_page": "DSHS Uri p. 3 and Table 3"
+  },
+  {
+   "id": "hazardous_unfamiliar_environment",
+   "label": "Hazardous or unfamiliar environmental conditions after the event",
+   "description": "Irma Box (Combs 1999): falls from standing height caused by inadequate lighting, storm debris in walkway, or unfamiliar environment; collapse of unstable structures after storm; electrocution from contact with downed power line. Guide Box 4 example: 'fall in home without power'. Uri: falls and slips on ice (9 indirect).",
+   "examples": [
+    "fall in the dark during outage",
+    "slip on ice",
+    "downed power line contact"
+   ],
+   "source_basis": "derived_mmwr_irma_box_and_guide_box4",
+   "source_page": "MMWR 67(30) Box; vsrg01 p. 4"
+  }
+ ],
+ "direct_categories": [
+  {
+   "id": "burns",
+   "label": "Burns",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Burns"
+  },
+  {
+   "id": "crushing",
+   "label": "Crushing",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Crushing"
+  },
+  {
+   "id": "drowning",
+   "label": "Drowning",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Drowning"
+  },
+  {
+   "id": "electrocution",
+   "label": "Electrocution",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Electrocution"
+  },
+  {
+   "id": "falls",
+   "label": "Falls",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Falls"
+  },
+  {
+   "id": "fire_smoke_inhalation",
+   "label": "Fire or smoke inhalation",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Fire or smoke inhalation"
+  },
+  {
+   "id": "hyperthermia",
+   "label": "Hyperthermia (heat)",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Hyperthermia (heat)"
+  },
+  {
+   "id": "hypothermia",
+   "label": "Hypothermia (cold)",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Hypothermia (cold)"
+  },
+  {
+   "id": "radiation_chemical_poisoning",
+   "label": "Radiation or chemical poisoning",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Radiation or chemical poisoning"
+  },
+  {
+   "id": "suffocation",
+   "label": "Suffocation",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Suffocation"
+  },
+  {
+   "id": "traumatic_injury",
+   "label": "Traumatic injury",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Traumatic injury"
+  },
+  {
+   "id": "blunt_force_trauma",
+   "label": "Blunt-force trauma",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Blunt-force trauma"
+  },
+  {
+   "id": "penetrating_injury",
+   "label": "Penetrating injury",
+   "source_basis": "cdc_reference_guide_2017",
+   "source_page": "vsrg01 p. 4 (Box 3)",
+   "quote": "Box 3: Common Causes of Direct Disaster-related Death: Penetrating injury"
+  }
+ ],
+ "direct_category_notes": "Direct examples in text: 'Drowning deaths in flooded areas during a thunderstorm, or blunt force trauma caused by flying debris during a chemical plant explosion, are examples of direct deaths (Box 3).' (p. 4). Box 3 is not exhaustive. Falls and electrocution appear in BOTH Box 3 (direct) and Box 4 (indirect: cleanup/escaping); the circumstance decides.",
+ "certification_language": {
+  "general": [
+   "The disaster type and name can be included in Part I.",
+   "The disaster type and name can be included in Part II as well.",
+   "For injuries caused by disasters, the 'Describe how injury occurred' field can be used to record the disaster type and name. For natural deaths, the disaster type and name can be included in Parts I and II.",
+   "For injury deaths, a clear, brief statement indicating the circumstances surrounding the injury or external cause of death should be reported (e.g., drowning in a flooded residence during Hurricane Ike storm surge).",
+   "If the injury occurred at work, including injuries among emergency response and recovery personnel, select 'Yes' in the 'Injury at work?' field."
+  ],
+  "how_injury_occurred_examples": [
+   {
+    "text": "Carbon monoxide source was a generator located in the home due to power outage after Hurricane Sandy",
+    "page": "vsrg01 p. 5",
+    "class": "indirect"
+   },
+   {
+    "text": "Walking dogs during Hurricane Sandy. Tree limb broke, striking decedent on head",
+    "page": "vsrg01 p. 6",
+    "class": "direct"
+   },
+   {
+    "text": "Intentional detonation of nuclear device by another person as an act of terrorism",
+    "page": "vsrg01 p. 7",
+    "class": "direct"
+   },
+   {
+    "text": "Wandered away from house and was found outside during the nor'easter snowstorm",
+    "page": "vsrg01 p. 10",
+    "class": "direct"
+   },
+   {
+    "text": "Driver of pickup truck crossed flooded bridge during heavy rain from Hurricane Irene; found drowned in the river",
+    "page": "vsrg01 p. 11",
+    "class": "direct"
+   },
+   {
+    "text": "Attempt to escape the Moore tornado, fell down 15 wooden stairs in home",
+    "page": "vsrg01 p. 11",
+    "class": "indirect"
+   },
+   {
+    "text": "Unrestrained driver of a car while evacuating for Hurricane Ike. Car slid off wet road and struck tree.",
+    "page": "vsrg01 p. 12",
+    "class": "indirect"
+   },
+   {
+    "text": "Functioning air conditioner in home but not on during the East Coast derecho and heat wave",
+    "page": "vsrg01 p. 12",
+    "class": "direct"
+   },
+   {
+    "text": "Intentional detonation of a radiological dispersal device by another person",
+    "page": "vsrg01 p. 12",
+    "class": "direct"
+   },
+   {
+    "text": "Downwind from chlorine spill from Greenville tanker railroad derailment",
+    "page": "vsrg01 p. 13",
+    "class": "direct"
+   },
+   {
+    "text": "Pipe connecting to tank of chlorine cracked during Northridge, California, earthquake and released chlorine gas into facility where he was working",
+    "page": "vsrg01 p. 13",
+    "class": "indirect"
+   },
+   {
+    "text": "Firefighter responding to discovery of improvised explosive device was struck by explosion of secondary device near starting line of the Hawaii Ironman Race",
+    "page": "vsrg01 p. 13",
+    "class": "direct"
+   },
+   {
+    "text": "Drowned in a flooded residence during Hurricane Ike storm surge",
+    "page": "deck slide 33",
+    "class": "direct"
+   },
+   {
+    "text": "Car crashed into tree, Hurricane Ike",
+    "page": "deck slide 34",
+    "class": "fragment, class not stated"
+   },
+   {
+    "text": "Construction worker found buried under 5 meters of earth after March 2014 Oso landslide in Washington",
+    "page": "deck slide 36",
+    "class": "direct"
+   }
+  ],
+  "part_i_part_ii_examples": [
+   {
+    "text": "Asthma / Smoke inhalation from Woolsey Wildfire / Asphyxia",
+    "page": "deck slide 28"
+   },
+   {
+    "text": "Unable to receive dialysis for 6 days due to Hurricane Maria related power outage at local treatment center.",
+    "page": "deck slide 31",
+    "class": "indirect"
+   },
+   {
+    "text": "EMS unable to respond to 911 call due to flooded roads after Hurricane Matthew",
+    "page": "deck slide 32",
+    "class": "indirect"
+   },
+   {
+    "text": "Part II: Moore tornado",
+    "page": "deck slide 30"
+   }
+  ],
+  "co_notation": "When a carbon monoxide-related death is determined, the death certificate should identify: SOURCE OF CARBON MONOXIDE (gas range, generator, charcoal grill, power washer, or other); LOCATION OF THE SOURCE (basement, outside near window, house, garage, automobile, or other); CIRCUMSTANCE(S) (power outage, using alternative heat source during snowstorm, no smoke detector in home, or other); MANNER (consider that the carbon monoxide poisoning might be intentional).  [vsrg01 p. 10]",
+  "transport_notation": "When a motor vehicle or other transport-related injury is reported, identify: ROLE OF THE DECEASED; TYPE OF VEHICLE(S); OTHER OBJECT INVOLVED; TYPE OF ACCIDENT; TRAFFIC OR NONTRAFFIC; PROTECTIVE EQUIPMENT OR RISKS. In floodwater: 'Provide context surrounding the motor vehicle incident (i.e., crossed flooded bridge and heavy rain from Hurricane Irene).' [vsrg01 pp. 11-12]",
+  "fall_wording_tip": "Unless the injury is the result of a fall, consider using terms other than 'fall' to describe falling debris, to avoid confusion. [vsrg01 p. 6]"
+ },
+ "who_certifies": {
+  "text": "ME/C/JP: deaths directly related to disasters; deaths indirectly related and due to injuries, poisonings, and complications thereof. Physicians: deaths that are indirectly related to disasters and due to natural causes.",
+  "source_page": "deck slide 26"
+ },
+ "mdi_quick_guide_cause_lists": {
+  "source_page": "MDI Quick Guide pp. 2-11",
+  "hurricanes": [
+   "Blunt trauma (flying debris or falls)",
+   "Drowning (flood waters)",
+   "Carbon monoxide poisoning (generators or other equipment)",
+   "Exacerbation of medical conditions (power outages and inability to evacuate)",
+   "Falls or blunt trauma (during preparation and cleanup)",
+   "Motor vehicle crashes (during the hurricane or while evacuating)"
+  ],
+  "extreme_heat": [
+   "Hyperthermia",
+   "Dehydration"
+  ],
+  "thunderstorms": [
+   "Drowning in flood waters",
+   "Lightning"
+  ],
+  "tornados": [
+   "Blunt trauma",
+   "Carbon monoxide poisoning",
+   "Motor vehicle crashes",
+   "Falls or other blunt trauma (during cleanup)"
+  ],
+  "winter_weather": [
+   "Carbon monoxide poisoning",
+   "Hypothermia",
+   "Atherosclerotic heart disease (during storm-related exertion)"
+  ],
+  "note": "The MDI Quick Guide contains NO direct/indirect labels or worked cases; it lists investigation checklists and common causes per hazard only."
+ },
+ "notes": [
+  "The 2017 guide's worked scenarios give no explicit 'direct'/'indirect' stamp on each case; labels in cdc_gold.json are inferred from Box 3 / Box 4 / flowchart and flagged label_confidence accordingly.",
+  "The CDC documents contain no worked 'not related' or 'possible' scenario; the deck's slide 24 asks to document likely/probable cases, and 'possible' is defined only in the surveillance reports (MMWR Irma, DSHS Uri).",
+  "Guide page numbers equal printed page numbers; the PDF has 14 pages with the cover as page 1.",
+  "Categories with source_basis starting 'derived_' are NOT in the 2017 guide Box 3/4; they come from the Irma MMWR scheme or the Texas DSHS Uri report."
+ ]
+}

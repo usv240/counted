@@ -1,0 +1,195 @@
+{
+ "case_id": "d169ba053114",
+ "facts": {
+  "case_id": "d169ba053114",
+  "language": "en",
+  "relationship": "",
+  "decedent_age": 71,
+  "decedent_sex": "male",
+  "date_of_death": "2021-02-19",
+  "address": "Austin, TX",
+  "county": "Travis",
+  "state": "TX",
+  "county_fips": "48453",
+  "lat": 30.26759,
+  "lon": -97.74299,
+  "disaster_name": "February 2021 winter storm",
+  "disaster_type": "winter_storm",
+  "place_of_death": "home",
+  "certificate_cause": "cardiac arrest",
+  "chronic_conditions": [
+   "end-stage renal disease requiring dialysis"
+  ],
+  "evidence": [
+   {
+    "mechanism": "loss_of_health_care",
+    "detail": "Dialysis center closed during the winter storm; patient missed dialysis sessions from February 15 due to roads being solid ice",
+    "quote": "The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.",
+    "hours_before_death": 96.0
+   },
+   {
+    "mechanism": "exacerbation_of_chronic_illness",
+    "detail": "Patient became very short of breath after missing dialysis sessions",
+    "quote": "He became very short of breath and died at home on 2021-02-19.",
+    "hours_before_death": 96.0
+   }
+  ],
+  "manner_concern": null,
+  "unrelated_explanation": null,
+  "narrative": "71-year-old male on dialysis three times a week. During the February 2021 winter storm, the dialysis center closed and roads were solid ice, preventing him from attending sessions starting February 15. He became very short of breath and died at home on February 19, 2021. Death certificate lists cardiac arrest as cause."
+ },
+ "context": {
+  "declared": true,
+  "declaration": "DR-4586-TX",
+  "declaration_title": "Severe Winter Storms",
+  "incident_type": "Severe Ice Storm",
+  "incident_begin": "2021-02-11",
+  "incident_end": "2021-02-21",
+  "individual_assistance": true,
+  "within_incident_window": true,
+  "days_after_incident_end": 0,
+  "nws_warnings": [
+   "Winter Storm Warning (2021-02-13)",
+   "Wind Chill Warning (2021-02-15)",
+   "Wind Chill Advisory (2021-02-15)",
+   "Hard Freeze Warning (2021-02-16)",
+   "Wind Chill Warning (2021-02-16)",
+   "Winter Storm Warning (2021-02-17)",
+   "Winter Weather Advisory (2021-02-17)",
+   "Hard Freeze Warning (2021-02-19)",
+   "Hard Freeze Warning (2021-02-20)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "indirect",
+   "mechanism": "loss_of_health_care",
+   "causal_chain": "The February 2021 winter storm (DR-4586-TX) caused road closures due to solid ice and closure of the dialysis center, preventing a 71-year-old male with end-stage renal disease from attending dialysis sessions beginning February 15; missed dialysis led to fluid and metabolic derangement, respiratory distress, and cardiac arrest, resulting in death at home on February 19, 2021.",
+   "evidence_used": [
+    "The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.",
+    "He became very short of breath and died at home on 2021-02-19.",
+    "FEMA declaration DR-4586-TX (Severe Winter Storms), incident period 2021-02-11 to 2021-02-21, Travis County, TX — individual assistance granted.",
+    "NWS Wind Chill Warning (2021-02-15), Hard Freeze Warning (2021-02-16), Winter Storm Warning (2021-02-17), Hard Freeze Warning (2021-02-19) — corroborating hazardous road conditions throughout the missed-dialysis window."
+   ],
+   "missing": [
+    "Dialysis center closure records or staff confirmation for February 15–19, 2021",
+    "Hospital or EMS records documenting fluid overload, hyperkalemia, or uremia at time of death",
+    "Treating nephrologist statement linking missed sessions to terminal decompensation",
+    "Death certificate underlying cause detail beyond 'cardiac arrest' (e.g., interval causes listing uremia or pulmonary edema)"
+   ],
+   "confidence": 0.93,
+   "how_injury_occurred": "Dialysis center closed and roads rendered impassable by ice during the February 2021 winter storm (DR-4586-TX), causing the decedent to miss multiple hemodialysis sessions beginning February 15, 2021; resultant fluid overload and metabolic derangement precipitated respiratory distress and fatal cardiac arrest at home on February 19, 2021."
+  },
+  "rules": {
+   "label": "indirect",
+   "mechanism": "loss_of_health_care",
+   "causal_chain": "February 2021 winter storm -> Dialysis center closed during the winter storm; patient missed dialysis sessions from February 15 due to roads being solid ice (also: Patient became very short of breath after missing dialysis sessions) -> death.",
+   "evidence_used": [
+    "The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.",
+    "Dialysis center closed during the winter storm; patient missed dialysis sessions from February 15 due to roads being solid ice",
+    "He became very short of breath and died at home on 2021-02-19.",
+    "Patient became very short of breath after missing dialysis sessions"
+   ],
+   "missing": [],
+   "confidence": 0.85,
+   "how_injury_occurred": "Unable to obtain medical care (e.g. dialysis) due to February 2021 winter storm"
+  },
+  "examiner": {
+   "label": "indirect",
+   "mechanism": "loss_of_health_care",
+   "causal_chain": "The February 2021 winter storm (DR-4586-TX) caused road closures due to solid ice and closure of the dialysis center, preventing a 71-year-old male with end-stage renal disease from attending dialysis sessions beginning February 15; missed dialysis led to fluid and metabolic derangement, respiratory distress, and cardiac arrest, resulting in death at home on February 19, 2021.",
+   "evidence_used": [
+    "The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.",
+    "He became very short of breath and died at home on 2021-02-19.",
+    "FEMA declaration DR-4586-TX (Severe Winter Storms), incident period 2021-02-11 to 2021-02-21, Travis County, TX — individual assistance granted.",
+    "NWS Wind Chill Warning (2021-02-15), Hard Freeze Warning (2021-02-16), Winter Storm Warning (2021-02-17), Hard Freeze Warning (2021-02-19) — corroborating hazardous road conditions throughout the missed-dialysis window."
+   ],
+   "missing": [
+    "Dialysis center closure records or staff confirmation for February 15–19, 2021",
+    "Hospital or EMS records documenting fluid overload, hyperkalemia, or uremia at time of death",
+    "Treating nephrologist statement linking missed sessions to terminal decompensation",
+    "Death certificate underlying cause detail beyond 'cardiac arrest' (e.g., interval causes listing uremia or pulmonary edema)"
+   ],
+   "confidence": 0.93,
+   "how_injury_occurred": "Dialysis center closed and roads rendered impassable by ice during the February 2021 winter storm (DR-4586-TX), causing the decedent to miss multiple hemodialysis sessions beginning February 15, 2021; resultant fluid overload and metabolic derangement precipitated respiratory distress and fatal cardiac arrest at home on February 19, 2021."
+  },
+  "second_examiner": {
+   "label": "indirect",
+   "mechanism": "loss_of_health_care",
+   "causal_chain": "The February 2021 winter storm caused the closure of the dialysis center and made roads impassable, leading the patient to miss dialysis sessions. This loss of health care exacerbated his end-stage renal disease, resulting in cardiac arrest and death.",
+   "evidence_used": [
+    "The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.",
+    "He became very short of breath and died at home on 2021-02-19."
+   ],
+   "missing": [],
+   "confidence": 0.9,
+   "how_injury_occurred": "[\"Missed dialysis sessions due to dialysis center closure and impassable roads during the February 2021 winter storm, leading to exacerbation of end-stage renal disease and cardiac arrest.\"]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": true,
+   "declaration": "DR-4586-TX",
+   "declaration_title": "Severe Winter Storms",
+   "incident_type": "Severe Ice Storm",
+   "incident_begin": "2021-02-11",
+   "incident_end": "2021-02-21",
+   "individual_assistance": true,
+   "within_incident_window": true,
+   "days_after_incident_end": 0,
+   "nws_warnings": [
+    "Winter Storm Warning (2021-02-13)",
+    "Wind Chill Warning (2021-02-15)",
+    "Wind Chill Advisory (2021-02-15)",
+    "Hard Freeze Warning (2021-02-16)",
+    "Wind Chill Warning (2021-02-16)",
+    "Winter Storm Warning (2021-02-17)",
+    "Winter Weather Advisory (2021-02-17)",
+    "Hard Freeze Warning (2021-02-19)",
+    "Hard Freeze Warning (2021-02-20)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | d169ba053114 |\n| Decedent | age 71, male |\n| Date of death | 2021-02-19 |\n| Location | Travis County, TX |\n| Disaster | February 2021 winter storm (DR-4586-TX); incident period 2021-02-11 to 2021-02-21 |\n| NWS warnings in force | Winter Storm Warning (2021-02-13), Wind Chill Warning (2021-02-15), Wind Chill Advisory (2021-02-15), Hard Freeze Warning (2021-02-16), Wind Chill Warning (2021-02-16) |\n| Cause on certificate (per family) | cardiac arrest |\n\n## Determination (CDC 2017 Reference Guide)\nIn my opinion this death was **indirectly caused** by February 2021 winter storm (DR-4586-TX).\n\n**Causal chain:** The February 2021 winter storm (DR-4586-TX) caused road closures due to solid ice and closure of the dialysis center, preventing a 71-year-old male with end-stage renal disease from attending dialysis sessions beginning February 15; missed dialysis led to fluid and metabolic derangement, respiratory distress, and cardiac arrest, resulting in death at home on February 19, 2021.\n\n**Proposed \"How injury occurred\" (Item 43):** Dialysis center closed and roads rendered impassable by ice during the February 2021 winter storm (DR-4586-TX), causing the decedent to miss multiple hemodialysis sessions beginning February 15, 2021; resultant fluid overload and metabolic derangement precipitated respiratory distress and fatal cardiac arrest at home on February 19, 2021.\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> This death was indirectly caused by February 2021 winter storm (DR-4586-TX).\n\n## Family account (verbatim)\n- \"The center closed during the February 2021 winter storm and the roads were solid ice, so he missed his sessions from February 15.\" (loss of health care)\n- \"He became very short of breath and died at home on 2021-02-19.\" (exacerbation of chronic illness)\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | indirect | 0.85 |\n| Examiner (Claude) | indirect | 0.93 |\n| Examiner (Amazon Nova) | indirect | 0.90 |\n\nUnanimous: yes. Open questions: Dialysis center closure records or staff confirmation for February 15–19, 2021; Hospital or EMS records documenting fluid overload, hyperkalemia, or uremia at time of death; Treating nephrologist statement linking missed sessions to terminal decompensation; Death certificate underlying cause detail beyond 'cardiac arrest' (e.g., interval causes listing uremia or pulmonary edema).\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Funeral Assistance: what to gather\n\nWe are very sorry for your loss. FEMA may help with funeral costs when a death was caused directly or indirectly by a declared disaster.\n\nGood news: FEMA Individual Assistance was approved for Travis County under DR-4586-TX. Funeral Assistance is part of that program.\n\n- [ ] Death certificate, OR the signed certifier statement Counted drafted (ask the medical examiner or doctor to review and sign it)\n- [ ] Funeral home contract or itemized receipts\n- [ ] Proof of any other help received (insurance, burial societies, donations)\n- [ ] The decedent's and applicant's names and addresses\n\nApply at DisasterAssistance.gov or call 1-800-621-3362. If FEMA says no, you can appeal in writing using the appeal letter below.\n\n## Appeal letter (fill in and sign)\n\n> I am appealing FEMA's decision on Funeral Assistance for __________, who died on 2021-02-19 in Travis County. The enclosed statement from the certifier states the death was indirectly caused by February 2021 winter storm (DR-4586-TX): The February 2021 winter storm (DR-4586-TX) caused road closures due to solid ice and closure of the dialysis center, preventing a 71-year-old male with end-stage renal disease from attending dialysis sessions beginning February 15; missed dialysis led to fluid and metabolic derangement, respiratory distress, and cardiac arrest, resulting in death at home on February 19, 2021.. I ask FEMA to reconsider.\n\n_Counted cannot promise any outcome. FEMA makes the decision._",
+  "surveillance_record": {
+   "case_id": "d169ba053114",
+   "reported": "2026-10-31",
+   "state": "TX",
+   "county": "Travis",
+   "county_fips": "48453",
+   "date_of_death": "2021-02-19",
+   "age": 71,
+   "sex": "male",
+   "place_of_death": "home",
+   "disaster": "February 2021 winter storm",
+   "fema_declaration": "DR-4586-TX",
+   "relationship_to_disaster": "indirect",
+   "circumstance": "loss_of_health_care",
+   "all_circumstances": [
+    "exacerbation_of_chronic_illness",
+    "loss_of_health_care"
+   ],
+   "chronic_conditions": [
+    "end-stage renal disease requiring dialysis"
+   ],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 12.1,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:10"
+}

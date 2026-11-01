@@ -1,0 +1,205 @@
+{
+ "case_id": "55c25d46cbdf",
+ "facts": {
+  "case_id": "55c25d46cbdf",
+  "language": "es",
+  "relationship": "granddaughter",
+  "decedent_age": 84,
+  "decedent_sex": "female",
+  "date_of_death": "2017-09-16",
+  "address": "Miami, FL",
+  "county": "Miami-Dade",
+  "state": "FL",
+  "county_fips": "12086",
+  "lat": 25.77481,
+  "lon": -80.19773,
+  "disaster_name": "Hurricane Irma",
+  "disaster_type": "hurricane",
+  "place_of_death": "home",
+  "certificate_cause": null,
+  "chronic_conditions": [
+   "heart disease"
+  ],
+  "evidence": [
+   {
+    "mechanism": "loss_of_utilities",
+    "detail": "No hubo electricidad por seis días después del huracán Irma",
+    "quote": "Después del huracán Irma no hubo luz por seis días",
+    "hours_before_death": null
+   },
+   {
+    "mechanism": "environmental_cold_or_heat_exposure",
+    "detail": "Temperatura interior superior a 90 grados Fahrenheit sin aire acondicionado",
+    "quote": "no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa",
+    "hours_before_death": null
+   },
+   {
+    "mechanism": "exacerbation_of_chronic_illness",
+    "detail": "Problemas del corazón agravados por las condiciones después del huracán",
+    "quote": "Ella tenía problemas del corazón",
+    "hours_before_death": null
+   }
+  ],
+  "manner_concern": null,
+  "unrelated_explanation": null,
+  "narrative": "La abuela de 84 años vivía en Miami, FL. Después del huracán Irma no hubo luz por seis días y no tenían aire acondicionado. Hacía más de 90 grados dentro de la casa. Ella tenía problemas del corazón y murió en casa el 16 de septiembre de 2017."
+ },
+ "context": {
+  "declared": true,
+  "declaration": "DR-4337-FL",
+  "declaration_title": "Hurricane Irma",
+  "incident_type": "Hurricane",
+  "incident_begin": "2017-09-04",
+  "incident_end": "2017-10-18",
+  "individual_assistance": true,
+  "within_incident_window": true,
+  "days_after_incident_end": 0,
+  "nws_warnings": [
+   "Tornado Warning (2017-09-09)",
+   "Tornado Watch (2017-09-09)",
+   "Tornado Watch (2017-09-10)",
+   "Flood Warning (2017-09-10)",
+   "Tornado Warning (2017-09-10)",
+   "Tropical Storm Warning (2017-09-11)",
+   "Coastal Flood Advisory (2017-09-11)",
+   "Flood Advisory (2017-09-13)"
+  ],
+  "sources": [
+   "Amazon Location Service",
+   "OpenFEMA DisasterDeclarationsSummaries v2",
+   "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+  ]
+ },
+ "panel": {
+  "final": {
+   "label": "indirect",
+   "mechanism": "loss_of_utilities",
+   "causal_chain": "Hurricane Irma caused a six-day power outage in Miami-Dade County; loss of electricity eliminated air conditioning, producing indoor temperatures exceeding 90°F, which exacerbated the decedent's pre-existing heart disease and contributed to her death at home on September 16, 2017.",
+   "evidence_used": [
+    "\"Después del huracán Irma no hubo luz por seis días\"",
+    "\"no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa\"",
+    "\"Ella tenía problemas del corazón\"",
+    "FEMA declaration DR-4337-FL confirmed; date of death 2017-09-16 falls within incident window (2017-09-04 to 2017-10-18)"
+   ],
+   "missing": [
+    "Death certificate cause of death (not provided — would confirm cardiac or heat-related terminal event)",
+    "Medical records documenting cardiac diagnosis and any acute decompensation in the days preceding death",
+    "Specific indoor temperature measurements or duration of peak heat exposure",
+    "Whether emergency medical services were called or medical care was sought and unavailable (loss_of_health_care pathway not yet explored)",
+    "Autopsy or physician attestation linking heat stress to cardiac decompensation"
+   ],
+   "confidence": 0.82,
+   "how_injury_occurred": "Following Hurricane Irma, power outage lasting six days eliminated air conditioning in the home; sustained indoor heat exposure exceeding 90°F exacerbated pre-existing heart disease in an 84-year-old female, contributing to death at home."
+  },
+  "rules": {
+   "label": "indirect",
+   "mechanism": "loss_of_utilities",
+   "causal_chain": "Hurricane Irma -> No hubo electricidad por seis días después del huracán Irma (also: Temperatura interior superior a 90 grados Fahrenheit sin aire acondicionado; Problemas del corazón agravados por las condiciones después del huracán) -> death.",
+   "evidence_used": [
+    "Después del huracán Irma no hubo luz por seis días",
+    "No hubo electricidad por seis días después del huracán Irma",
+    "no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa",
+    "Temperatura interior superior a 90 grados Fahrenheit sin aire acondicionado",
+    "Ella tenía problemas del corazón",
+    "Problemas del corazón agravados por las condiciones después del huracán"
+   ],
+   "missing": [],
+   "confidence": 0.85,
+   "how_injury_occurred": "Loss of electrical power and heating/cooling due to Hurricane Irma"
+  },
+  "examiner": {
+   "label": "indirect",
+   "mechanism": "exacerbation_of_chronic_illness",
+   "causal_chain": "Hurricane Irma caused a six-day power outage in Miami-Dade County; loss of electricity eliminated air conditioning, producing indoor temperatures exceeding 90°F, which exacerbated the decedent's pre-existing heart disease and contributed to her death at home on September 16, 2017.",
+   "evidence_used": [
+    "\"Después del huracán Irma no hubo luz por seis días\"",
+    "\"no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa\"",
+    "\"Ella tenía problemas del corazón\"",
+    "FEMA declaration DR-4337-FL confirmed; date of death 2017-09-16 falls within incident window (2017-09-04 to 2017-10-18)"
+   ],
+   "missing": [
+    "Death certificate cause of death (not provided — would confirm cardiac or heat-related terminal event)",
+    "Medical records documenting cardiac diagnosis and any acute decompensation in the days preceding death",
+    "Specific indoor temperature measurements or duration of peak heat exposure",
+    "Whether emergency medical services were called or medical care was sought and unavailable (loss_of_health_care pathway not yet explored)",
+    "Autopsy or physician attestation linking heat stress to cardiac decompensation"
+   ],
+   "confidence": 0.82,
+   "how_injury_occurred": "Following Hurricane Irma, power outage lasting six days eliminated air conditioning in the home; sustained indoor heat exposure exceeding 90°F exacerbated pre-existing heart disease in an 84-year-old female, contributing to death at home."
+  },
+  "second_examiner": {
+   "label": "indirect",
+   "mechanism": "exacerbation_of_chronic_illness",
+   "causal_chain": "Hurricane Irma caused loss of electricity and air conditioning for six days, leading to indoor temperatures above 90°F that exacerbated the decedent's pre-existing heart disease, resulting in death.",
+   "evidence_used": [
+    "Después del huracán Irma no hubo luz por seis días",
+    "no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa",
+    "Ella tenía problemas del corazón"
+   ],
+   "missing": [],
+   "confidence": 0.9,
+   "how_injury_occurred": "[\"Loss of electricity and air conditioning after Hurricane Irma resulted in indoor temperatures above 90 degrees Fahrenheit, which exacerbated the decedent's pre-existing heart disease.\"]"
+  },
+  "adjudicator": null,
+  "unanimous": true,
+  "adjudicated": false,
+  "context": {
+   "declared": true,
+   "declaration": "DR-4337-FL",
+   "declaration_title": "Hurricane Irma",
+   "incident_type": "Hurricane",
+   "incident_begin": "2017-09-04",
+   "incident_end": "2017-10-18",
+   "individual_assistance": true,
+   "within_incident_window": true,
+   "days_after_incident_end": 0,
+   "nws_warnings": [
+    "Tornado Warning (2017-09-09)",
+    "Tornado Watch (2017-09-09)",
+    "Tornado Watch (2017-09-10)",
+    "Flood Warning (2017-09-10)",
+    "Tornado Warning (2017-09-10)",
+    "Tropical Storm Warning (2017-09-11)",
+    "Coastal Flood Advisory (2017-09-11)",
+    "Flood Advisory (2017-09-13)"
+   ],
+   "sources": [
+    "Amazon Location Service",
+    "OpenFEMA DisasterDeclarationsSummaries v2",
+    "NWS warnings archive (Iowa Environmental Mesonet VTEC)"
+   ]
+  }
+ },
+ "documents": {
+  "certifier_statement": "# DRAFT: Certifier statement on disaster relationship\n\n> **Draft prepared by Counted for review. Not a death certificate. Not valid until reviewed and signed by the\n> certifying medical examiner, coroner or physician.**\n\n| | |\n|---|---|\n| Case | 55c25d46cbdf |\n| Decedent | age 84, female |\n| Date of death | 2017-09-16 |\n| Location | Miami-Dade County, FL |\n| Disaster | Hurricane Irma (DR-4337-FL); incident period 2017-09-04 to 2017-10-18 |\n| NWS warnings in force | Tornado Warning (2017-09-09), Tornado Watch (2017-09-09), Tornado Watch (2017-09-10), Flood Warning (2017-09-10), Tornado Warning (2017-09-10) |\n| Cause on certificate (per family) | not known |\n\n## Determination (CDC 2017 Reference Guide)\nIn my opinion this death was **indirectly caused** by Hurricane Irma (DR-4337-FL).\n\n**Causal chain:** Hurricane Irma caused a six-day power outage in Miami-Dade County; loss of electricity eliminated air conditioning, producing indoor temperatures exceeding 90°F, which exacerbated the decedent's pre-existing heart disease and contributed to her death at home on September 16, 2017.\n\n**Proposed \"How injury occurred\" (Item 43):** Following Hurricane Irma, power outage lasting six days eliminated air conditioning in the home; sustained indoor heat exposure exceeding 90°F exacerbated pre-existing heart disease in an 84-year-old female, contributing to death at home.\n\n**Proposed wording for FEMA Funeral Assistance** (FEMA rejects \"may have been caused by\"):\n> This death was indirectly caused by Hurricane Irma (DR-4337-FL).\n\n## Family account (verbatim)\n- \"Después del huracán Irma no hubo luz por seis días\" (loss of utilities)\n- \"no teníamos aire acondicionado. Hacía más de 90 grados dentro de la casa\" (environmental cold or heat exposure)\n- \"Ella tenía problemas del corazón\" (exacerbation of chronic illness)\n\n## Panel\n| Seat | Determination | Confidence |\n|---|---|---|\n| CDC decision tree | indirect | 0.85 |\n| Examiner (Claude) | indirect | 0.82 |\n| Examiner (Amazon Nova) | indirect | 0.90 |\n\nUnanimous: yes. Open questions: Death certificate cause of death (not provided — would confirm cardiac or heat-related terminal event); Medical records documenting cardiac diagnosis and any acute decompensation in the days preceding death; Specific indoor temperature measurements or duration of peak heat exposure; Whether emergency medical services were called or medical care was sought and unavailable (loss_of_health_care pathway not yet explored); Autopsy or physician attestation linking heat stress to cardiac decompensation.\n\n## Certification\nI have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Amended certificate to follow\n\nSignature: ______________________  Name / title: ______________________  Date: __________\n\n<sub>Sources: CDC/NCHS Reference Guide (https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf); FEMA Help with Funerals and Burials, July 2025 (https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf); OpenFEMA; NWS archive.</sub>\n",
+  "family_packet": "# Asistencia funeraria: qué reunir\n\nLamentamos mucho su pérdida. FEMA puede ayudar con los gastos funerarios cuando una muerte fue causada directa o indirectamente por un desastre declarado.\n\nBuenas noticias: FEMA aprobó la Asistencia Individual para el condado de Miami-Dade bajo DR-4337-FL. La Asistencia Funeraria es parte de ese programa.\n\n- [ ] Certificado de defunción, O la declaración firmada del certificador que Counted preparó (pida al médico forense o al doctor que la revise y firme)\n- [ ] Contrato de la funeraria o recibos detallados\n- [ ] Comprobante de cualquier otra ayuda recibida (seguros, donaciones)\n- [ ] Nombres y direcciones del fallecido y del solicitante\n\nSolicite en DisasterAssistance.gov o llame al 1-800-621-3362. Si FEMA dice que no, puede apelar por escrito con la carta de abajo.\n\n## Carta de apelación (complete y firme)\n\n> Apelo la decisión de FEMA sobre la Asistencia Funeraria para __________, quien falleció el 2017-09-16 en el condado de Miami-Dade. La declaración adjunta del certificador indica que la muerte fue causada indirectamente por Hurricane Irma (DR-4337-FL): Hurricane Irma caused a six-day power outage in Miami-Dade County; loss of electricity eliminated air conditioning, producing indoor temperatures exceeding 90°F, which exacerbated the decedent's pre-existing heart disease and contributed to her death at home on September 16, 2017.. Pido a FEMA que reconsidere.\n\n_Counted no puede prometer ningún resultado. FEMA toma la decisión._",
+  "surveillance_record": {
+   "case_id": "55c25d46cbdf",
+   "reported": "2026-10-31",
+   "state": "FL",
+   "county": "Miami-Dade",
+   "county_fips": "12086",
+   "date_of_death": "2017-09-16",
+   "age": 84,
+   "sex": "female",
+   "place_of_death": "home",
+   "disaster": "Hurricane Irma",
+   "fema_declaration": "DR-4337-FL",
+   "relationship_to_disaster": "indirect",
+   "circumstance": "loss_of_utilities",
+   "all_circumstances": [
+    "environmental_cold_or_heat_exposure",
+    "exacerbation_of_chronic_illness",
+    "loss_of_utilities"
+   ],
+   "chronic_conditions": [
+    "heart disease"
+   ],
+   "panel_unanimous": true,
+   "source": "family interview (Counted)"
+  }
+ },
+ "elapsed_seconds": 15.5,
+ "generated": "2026-10-31",
+ "recorded_at": "2026-10-31T11:35:25"
+}

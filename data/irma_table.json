@@ -1,0 +1,314 @@
+{
+ "source": {
+  "title": "Deaths Related to Hurricane Irma - Florida, Georgia, and North Carolina, September 4-October 10, 2017",
+  "authors": "Issa A, Ramadugu K, Mulay P, Hamilton J, Siegel V, Harrison C, Campbell CM, Blackmore C, Bayleyegn T, Boehmer T",
+  "journal": "MMWR Morb Mortal Wkly Rep 2018;67(30):829-832 (Aug 3, 2018), doi 10.15585/mmwr.mm6730a5",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6072056/",
+  "cdc_url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6730a5.htm",
+  "erratum": "MMWR 2019;68(12):291 (https://pmc.ncbi.nlm.nih.gov/articles/PMC6448986/): replaces 'assisted-living facility' with 'a nursing home' in text and Figure footnote; no numbers changed",
+  "retrieved": "2026-10-31",
+  "licence": "US government work, public domain",
+  "extraction_method": "Europe PMC full-text XML of PMC6072056 (table cells transcribed programmatically)"
+ },
+ "period": "September 4 - October 10, 2017 (mortality data accurate as of July 16, 2018)",
+ "scope": "Florida (123 deaths), Georgia and North Carolina (6 combined; per-state split not published); N = 129",
+ "totals": {
+  "direct": 11,
+  "indirect": 115,
+  "possible": 3,
+  "total": 129
+ },
+ "totals_pct": {
+  "direct": 8.5,
+  "indirect": 89.1,
+  "possible": 2.3
+ },
+ "definitions": {
+  "direct": "Direct deaths are caused by environmental forces of the hurricane and direct consequences of these forces.",
+  "indirect": "Indirect deaths are caused by unsafe or unhealthy conditions because of loss or disruption of usual services, personal loss, or lifestyle disruption.",
+  "possible": "Possibly related deaths include deaths attributed to the hurricane in which the indirect or direct relation of the death to the hurricane is not clear."
+ },
+ "rows": [
+  {
+   "id": "direct",
+   "parent": null,
+   "level": 0,
+   "relationship": "direct",
+   "circumstance": "Directly hurricane-related",
+   "n": 11,
+   "pct": 8.5,
+   "cdc_category_mapping": "direct",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "direct_accident",
+   "parent": "direct",
+   "level": 1,
+   "relationship": "direct",
+   "circumstance": "Accident",
+   "n": 11,
+   "pct": 8.5,
+   "cdc_category_mapping": "direct",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "direct_drowning_flooding",
+   "parent": "direct_accident",
+   "level": 2,
+   "relationship": "direct",
+   "circumstance": "Drowning related to flooding",
+   "n": 7,
+   "pct": 5.4,
+   "cdc_category_mapping": "drowning",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "direct_tree",
+   "parent": "direct_accident",
+   "level": 2,
+   "relationship": "direct",
+   "circumstance": "Tree-related injuries",
+   "n": 4,
+   "pct": 3.1,
+   "cdc_category_mapping": "blunt_force_trauma",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "indirect",
+   "parent": null,
+   "level": 0,
+   "relationship": "indirect",
+   "circumstance": "Indirectly hurricane-related",
+   "n": 115,
+   "pct": 89.1,
+   "cdc_category_mapping": "indirect",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "indirect_natural",
+   "parent": "indirect",
+   "level": 1,
+   "relationship": "indirect",
+   "circumstance": "Natural",
+   "n": 48,
+   "pct": 37.2,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_exacerbation",
+   "parent": "indirect_natural",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Existing medical condition exacerbation",
+   "n": 46,
+   "pct": 35.7,
+   "cdc_category_mapping": "acute_exacerbation_chronic_condition",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_stress_cardiac",
+   "parent": "ind_exacerbation",
+   "level": 3,
+   "relationship": "indirect",
+   "circumstance": "Stress-related cardiac disease",
+   "n": 23,
+   "pct": 17.8,
+   "cdc_category_mapping": "psychosocial_stress_anxiety",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_heat",
+   "parent": "ind_exacerbation",
+   "level": 3,
+   "relationship": "indirect",
+   "circumstance": "Heat-related",
+   "n": 17,
+   "pct": 13.2,
+   "cdc_category_mapping": "heat_cold_exposure_due_to_disaster / loss_disruption_public_utilities",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_oxygen",
+   "parent": "ind_exacerbation",
+   "level": 3,
+   "relationship": "indirect",
+   "circumstance": "Oxygen-dependent",
+   "n": 3,
+   "pct": 2.3,
+   "cdc_category_mapping": "loss_disruption_healthcare_access / loss_disruption_public_utilities",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_ems",
+   "parent": "ind_exacerbation",
+   "level": 3,
+   "relationship": "indirect",
+   "circumstance": "Disruption of emergency medical services",
+   "n": 3,
+   "pct": 2.3,
+   "cdc_category_mapping": "loss_disruption_emergency_services",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_floodwater_infection",
+   "parent": "indirect_natural",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Floodwater infection",
+   "n": 2,
+   "pct": 1.6,
+   "cdc_category_mapping": "exposure_industrial_chemical_hazards (hazardous environmental conditions)",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "indirect_accident",
+   "parent": "indirect",
+   "level": 1,
+   "relationship": "indirect",
+   "circumstance": "Accident",
+   "n": 67,
+   "pct": 51.9,
+   "cdc_category_mapping": "indirect",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_co",
+   "parent": "indirect_accident",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Carbon monoxide poisoning",
+   "n": 16,
+   "pct": 12.4,
+   "cdc_category_mapping": "carbon_monoxide_poisoning",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_prep_repair",
+   "parent": "indirect_accident",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Preparation/Repair injury",
+   "n": 15,
+   "pct": 11.6,
+   "cdc_category_mapping": "cleanup_after_disaster / preparation_for_disaster",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_mvc",
+   "parent": "indirect_accident",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Motor vehicle crash",
+   "n": 13,
+   "pct": 10.1,
+   "cdc_category_mapping": "motor_vehicle_crash_during_event",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_falls",
+   "parent": "indirect_accident",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Falls from standing height",
+   "n": 13,
+   "pct": 10.1,
+   "cdc_category_mapping": "hazardous_unfamiliar_environment",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "ind_other",
+   "parent": "indirect_accident",
+   "level": 2,
+   "relationship": "indirect",
+   "circumstance": "Other",
+   "n": 12,
+   "pct": 9.3,
+   "cdc_category_mapping": "mixed",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "possible",
+   "parent": null,
+   "level": 0,
+   "relationship": "possible",
+   "circumstance": "Possibly hurricane-related",
+   "n": 3,
+   "pct": 2.3,
+   "cdc_category_mapping": "possible",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "pos_homicide",
+   "parent": "possible",
+   "level": 1,
+   "relationship": "possible",
+   "circumstance": "Homicide",
+   "n": 1,
+   "pct": 0.8,
+   "cdc_category_mapping": "possible",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "pos_suicide",
+   "parent": "possible",
+   "level": 1,
+   "relationship": "possible",
+   "circumstance": "Suicide",
+   "n": 1,
+   "pct": 0.8,
+   "cdc_category_mapping": "possible",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  },
+  {
+   "id": "pos_undetermined",
+   "parent": "possible",
+   "level": 1,
+   "relationship": "possible",
+   "circumstance": "Undetermined",
+   "n": 1,
+   "pct": 0.8,
+   "cdc_category_mapping": "possible",
+   "source_page": "MMWR 2018;67(30):829-832, Table"
+  }
+ ],
+ "rows_note": "level 0 = direct/indirect/possible class; deeper levels are nested sub-circumstances exactly as printed in the Table (indent). n = number of deaths; pct = % of 129 as printed.",
+ "table_footnotes": {
+  "falls_from_standing_height": "Falls from standing height occurred in elderly persons. The word 'hurricane' was recorded in the death certificates. Four of the 13 decedents died after the surveillance end date of October 10, 2017, from complications of falls that occurred during the hurricanes.",
+  "other": "Includes deaths caused by drowning not related to flooding (n = 5) and collapse of unstable structures after the hurricane had passed (n = 1). Drowning not related to flooding includes persons found floating in swimming pools; these death certificates contain no mention of flooding.",
+  "percent": "Might not sum to 100% because of rounding."
+ },
+ "overlap_figure": {
+  "total_deaths": 73,
+  "existing_condition_exacerbation_total": 46,
+  "stress_related": 23,
+  "ems_disruption": 3,
+  "also_power_outage_related": {
+   "total": 20,
+   "heat_related": 17,
+   "electricity_dependent_treatment_e_g_oxygen": 3
+  },
+  "power_outage_not_exacerbation": {
+   "total": 27,
+   "carbon_monoxide": 16,
+   "note": "other 11 not itemised in text"
+  },
+  "heat_related_at_one_facility": "14 of the 17 heat-related deaths occurred in residents of an assisted living facility (corrected to 'a nursing home' in the 2019 erratum) in Florida that was without power for several days.",
+  "source_page": "MMWR 67(30) Figure and text p. 831"
+ },
+ "demographics": {
+  "source_page": "MMWR 67(30) p. 830 text",
+  "florida_deaths": "123 (95.3%)",
+  "male": "88 (68.2%)",
+  "median_age_years": 63,
+  "age_range_years": "1-99",
+  "note": "The report contains no demographic or state breakdown table; only these figures in the text."
+ },
+ "classification_scheme_box": "See Box in source (based on Combs et al. 1999). Direct: accident (structural collapse/falling structures/flying debris trauma; drowning or asphyxiation from rain/floods/landslides: automobile, boat, residence/building, other/unknown; electrocution from lightning). Indirect natural: hazardous environmental conditions (e.g., leptospirosis); exacerbation of existing medical condition (emergency transport disruption; loss of access to medical/mental health care; loss of utilities needed for treatment such as dialysis, oxygen, refrigerated medications; loss of heat/cooling; stress/anxiety with access available e.g. MI). Indirect accident: poisoning (CO, industrial hazards); vehicular accident (hazardous road/traffic conditions; en route to/from affected area incl. evacuation or response/aid); preparation/repair (fall from roof/ladder; sharp force e.g. chainsaw; electrocution on nonfunctional power line); loss/disruption of emergency services (burn or smoke inhalation); hazardous/unfamiliar conditions (fall from standing height from poor lighting/debris/unfamiliar environment; collapse of unstable structures after storm; electrocution from downed power line). Possible: homicide, suicide, undetermined.",
+ "discrepancies": [
+  "SOURCE INCONSISTENCY: the three class totals sum correctly (11 + 115 + 3 = 129), indirect = natural 48 + accident 67 = 115, and natural children 46 + 2 = 48, but the five printed sub-rows under Indirect > Accident (CO 16 + Preparation/Repair 15 + MVC 13 + Falls 13 + Other 12) sum to 69, not 67 (over by 2).",
+  "'Other' is printed as 12 (9.3%), but footnote ++ itemises only 6 (drowning not related to flooding n = 5; unstable-structure collapse n = 1). 12/129 = 9.3% so the row percentage agrees with 12; the 69-vs-67 mismatch would vanish if Other were 10. Not corrected in the 2019 erratum (which changes only the facility wording). Numbers are reproduced exactly as printed.",
+  "Text says 14 heat-related deaths occurred at an 'assisted-living facility'; erratum (2019) corrects to 'nursing home'.",
+  "Georgia/North Carolina are not split (6 deaths combined, 123 in Florida)."
+ ]
+}

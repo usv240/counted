@@ -1,0 +1,608 @@
+{
+ "source": {
+  "primary": "CDC/NCHS Vital Statistics Reporting Guidance Report No. 1 (Oct 2017)",
+  "primary_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+  "deck_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+  "mdi_quick_guide_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/2024/11/MDI-Quick-Guide-508.pdf",
+  "retrieved": "2026-10-31",
+  "licence": "US government work, public domain"
+ },
+ "coverage_notes": [
+  "Includes all 13 scenario/example certificates in the 2017 guide (1 figure example + Scenarios A, B + Appendix II Scenarios I-X) and all additional cases in the training deck (Oso, 2 state-comparison cases, 3 slide-24 examples, 2 Part II natural examples, 1 Part I certificate fragment). Deck scenarios B, C, D, I, II, III, IV duplicate guide scenarios and are cross-referenced in also_in rather than repeated.",
+  "The MDI Quick Guide has no worked cases; it contributes only cause-of-death lists (see cdc_rules.json mdi_quick_guide_cause_lists).",
+  "CDC documents contain NO worked 'not_related' or 'possible' scenario; gold contains none. Use irma_table/uri_table 'possible' rows (homicide, suicide, undetermined; Uri fire/CO/hypothermia possible) as evidence for that class.",
+  "label_confidence: 'stated' = CDC text explicitly calls it indirectly related; 'implied' = CDC says 'disaster-related' (deck answers 'Yes') or gives the certificate and the direct/indirect label follows from Box 3 / Box 4 / flowchart wording. No guide scenario carries an explicit direct/indirect stamp.",
+  "Certificates: Part I lines are in extracted order; manner-of-death checkboxes are graphics and not extractable (null)."
+ ],
+ "scenarios": [
+  {
+   "id": "vsrg01_figure_sandy_co",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 5 (Figure sidebar)",
+   "disaster_type": "hurricane (Hurricane Sandy)",
+   "narrative": "A 59-year-old female died 3 days after Hurricane Sandy. The storm caused a regional blackout. She was found in her house. A generator was running on the first floor of the home. According to emergency management officials, the carbon monoxide fumes inside the home were three times the danger level. She had a history of emphysema and long-term tobacco use.",
+   "expected_label": "indirect",
+   "cdc_category": "carbon_monoxide_poisoning",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Carbon monoxide poisoning"
+    ],
+    "part2": "Emphysema and long-term tobacco use",
+    "manner": null,
+    "how_injury_occurred": "Carbon monoxide source was a generator located in the home due to power outage after Hurricane Sandy",
+    "place_of_injury": null,
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Guide p. 4 text gives 'carbon monoxide poisoning due to use of a generator ... after a storm because of a prolonged power outage' as its example of an indirect death. This simulated certificate matches that example. Emphysema is a contributing condition.",
+   "secondary_categories": [
+    "loss_disruption_public_utilities"
+   ]
+  },
+  {
+   "id": "vsrg01_scenario_A",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 6",
+   "disaster_type": "hurricane (Hurricane Sandy)",
+   "narrative": "A 28-year-old male died when a tree fell on him during Hurricane Sandy. He suffered multiple trauma, including a fractured skull causing cerebral contusion. Emergency medical service and police reports indicated he thought the hurricane had passed and was walking his dogs.",
+   "expected_label": "direct",
+   "cdc_category": "blunt_force_trauma",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Cerebral contusion",
+     "Fractured skull, facial and clavicle fractures",
+     "Blunt impact to head"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Walking dogs during Hurricane Sandy. Tree limb broke, striking decedent on head",
+    "place_of_injury": "Outside on sidewalk",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Falling trees/flying debris are direct consequences of storm forces (flowchart: 'Flying debris, falling trees'; Box 3 blunt-force trauma). Guide comment: 'This example links the head injury to a tree limb dislodged during the hurricane.' Irma MMWR also codes tree-related injuries as direct. CDC does not stamp this scenario 'direct' or 'indirect'; label inferred from the guide's Box 3 / Box 4 / flowchart.",
+   "guide_comment": "Unless the injury is the result of a fall, consider using terms other than 'fall' to describe falling debris, to avoid confusion."
+  },
+  {
+   "id": "vsrg01_scenario_B",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "pp. 6-7",
+   "disaster_type": "human-induced (improvised nuclear device, terrorism)",
+   "narrative": "A 39-year-old male was within 4 miles of an improvised nuclear device that was detonated in a major metropolitan area. The event was confirmed by the local emergency manager and FBI as an act of terrorism. The decedent was exposed to a radiation dose of 8 grays (800 rem) as a result of prompt radiation and radioactive fallout. He also had minor traumatic injuries and thermal burns on 15% of his total body surface area. He self-evacuated to a hospital 50 miles away. He developed acute radiation syndrome, starting with intractable vomiting approximately 1 hour after the explosion, followed by bone marrow depletion of granulocyte progenitors on day 2 of hospitalization. He survived for 23 days before expiring from gram-negative sepsis, despite receiving granulocyte colony-stimulating factors, broad-spectrum antibiotics, and multiple transfusions.",
+   "expected_label": "direct",
+   "cdc_category": "radiation_chemical_poisoning",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Gram-negative sepsis",
+     "Aplastic anemia",
+     "Acute radiation syndrome"
+    ],
+    "part2": "Thermal burns, cutaneous radiation injury, cutaneous lacerations",
+    "manner": null,
+    "how_injury_occurred": "Intentional detonation of nuclear device by another person as an act of terrorism",
+    "place_of_injury": "Outdoor construction site",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Radiation effects are a Step 2a (direct) prompt; direct definition names 'radiation ... exposure'. Guide comment: 'Delayed deaths may occur from initial blast injuries and acute radiation syndrome.' Death 23 days later by sepsis is still the direct consequence. CDC does not stamp this scenario 'direct' or 'indirect'; label inferred from the guide's Box 3 / Box 4 / flowchart.",
+   "also_in": [
+    "cdc_training_deck slide 42-44 (Scenario D; certificate adds 'Terrorism: nuclear device detonation')"
+   ]
+  },
+  {
+   "id": "vsrg01_scenario_I",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 10",
+   "disaster_type": "hurricane (Hurricane Sandy)",
+   "narrative": "A 39-year-old female died during Hurricane Sandy in her home. The storm caused a regional blackout and she had used charcoal in her fireplace for heat. According to emergency medical services (EMS) officials, high carbon monoxide levels were detected in the home.",
+   "expected_label": "indirect",
+   "cdc_category": "carbon_monoxide_poisoning",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Carbon monoxide poisoning"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Carbon monoxide source was charcoal use in the fireplace of the [rest truncated in extraction; guide stresses source, location and circumstance]",
+    "place_of_injury": "Decedent's home",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Alternative heat source during blackout; same pattern as the guide's indirect generator CO example. Deck slide 39 answer: disaster-related 'Yes'; document in Part II and the Describe-how box. CDC does not stamp this scenario 'direct' or 'indirect'; label inferred from the guide's Box 3 / Box 4 / flowchart.",
+   "secondary_categories": [
+    "loss_disruption_public_utilities"
+   ],
+   "also_in": [
+    "cdc_training_deck slide 39-41 (Scenario C)"
+   ]
+  },
+  {
+   "id": "vsrg01_scenario_II",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 10",
+   "disaster_type": "winter storm (2012 nor'easter)",
+   "narrative": "An 85-year-old male with a history of Alzheimer disease and arteriosclerosis died from hypothermia after he wandered away from his home for an hour during a severe 2012 northeaster snowstorm, reported by local news.",
+   "expected_label": "direct",
+   "cdc_category": "hypothermia",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Hypothermia",
+     "Exposure to cold weather"
+    ],
+    "part2": "Arteriosclerotic heart disease; Alzheimer's disease",
+    "manner": null,
+    "how_injury_occurred": "Wandered away from house and was found outside during the nor'easter snowstorm",
+    "place_of_injury": "Wooded park area",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Hypothermia is a Box 3 direct cause and flowchart Step 2a prompt ('Hyperthermia or hypothermia'). Guide comment says exposure for 1 hour in the snowstorm is an injury even though Alzheimer disease and heart disease were contributing factors. Two certificate options are given.",
+   "certificate_option_b": {
+    "part1": [
+     "Environmental hypothermia"
+    ],
+    "part2": "Arteriosclerotic heart disease; Alzheimer's disease",
+    "manner": null,
+    "how_injury_occurred": "Wandered away from house and was found outside during the nor'easter snowstorm",
+    "place_of_injury": "Wooded park area",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "also_in": [
+    "cdc_training_deck slide 51-52 (Scenario III)"
+   ],
+   "guide_comment": "By stating 'exposure to cold weather' in Part I, the certifier is indicating that exposure for 1 hour in the snowstorm was an injury, even though Alzheimer disease ... and heart disease were contributing factors. An alternative approach ... environmental hypothermia ... in Part I (option b)."
+  },
+  {
+   "id": "vsrg01_scenario_III",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "pp. 10-11",
+   "disaster_type": "hurricane (Hurricane Irene), flash flood",
+   "narrative": "A 22-year-old male drowned when his pickup truck crossed a flooded bridge, and he was swept away by swift floodwaters associated with Hurricane Irene. His body was found 2 miles downriver. Significant rainfall occurred in the area, and a National Weather Service (NWS) flood warning was in place.",
+   "expected_label": "direct",
+   "cdc_category": "drowning",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Drowning"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Driver of pickup truck crossed flooded bridge during heavy rain from Hurricane Irene; found drowned in the river",
+    "place_of_injury": "Flooded river",
+    "injury_at_work": null,
+    "transport_role": "Driver",
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Drowning in flood water is the guide's canonical direct example ('Drowning deaths in flooded areas during a thunderstorm'). Motor-vehicle involvement does not make it indirect here because the cause of death is the flood. Two certificate options given.",
+   "certificate_option_b": {
+    "part1": [
+     "Drowning in floodwaters"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Driver of pickup truck crossed flooded bridge during heavy rain from Hurricane Irene; found drowned in the river",
+    "place_of_injury": "Flooded river",
+    "injury_at_work": null,
+    "transport_role": "Driver",
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   }
+  },
+  {
+   "id": "vsrg01_scenario_IV",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 11",
+   "disaster_type": "tornado (Moore tornado outbreak, Oklahoma)",
+   "narrative": "EMS reported a 13-year-old female fell during the Moore tornado outbreak in Oklahoma. Her family witnessed her running down wooden basement stairs to escape the impending [tornado. She fell approximately 15 steps headfirst, resulting in] right parietal epidural bleed and skull fracture.",
+   "expected_label": "indirect",
+   "cdc_category": "escaping_or_fleeing",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Right parietal epidural hematoma",
+     "Right parietal skull fracture",
+     "Blunt impact to head"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Attempt to escape the Moore tornado, fell down 15 wooden stairs in home",
+    "place_of_injury": "Home",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Matches Box 4: 'Escaping or fleeing the disaster (e.g., saw the tornado and fell while rushing down storm shelter stairs [Note: This could be directly related if the tornado's winds led to the fall])'. Here the fall was self-propelled while fleeing, not caused by wind, so indirect. Bracketed text is lost in the PDF's text layer; the deck (slide 47) gives the full sentence. Heading in guide is 'Scenario IV: Hazardous hurricane conditions' (sic).",
+   "also_in": [
+    "cdc_training_deck slide 47-48 (Scenario I; certificate 'Fall from stairs / Moore tornado / Fall')"
+   ],
+   "ambiguity": "Box 4 note: direct if tornado winds led to the fall."
+  },
+  {
+   "id": "vsrg01_scenario_V",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "pp. 11-12",
+   "disaster_type": "hurricane (Hurricane Ike), evacuation",
+   "narrative": "A 21-year-old female was critically injured in an automobile crash and diagnosed with a fractured skull causing cerebral contusion and multiple trauma, including a fractured sternum and pneumothorax. She died soon after being brought to the hospital. Police records indicated her car slid off wet roads into a ditch as she was evacuating for Hurricane Ike. Toxicological and alcohol screenings were negative.",
+   "expected_label": "indirect",
+   "cdc_category": "evacuation",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Cerebral contusion",
+     "Fractured skull",
+     "Blunt impact to head"
+    ],
+    "part2": "Fractured sternum, pneumothorax",
+    "manner": null,
+    "how_injury_occurred": "Unrestrained driver of a car while evacuating for Hurricane Ike. Car slid off wet road and struck tree.",
+    "place_of_injury": "Highway",
+    "injury_at_work": null,
+    "transport_role": "Driver",
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Box 4: 'Evacuation (e.g., motor vehicle crash while evacuating before the storm)'. Deck slide 24 also lists 'A death resulting from a car crash that occurred while evacuating a storm' as indirectly-related. Scenario title is 'Motor vehicle-related death during hurricane evacuation'."
+  },
+  {
+   "id": "vsrg01_scenario_VI",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 12",
+   "disaster_type": "heat wave / derecho (East Coast derecho and heat wave)",
+   "narrative": "An 85-year-old male with a known history of arteriosclerosis and chronic obstructive pulmonary disease was reported unconscious in his home. The temperature in the home was 86 degrees Fahrenheit during the East Coast derecho and heat wave, as reported by local NWS and weather stations in a major metropolitan area. He died 2 days later in the intensive care unit with a discharge diagnosis of multi-organ failure from complications of heat stroke. EMS reported that he lived alone and had a functioning air conditioner that was not on; his family indicated that he was concerned about his electric bill.",
+   "expected_label": "direct",
+   "cdc_category": "hyperthermia",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Hyperthermia",
+     "Exposure to excessive environmental heat"
+    ],
+    "part2": "Arteriosclerosis and chronic obstructive pulmonary disease",
+    "manner": null,
+    "how_injury_occurred": "Functioning air conditioner in home but not on during the East Coast derecho and heat wave",
+    "place_of_injury": "Decedent's home",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Hyperthermia is a Box 3 direct cause; the heat wave itself is the hazard and the air conditioner was functioning (no utility loss). Contrast Irma MMWR, which codes heat deaths caused by power-outage loss of A/C as indirect. Borderline case: a classifier could argue indirect because of behavioral/chronic-disease contribution.",
+   "ambiguity": "Heat from weather = direct (Box 3); heat from utility loss = indirect (Irma practice).",
+   "guide_comment": "Lack of air conditioning is a contributor for many heat-associated deaths, and medical history can be used to identify vulnerable populations for outreach."
+  },
+  {
+   "id": "vsrg01_scenario_VII",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 12",
+   "disaster_type": "human-induced (radiological dispersal device / dirty bomb)",
+   "narrative": "A 65-year-old male in his home was within 1 mile of a radiological dispersal device (RDD) (i.e., dirty bomb) detonated in a major metropolitan area. The incident was confirmed by the local emergency manager and FBI. The decedent's home was completely destroyed, and he died immediately from massive head and multiple traumatic injuries.",
+   "expected_label": "direct",
+   "cdc_category": "traumatic_injury",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Cerebral injury",
+     "Multiple trauma to head, torso, and extremities",
+     "Blast injury from explosion"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Intentional detonation of a radiological dispersal device by another person",
+    "place_of_injury": "Decedent's home",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Traumatic/blast injury from the event itself and structural collapse; direct definition. CDC does not stamp this scenario 'direct' or 'indirect'; label inferred from the guide's Box 3 / Box 4 / flowchart.",
+   "note_cert": "Placement of 'Blast injury from explosion' (Part I line vs Part II) not recoverable from text.",
+   "guide_comment": "Inclusion of the RDD makes it easier for officials to flag the record as being related to the disaster."
+  },
+  {
+   "id": "vsrg01_scenario_VIII",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 13",
+   "disaster_type": "human-induced (chemical: train derailment, chlorine tanker)",
+   "narrative": "A 42-year-old man died after a train derailed and a tanker car of chlorine ruptured 500 yards uphill from his house, according to EMS and police records. He suffered asphyxiation after airway compromise and pulmonary edema secondary to chlorine gas inhalation.",
+   "expected_label": "direct",
+   "cdc_category": "radiation_chemical_poisoning",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Asphyxia",
+     "Pulmonary edema",
+     "Chlorine inhalation"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Downwind from chlorine spill from Greenville tanker railroad derailment",
+    "place_of_injury": "Decedent's home",
+    "injury_at_work": null,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Chemical exposure from a human-induced disaster: direct definition ('chemical spill'). Box 4 note: chemical release is 'directly related if the exposure was due to a human-induced disaster'. Contrast Scenario IX."
+  },
+  {
+   "id": "vsrg01_scenario_IX",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 13",
+   "disaster_type": "earthquake (Northridge, California) with secondary chemical release",
+   "narrative": "A 33-year-old asthmatic worker at a water treatment facility developed respiratory distress and died at a hospital after being exposed to chlorine when a pipe leading from a chlorine tank cracked during the Northridge, California, earthquake, according to the medical record. Emergency management reports confirm that the chemical release was secondary to the earthquake.",
+   "expected_label": "indirect",
+   "cdc_category": "exposure_industrial_chemical_hazards",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Acute respiratory failure",
+     "Chlorine inhalation"
+    ],
+    "part2": "Asthma",
+    "manner": null,
+    "how_injury_occurred": "Pipe connecting to tank of chlorine cracked during Northridge, California, earthquake and released chlorine gas into facility where he was working",
+    "place_of_injury": "At work in a water treatment facility",
+    "injury_at_work": true,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Box 4: 'Exposure to industrial or chemical hazards ... [Note: This could be directly related if the exposure was due to a human-induced disaster]'. Here the hazard is a natural disaster (earthquake) with a secondary industrial release, plus asthma as contributing chronic condition; contrast Scenario VIII. Injury at work: yes. Deck slide 37 says disaster-related 'Yes' (chemical name + disaster in cause-of-death section).",
+   "ambiguity": "A reasonable alternative reading is direct ('chemical spill' as direct consequence of earthquake forces).",
+   "also_in": [
+    "cdc_training_deck slide 37-38 (Scenario B; certificate puts 'Asthma, Northridge, California earthquake' in Part II)"
+   ]
+  },
+  {
+   "id": "vsrg01_scenario_X",
+   "source": "vsrg01_reference_guide",
+   "source_url": "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf",
+   "page": "p. 13",
+   "disaster_type": "human-induced (bombing, Hawaii Ironman IED)",
+   "narrative": "A 41-year-old firefighter responded to 911 call at the starting line of the Hawaii Ironman racing event, where an improvised explosive device went off. After she arrived, a second device was detonated, and the firefighter sustained fatal abdominal trauma. The incident was confirmed by the local emergency manager and local FBI. She died immediately at the scene of abdominal hemorrhage from her wounds.",
+   "expected_label": "direct",
+   "cdc_category": "penetrating_injury",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Abdominal hemorrhage and perforation",
+     "Penetrating ballistic debris from exploded improvised explosive device"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Firefighter responding to discovery of improvised explosive device was struck by explosion of secondary device near starting line of the Hawaii Ironman Race",
+    "place_of_injury": "Outdoor sporting event",
+    "injury_at_work": true,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Blast/penetrating injury from the event; direct. Responder death: the guide says document that the injury occurred at work ('Injury at work: Yes'). CDC does not stamp this scenario 'direct' or 'indirect'; label inferred from the guide's Box 3 / Box 4 / flowchart.",
+   "also_in": [
+    "cdc_training_deck slide 53-54 (Scenario IV; certificate adds 'Terrorism')"
+   ]
+  },
+  {
+   "id": "deck_scenario_A_oso",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slides 35-36",
+   "disaster_type": "landslide (Oso, Washington, March 2014)",
+   "narrative": "A landslide occurred near a local construction site where a road was being built 4 miles outside of Oso, Washington. The Fire and Rescue team found the body of a 29-year-old male buried under five meters of earth. The decedent was confirmed to be one of the construction workers.",
+   "expected_label": "direct",
+   "cdc_category": "crushing",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Hemothorax and hemoperitoneum",
+     "Crushed chest and abdomen",
+     "Oso, Washington landslide"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": "Construction worker found buried under 5 meters of earth after March 2014 Oso landslide in Washington",
+    "place_of_injury": "Construction Site",
+    "injury_at_work": true,
+    "transport_role": null,
+    "note": "Part I line order (a,b,c) follows extracted text order; Manner-of-death checkbox is a graphic in the PDF and is not recoverable from extracted text; left null."
+   },
+   "notes": "Deck answers 'Is this death disaster-related? Yes'; direct/indirect not stated but crush/burial is a direct consequence of the landslide forces. Worker death: injury at work. Disaster type and name in Part I; type, name and circumstance in Describe-how box."
+  },
+  {
+   "id": "deck_slide19_state1_lung_cancer",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 19",
+   "disaster_type": "hurricane",
+   "narrative": "An 86-year-old man with lung cancer in State #1. Loss of electricity due to the hurricane. Unable to use supplemental home oxygen. Put on partially functioning ventilator in a hospital. Cause of death: Lung cancer. No mention of relation of death to hurricane.",
+   "expected_label": "indirect",
+   "cdc_category": "loss_disruption_healthcare_access",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Lung cancer"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": null,
+    "note": "As-filed certificate: no mention of hurricane."
+   },
+   "notes": "Slide shows 'Discrepancies Among Different States: Designation of Deaths as being Related to a Disaster'. The two cases are near-identical; the lesson is that State #1 did not document the hurricane although the facts (power loss, oxygen loss) support an indirect relation. The slide does not print the word 'indirect'. The certificate as filed would NOT be flagged disaster-related; the ground-truth relatedness per CDC logic is indirect.",
+   "secondary_categories": [
+    "loss_disruption_public_utilities",
+    "acute_exacerbation_chronic_condition"
+   ],
+   "as_filed_disaster_flagged": false
+  },
+  {
+   "id": "deck_slide19_state2_emphysema",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 19",
+   "disaster_type": "hurricane",
+   "narrative": "A 67-year-old woman with emphysema in State #2. Loss of electricity due to hurricane. Unable to use supplemental home oxygen. Cause of death: Complications of emphysema. Relation of death to hurricane documented.",
+   "expected_label": "indirect",
+   "cdc_category": "loss_disruption_healthcare_access",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Complications of emphysema"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": null,
+    "note": "Relation to hurricane documented (exact wording not shown on slide)."
+   },
+   "notes": "Contrast case to State #1; relation documented on certificate. Slide does not print 'indirect' but power loss + loss of oxygen matches Box 4 and the guide's natural-death rule.",
+   "secondary_categories": [
+    "loss_disruption_public_utilities",
+    "acute_exacerbation_chronic_condition"
+   ],
+   "as_filed_disaster_flagged": true
+  },
+  {
+   "id": "deck_slide24_shelter_heart_attack",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 24",
+   "disaster_type": "hurricane",
+   "narrative": "An elderly person who has a heart attack after evacuating to a shelter during a hurricane",
+   "expected_label": "indirect",
+   "cdc_category": "temporary_sheltering_displacement",
+   "label_confidence": "stated",
+   "certificate": null,
+   "notes": "Slide title: 'Examples of Indirectly-related Disaster Deaths'.",
+   "secondary_categories": [
+    "evacuation",
+    "acute_exacerbation_chronic_condition"
+   ]
+  },
+  {
+   "id": "deck_slide24_evacuation_crash",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 24",
+   "disaster_type": "storm",
+   "narrative": "A death resulting from a car crash that occurred while evacuating a storm",
+   "expected_label": "indirect",
+   "cdc_category": "evacuation",
+   "label_confidence": "stated",
+   "certificate": null,
+   "notes": "Slide title: 'Examples of Indirectly-related Disaster Deaths'."
+  },
+  {
+   "id": "deck_slide24_dialysis",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 24",
+   "disaster_type": "hurricane",
+   "narrative": "A person who dies after not receiving dialysis for several days because of power outages after a hurricane",
+   "expected_label": "indirect",
+   "cdc_category": "loss_disruption_healthcare_access",
+   "label_confidence": "stated",
+   "certificate": null,
+   "notes": "Slide title: 'Examples of Indirectly-related Disaster Deaths'.",
+   "secondary_categories": [
+    "loss_disruption_public_utilities"
+   ]
+  },
+  {
+   "id": "deck_slide31_maria_dialysis",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 31",
+   "disaster_type": "hurricane (Hurricane Maria)",
+   "narrative": "Natural death example for Part II: Chronic kidney failure; Type II Diabetes; Unable to receive dialysis for 6 days due to Hurricane Maria related power outage at local treatment center.",
+   "expected_label": "indirect",
+   "cdc_category": "loss_disruption_public_utilities",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": null,
+    "part2": "Unable to receive dialysis for 6 days due to Hurricane Maria related power outage at local treatment center.",
+    "raw_lines": [
+     "Chronic kidney failure",
+     "Type II Diabetes",
+     "Unable to receive dialysis for 6 days due to Hurricane Maria related power outage at local treatment center."
+    ],
+    "manner": null,
+    "how_injury_occurred": null,
+    "note": "Slide graphic; which line sits in Part I vs Part II is not recoverable from text; slide title indicates the disaster circumstance is entered in Part II."
+   },
+   "notes": "Slide title 'Filling out Part II - Natural Death Example 1'. Label inferred (natural death, indirect via utility loss disrupting dialysis).",
+   "secondary_categories": [
+    "loss_disruption_healthcare_access",
+    "acute_exacerbation_chronic_condition"
+   ]
+  },
+  {
+   "id": "deck_slide32_matthew_ems",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 32",
+   "disaster_type": "hurricane (Hurricane Matthew)",
+   "narrative": "Natural death example for Part II: Myocardial Infarction; Atherosclerosis; EMS unable to respond to 911 call due to flooded roads after Hurricane Matthew.",
+   "expected_label": "indirect",
+   "cdc_category": "loss_disruption_transportation",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": null,
+    "part2": "EMS unable to respond to 911 call due to flooded roads after Hurricane Matthew",
+    "raw_lines": [
+     "Myocardial Infarction",
+     "Atherosclerosis",
+     "EMS unable to respond to 911 call due to flooded roads after Hurricane Matthew"
+    ],
+    "manner": null,
+    "how_injury_occurred": null,
+    "note": "Line placement not recoverable from text."
+   },
+   "notes": "Slide title 'Filling out Part II - Natural Death Example 2'. Label inferred (loss/disruption of transportation/emergency services).",
+   "secondary_categories": [
+    "loss_disruption_emergency_services",
+    "acute_exacerbation_chronic_condition"
+   ]
+  },
+  {
+   "id": "deck_slide28_woolsey_wildfire",
+   "source": "cdc_training_deck",
+   "source_url": "https://www.cdc.gov/disaster-epidemiology-and-response/media/pdfs/Disaster-Related-Death-Certification-Training-508.pdf",
+   "page": "slide 28",
+   "disaster_type": "wildfire (Woolsey Wildfire)",
+   "narrative": "Part I example without narrative: Asthma / Smoke inhalation from Woolsey Wildfire / Asphyxia.",
+   "expected_label": "direct",
+   "cdc_category": "fire_smoke_inhalation",
+   "label_confidence": "implied",
+   "certificate": {
+    "part1": [
+     "Asphyxia",
+     "Smoke inhalation from Woolsey Wildfire",
+     "Asthma"
+    ],
+    "part2": null,
+    "manner": null,
+    "how_injury_occurred": null,
+    "note": "Slide text order was Asthma, Smoke inhalation..., Asphyxia; lines a-c order inferred from standard Part I logic (immediate cause first)."
+   },
+   "notes": "Certificate fragment only (slide 'Filling out Part I'); no narrative given. Smoke inhalation from a wildfire is a Box 3 direct cause with asthma as underlying chronic condition; the guide also cites 'asthma-related deaths associated with wildfires' as a chronic-condition example, so this one is borderline (could be indirect exacerbation). Include only if you accept certificate-only items.",
+   "ambiguity": "Direct (smoke inhalation) vs indirect (asthma exacerbation).",
+   "narrative_is_synthetic": true
+  }
+ ]
+}

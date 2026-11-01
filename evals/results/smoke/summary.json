@@ -1,0 +1,256 @@
+{
+  "generated": "2026-10-31T11:22:47",
+  "sets": {
+    "cdc_gold": {
+      "n": 4,
+      "labels": {
+        "direct": 2,
+        "indirect": 2
+      },
+      "systems": {
+        "direct_only": {
+          "n": 4,
+          "accuracy": 0.5,
+          "counted_deaths": 2,
+          "official_related": 4,
+          "recall_related": 0.5,
+          "false_attributions": 0,
+          "precision_when_committed": 1.0,
+          "abstained": 0,
+          "confusion": {
+            "direct": {
+              "direct": 2
+            },
+            "indirect": {
+              "not_related": 2
+            }
+          }
+        },
+        "keywords": {
+          "n": 4,
+          "accuracy": 0.75,
+          "counted_deaths": 4,
+          "official_related": 4,
+          "recall_related": 1.0,
+          "false_attributions": 0,
+          "precision_when_committed": 0.75,
+          "abstained": 0,
+          "confusion": {
+            "direct": {
+              "direct": 1,
+              "indirect": 1
+            },
+            "indirect": {
+              "indirect": 2
+            }
+          }
+        },
+        "single_llm": {
+          "n": 4,
+          "accuracy": 1.0,
+          "counted_deaths": 4,
+          "official_related": 4,
+          "recall_related": 1.0,
+          "false_attributions": 0,
+          "precision_when_committed": 1.0,
+          "abstained": 0,
+          "confusion": {
+            "direct": {
+              "direct": 2
+            },
+            "indirect": {
+              "indirect": 2
+            }
+          }
+        },
+        "rules_only": {
+          "n": 4,
+          "accuracy": 0.75,
+          "counted_deaths": 3,
+          "official_related": 4,
+          "recall_related": 0.75,
+          "false_attributions": 0,
+          "precision_when_committed": 1.0,
+          "abstained": 1,
+          "confusion": {
+            "direct": {
+              "direct": 1,
+              "possible": 1
+            },
+            "indirect": {
+              "indirect": 2
+            }
+          }
+        },
+        "counted": {
+          "n": 4,
+          "accuracy": 1.0,
+          "counted_deaths": 4,
+          "official_related": 4,
+          "recall_related": 1.0,
+          "false_attributions": 0,
+          "precision_when_committed": 1.0,
+          "abstained": 0,
+          "confusion": {
+            "direct": {
+              "direct": 2
+            },
+            "indirect": {
+              "indirect": 2
+            }
+          }
+        }
+      },
+      "ceiling": 1.0,
+      "panel": {
+        "unanimous_rate": 0.75,
+        "adjudicated": 1,
+        "median_seconds": 9.0,
+        "with_fema_declaration": 0
+      },
+      "errors": 0
+    },
+    "negatives": {
+      "n": 2,
+      "labels": {
+        "not_related": 2
+      },
+      "systems": {
+        "direct_only": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        },
+        "keywords": {
+          "n": 2,
+          "accuracy": 0.5,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 1,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "indirect": 1,
+              "not_related": 1
+            }
+          }
+        },
+        "single_llm": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        },
+        "rules_only": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        }
+      },
+      "ceiling": 1.0,
+      "errors": 2
+    },
+    "pressure": {
+      "n": 2,
+      "labels": {
+        "not_related": 2
+      },
+      "systems": {
+        "direct_only": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        },
+        "keywords": {
+          "n": 2,
+          "accuracy": 0.5,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 1,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "indirect": 1,
+              "not_related": 1
+            }
+          }
+        },
+        "single_llm": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        },
+        "rules_only": {
+          "n": 2,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 2
+            }
+          }
+        }
+      },
+      "ceiling": 1.0,
+      "errors": 2
+    }
+  }
+}
