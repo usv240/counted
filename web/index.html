@@ -192,7 +192,8 @@
           <button role="tab" aria-selected="false" data-doc="surveillance_record">Surveillance record</button>
         </div>
         <div class="doc" id="doc" tabindex="0"><p>Documents appear after a determination.</p></div>
-        <div class="row" style="margin-top:10px"><button class="btn ghost" id="dl" type="button" disabled>Download this document</button></div>
+        <div class="row" style="margin-top:10px"><button class="btn ghost" id="dl" type="button" disabled>Download this document</button><button class="btn ghost" id="listen" type="button" disabled>Listen to the family packet</button><button class="i" type="button" data-tip="<b>Read aloud, in the family’s language</b>Amazon Polly reads the family packet in English or Spanish, for relatives who would rather listen than read official paperwork. Nothing is stored."><svg><use href="#i"/></svg></button></div>
+        <audio id="player" controls hidden></audio>
       </div>
     </div>
   </div>

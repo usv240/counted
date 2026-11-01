@@ -24,12 +24,12 @@ from urllib.parse import urlparse
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from mcp.server.transport_security import TransportSecuritySettings
 from pydantic import BaseModel, Field
 
-from .. import __version__, budget
+from .. import __version__, budget, speech
 from ..agents.interviewer import CaseSession, build_interviewer
 from ..pipeline import assess
 from ..tools.facts import disaster_context, geocode
@@ -84,12 +84,13 @@ app.mount("/mcp", mcp_app)
 
 # ------------------------------------------------------------------ helpers
 
-_hits: dict[str, deque] = defaultdict(deque)
+_hits: dict[tuple[str, str], deque] = defaultdict(deque)
 
 
-def rate_limit(request: Request, per_hour: int = 30) -> None:
+def rate_limit(request: Request, per_hour: int = 30, bucket: str = "assess") -> None:
+    """Per visitor and per endpoint, so an hour of interview turns doesn't use up the visitor's assessments."""
     ip = request.client.host if request.client else "?"
-    q, now = _hits[ip], time.time()
+    q, now = _hits[(ip, bucket)], time.time()
     while q and now - q[0] > 3600:
         q.popleft()
     if len(q) >= per_hour:
@@ -123,6 +124,11 @@ class TurnRequest(BaseModel):
     consent: bool | None = Field(default=None, description="Family consent for Counted to prepare a determination.")
 
 
+class SpeakRequest(BaseModel):
+    text: str = Field(max_length=6000, description="The family packet as returned by /v1/assess (markdown is fine).")
+    language: str = Field(default="en", description="en | es: the voice to read it in")
+
+
 class InterviewStart(BaseModel):
     language: str = "en"
     role: str = "family"
@@ -132,7 +138,7 @@ class InterviewStart(BaseModel):
 
 @app.post("/v1/keys", tags=["Access"], summary="Get an API key (shown once)")
 def create_key(body: KeyRequest, request: Request, x_admin_token: str | None = Header(default=None)):
-    rate_limit(request, per_hour=10)
+    rate_limit(request, per_hour=10, bucket="keys")
     if body.role == "certifier" and (not ADMIN_TOKEN or x_admin_token != ADMIN_TOKEN):
         raise HTTPException(403, "Certifier keys are issued only to verified medical examiners and coroners.")
     try:
@@ -152,9 +158,22 @@ def demo_assess(body: AssessRequest, request: Request):
     return assess(body.account, language=body.language)
 
 
+@app.post("/v1/speak", tags=["Assessment"], summary="Read a family packet aloud (Amazon Polly, MP3)",
+          response_class=Response, responses={200: {"content": {"audio/mpeg": {}}}})
+def speak(body: SpeakRequest, request: Request):
+    rate_limit(request, per_hour=20, bucket="speak")
+    if body.language not in speech.VOICES:
+        raise HTTPException(400, "language must be en or es")
+    if not speech.speakable(body.text, body.language).strip():
+        raise HTTPException(400, "Nothing to read.")
+    budget.spend(pool="speech")
+    return Response(speech.synthesize(body.text, body.language), media_type="audio/mpeg",
+                    headers={"Cache-Control": "no-store"})
+
+
 @app.get("/v1/records", tags=["Public records"], summary="FEMA declaration + NWS warnings for a place and date")
 def records(address: str, date_of_death: date, request: Request):
-    rate_limit(request, per_hour=120)
+    rate_limit(request, per_hour=120, bucket="records")
     place = geocode(address) or {}
     ctx = disaster_context(place.get("state"), place.get("county"), date_of_death, place.get("lat"), place.get("lon"))
     return {"place": place, **ctx.model_dump(mode="json")}
@@ -179,7 +198,7 @@ def _snapshot(s: CaseSession) -> dict:
 
 @app.post("/v1/interviews", tags=["Interview"], summary="Start an interview session")
 def start_interview(body: InterviewStart, request: Request):
-    rate_limit(request)
+    rate_limit(request, bucket="interview-start")
     s = CaseSession(role="family" if body.role not in ("caseworker",) else body.role)
     s.facts.language = body.language
     with _sessions_lock:
@@ -196,7 +215,7 @@ def start_interview(body: InterviewStart, request: Request):
 
 @app.post("/v1/interviews/{sid}/turn", tags=["Interview"], summary="Send the next message")
 def interview_turn(sid: str, body: TurnRequest, request: Request):
-    rate_limit(request, per_hour=200)
+    rate_limit(request, per_hour=200, bucket="interview")
     budget.spend()
     entry = _sessions.get(sid)
     if not entry:

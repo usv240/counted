@@ -15,7 +15,7 @@ import os
 
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 
-from .agents.interviewer import CaseSession, build_interviewer
+from .agents.interviewer import CaseSession, build_interviewer, rebuild_case
 from .pipeline import assess
 
 app = BedrockAgentCoreApp()
@@ -40,8 +40,11 @@ def invoke(payload: dict, context=None) -> dict:
         return assess(payload["account"], language=payload.get("language", "en"))
 
     sid = payload.get("session_id") or getattr(context, "session_id", None) or "default"
-    case = _cases.setdefault(sid, CaseSession(id=sid))
-    agent = build_interviewer(session_manager=_session_manager(sid))
+    agent = build_interviewer(session_manager=_session_manager(sid))  # restores the conversation from Memory
+    case = _cases.get(sid)
+    if case is None:  # a new process, or a family coming back days later: rebuild the case file from the history
+        case = _cases[sid] = rebuild_case(CaseSession(id=sid), agent.messages)
+    case.facts.language = payload.get("language", case.facts.language)
     result = agent(payload.get("message", ""), invocation_state={"session": case, "role": case.role, "consent": payload.get("consent")})
     return {
         "session_id": sid,

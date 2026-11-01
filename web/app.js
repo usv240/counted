@@ -106,7 +106,7 @@
   }
 
   /* ------------------------------------------------------------ case file rendering */
-  let current = null, docKey = "certifier_statement";
+  let current = null, docKey = "certifier_statement", caseLang = "en", audioUrl = null, speaking = false;
 
   function renderFacts(facts) {
     const ev = facts?.evidence || [];
@@ -132,7 +132,7 @@
     const seats = [["CDC decision tree", p.rules], ["Claude examiner", p.examiner], ["Amazon Nova examiner", p.second_examiner], ["Adjudicator", p.adjudicator]];
     $("#seats").innerHTML = seats.map(([who, v], i) => v
       ? `<div class="seat"><span class="who">${who}</span><span class="lab">${LABEL[v.label] || v.label}</span><span class="conf">${v.mechanism ? esc(pretty(v.mechanism)) + " · " : ""}${Math.round((v.confidence || 0) * 100)}%</span></div>`
-      : `<div class="seat skip"><span class="who">${who}</span><span class="lab">${i === 3 ? (p.unanimous ? "Not needed: the panel agreed" : "Unavailable") : "Unavailable"}</span></div>`).join("");
+      : `<div class="seat idle"><span class="who">${who}</span><span class="lab">${i === 3 ? (p.unanimous ? "Not needed: the panel agreed" : "Unavailable") : "Unavailable"}</span></div>`).join("");
     $("#s-panel").classList.add("done");
     const f = p.final;
     const v = $("#verdict");
@@ -145,12 +145,14 @@
   function renderDocs(docs) {
     current = docs;
     $("#dl").disabled = !docs;
+    if (!speaking) { $("#listen").disabled = !docs?.family_packet; $("#listen").textContent = listenLabel(); }
     if (!docs) return;
     const d = docs[docKey];
     $("#doc").innerHTML = typeof d === "string" ? md(d) : `<pre>${esc(JSON.stringify(d, null, 2))}</pre>`;
     $("#s-docs").classList.add("done");
   }
   function renderAll(r) {
+    caseLang = r.facts?.language === "es" ? "es" : "en"; resetListen();
     const steps = [() => renderFacts(r.facts), () => renderRecords(r.context, r.facts), () => renderPanel(r.panel), () => renderDocs(r.documents)];
     const ids = ["#s-facts", "#s-records", "#s-panel", "#s-verdict"];
     steps.forEach((fn, i) => setTimeout(() => { fn(); const el = $(ids[i]); el.classList.remove("reveal"); void el.offsetWidth; el.classList.add("reveal"); }, i * 220));
@@ -170,6 +172,7 @@
     $("#verdict").className = "verdict possible";
     $("#verdict").innerHTML = '<div class="big">Working</div><p class="chain">The panel decides once the facts and records are in.</p>';
     current = null; $("#doc").innerHTML = "<p>Documents appear after a determination.</p>"; $("#dl").disabled = true;
+    resetListen();
   }
   $$("#doc-tabs button").forEach((b) => b.addEventListener("click", () => {
     $$("#doc-tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b)));
@@ -181,6 +184,31 @@
     const blob = new Blob([json ? JSON.stringify(d, null, 2) : d], { type: json ? "application/json" : "text/markdown" });
     const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: `counted-${docKey}.${json ? "json" : "md"}` });
     a.click(); URL.revokeObjectURL(a.href);
+  });
+
+  /* Read the family packet aloud (Amazon Polly), in the case's language. */
+  const listenLabel = () => caseLang === "es" ? "Listen to the family packet, in Spanish" : "Listen to the family packet";
+  function resetListen() {
+    $("#listen").disabled = true;
+    $("#listen").textContent = listenLabel();
+    $("#player").pause(); $("#player").removeAttribute("src"); $("#player").hidden = true;
+    if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
+  }
+  $("#listen").addEventListener("click", async () => {
+    if (!current?.family_packet) return;
+    $('#doc-tabs [data-doc="family_packet"]').click();
+    const b = $("#listen");
+    speaking = true; b.disabled = true; b.textContent = "Preparing the audio…";
+    try {
+      const r = await fetch(`${API}/v1/speak`, { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ text: current.family_packet, language: caseLang }) });
+      if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || `HTTP ${r.status}`);
+      if (audioUrl) URL.revokeObjectURL(audioUrl);
+      audioUrl = URL.createObjectURL(await r.blob());
+      const p = $("#player"); p.src = audioUrl; p.hidden = false; p.play().catch(() => {});
+      b.textContent = listenLabel();
+    } catch (err) { b.textContent = `Couldn’t read it aloud: ${err.message}`; }
+    finally { speaking = false; b.disabled = !current?.family_packet; }
   });
 
   /* ------------------------------------------------------------ read mode */
@@ -255,6 +283,7 @@
   }
   function applySnapshot(c) {
     if (!c) return;
+    caseLang = c.facts?.language === "es" ? "es" : "en";
     renderFacts(c.facts);
     if (c.context) renderRecords(c.context, c.facts);
     if (c.panel) { renderPanel(c.panel); renderDocs(c.documents); }

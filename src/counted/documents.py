@@ -128,7 +128,7 @@ def family_packet(facts: CaseFacts, ctx: DisasterContext, panel: PanelResult) ->
         lines += ["", f"## {t['appeal_h']}", "", "> " + t["appeal"].format(
             name="__________", dod=facts.date_of_death or "____", county=county, label=v.label.value,
             label_es="directamente" if v.label == Label.DIRECT else "indirectamente",
-            disaster=_disaster(facts, ctx), chain=v.causal_chain,
+            disaster=_disaster(facts, ctx), chain=v.causal_chain.strip().rstrip("."),
         )]
     lines += ["", f"_{t['note']}_"]
     return "\n".join(lines)

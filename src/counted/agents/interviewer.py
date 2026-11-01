@@ -12,6 +12,7 @@ import uuid
 from dataclasses import dataclass, field
 from datetime import date
 from difflib import SequenceMatcher
+from types import SimpleNamespace
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -38,7 +39,8 @@ death so a medical examiner can decide whether the disaster caused it directly o
 
 How you speak:
 - Begin with condolence. Ask ONE short question at a time. Use plain words, no jargon.
-- Reply in the language the person writes in (English or Spanish).
+- Reply in the language the person writes in (English or Spanish). In Spanish, always use "usted", never "tú":
+  many of the people you talk to are older and grieving, and the formal register is the respectful one.
 - Never blame the family. Never promise money or outcomes. Never say anything is official.
 - If the person is distressed, slow down; offer to pause. They can come back later.
 
@@ -242,6 +244,27 @@ def sign_certifier_statement(case_id: str) -> str:
 
 INTERVIEW_TOOLS = [record_details, record_circumstance, record_concern, check_disaster_context,
                    request_determination, sign_certifier_statement]
+
+_REPLAYABLE = {t.tool_name: t for t in (record_details, record_circumstance, record_concern, check_disaster_context)}
+
+
+def rebuild_case(session: CaseSession, messages: list) -> CaseSession:
+    """Rebuild the case file from a restored conversation.
+
+    AgentCore Memory brings the conversation back when a family resumes days later, possibly in a new process, but
+    the case file lived in the old process. Every recorded fact went through a tool call that is still in the history,
+    so replaying the calls that succeeded rebuilds it, without asking the model anything. Calls a guard blocked
+    (a quote the family never said, a Cedar denial) failed, so they are not replayed.
+    """
+    succeeded = {b["toolResult"]["toolUseId"] for m in messages for b in m.get("content", [])
+                 if "toolResult" in b and b["toolResult"].get("status") == "success"}
+    ctx = SimpleNamespace(invocation_state={"session": session})
+    for m in messages:
+        for b in m.get("content", []):
+            use = b.get("toolUse")
+            if use and use["name"] in _REPLAYABLE and use["toolUseId"] in succeeded:
+                _REPLAYABLE[use["name"]](ctx, **(use.get("input") or {}))
+    return session
 
 
 # ------------------------------------------------------------------ grounding guard
