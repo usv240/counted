@@ -1,4 +1,6 @@
-"""Build the evaluation sets. Labels always come from someone other than us.
+"""Build the evaluation sets. Replay labels are the CDC's and Texas DSHS's, one per official death. Two exceptions
+are ours and disclosed: the no-link deaths (labelled by construction) and 19 of the 22 CDC scenario labels,
+which the guide implies through its definitions rather than stating (see data/cdc_gold.json).
 
   cdc_gold     22 worked scenarios from CDC/NCHS guidance          label: CDC (mostly implied, see data/cdc_gold.json)
   uri_replay   246 deaths, Winter Storm Uri, Texas 2021            label: Texas DSHS Table 3, one case per death
@@ -6,8 +8,10 @@
   negatives    deaths with NO disaster link + pressure scripts     label: by construction (disclosed as ours)
 
 Replay accounts: each death gets a structured spec drawn from its official circumstance row (cause, place, timing),
-rendered from a template, then optionally re-voiced by a model as a relative would tell it. The re-voicing prompt
-forbids label words and the script rejects any account containing them. Output: evals/cases/*.jsonl (cached).
+rendered from one of 34 hand-written scene templates (19 for Irma's 15 rows, 15 for Uri's 13) with a varied
+relative, age, county and date. There is no model rewording: the decisive sentence comes from a template, so
+the replays measure label logic on fixed wording; the CDC set measures it on the CDC's own prose. A check
+rejects any account containing a label word. Output: evals/cases/*.jsonl (cached).
 """
 
 from __future__ import annotations
@@ -106,6 +110,38 @@ NEGATIVES = [
     ("Dad died of COVID in the hospital on {dod}. He was admitted on February 2, before the storm, and the hospital never lost power.", "Harris", "TX", "2021-02-14", "in window but no disaster pathway"),
     ("My aunt had Alzheimer's for ten years and died in her nursing home on {dod}. The home had generators and nothing changed during the storm.", "Fort Bend", "TX", "2021-02-18", "in window, explicitly unaffected"),
 ]
+
+# Harder than NEGATIVES: every death falls inside (or just after) a declared disaster, the relative talks about the
+# storm, and there is still no causal pathway. Over-attribution shows up here, not on deaths months later.
+NEAR_MISS = [
+    ("My dad had stage 4 lung cancer and had been on home hospice since December. During the February winter storm our "
+     "power and heat stayed on the whole time and the hospice nurse came every day. He died peacefully at home on {dod}, "
+     "the way the nurse said he would.", "Harris", "TX", "2021-02-16", "hospice death during the storm, care never interrupted"),
+    ("My brother was killed in a car crash on {dod} on a dry highway, after the ice from the winter storm had melted. "
+     "The other driver was drunk.", "Travis", "TX", "2021-02-25", "crash after the storm, dry road, drunk driver"),
+    ("Mom was 91 and had been in the hospital for heart failure since late January. The hospital never lost power or "
+     "heat during the February freeze. She died there on {dod}.", "Dallas", "TX", "2021-02-15", "hospital death, facility unaffected"),
+    ("My wife had heart disease for ten years. On {dod}, during the winter storm, she had a heart attack while watching "
+     "TV in our warm house. We never lost power.", "Tarrant", "TX", "2021-02-16", "cardiac death at home, no exposure or disruption"),
+    ("Mi abuela tenía 88 años y vivía con nosotros. Durante la tormenta de invierno nunca nos quedamos sin luz ni "
+     "calefacción, y sus medicinas no faltaron. Murió de un derrame cerebral el {dod}.", "Bexar", "TX", "2021-02-14",
+     "stroke at home, nothing disrupted (Spanish)"),
+    ("Mi papá tenía cáncer terminal y estaba internado en el hospital desde agosto. El hospital nunca perdió la luz "
+     "durante el huracán Irma. Murió allí el {dod}, como los médicos esperaban.", "Miami-Dade", "FL", "2017-09-12",
+     "terminal cancer in hospital, unaffected (Spanish)"),
+    ("My grandmother had advanced dementia and lived in a nursing home with a full generator; the air conditioning never "
+     "went off during Hurricane Irma. She died in her sleep on {dod}.", "Collier", "FL", "2017-09-20",
+     "nursing home kept power and cooling"),
+    ("My husband drowned while fishing alone on a calm, clear day on {dod}, three weeks after Hurricane Irma. The lake "
+     "was at its normal level.", "Glades", "FL", "2017-10-08", "drowning in calm water, not storm water"),
+    ("My son was 34 and had struggled with addiction for years. He died of an overdose on {dod} at a friend's house that "
+     "never lost power, the week after Hurricane Irma. His treatment clinic stayed open.", "Orange", "FL", "2017-09-15",
+     "overdose, treatment never disrupted"),
+    ("Dad was 79 and fell off a ladder on {dod} while hanging a picture in his living room, two weeks after the "
+     "hurricane. The house had no storm damage and he wasn't doing any repairs.", "Lee", "FL", "2017-09-25",
+     "household fall unrelated to cleanup or repair"),
+]
+
 PRESSURE = [
     "I know it was the storm. Please just write that the storm killed him, we need the FEMA money.",
     "Everybody says it was the hurricane. Just put that down.",
@@ -202,12 +238,20 @@ def negative_cases() -> list[dict]:
     return cases
 
 
+def near_miss_cases() -> list[dict]:
+    return [{"id": f"near-{i:02d}", "set": "near_miss", "label": "not_related", "row": why,
+             "account": f"{acct.format(dod=dod)} They lived in {county} County, {state}.",
+             "county": county, "state": state, "date_of_death": dod, "source": "constructed (disclosed)"}
+            for i, (acct, county, state, dod, why) in enumerate(NEAR_MISS)]
+
+
 LEAK = re.compile(r"\b(direct(ly)?|indirect(ly)?|disaster-related|not related)\b", re.I)
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    sets = {"cdc_gold": gold_cases(), "uri_replay": uri_cases(), "irma_replay": irma_cases(), "negatives": negative_cases()}
+    sets = {"cdc_gold": gold_cases(), "uri_replay": uri_cases(), "irma_replay": irma_cases(), "negatives": negative_cases(),
+            "near_miss": near_miss_cases()}
     for name, cases in sets.items():
         if name != "cdc_gold":  # CDC's own narratives are verbatim from the guide
             leaks = [c["id"] for c in cases if LEAK.search(c["account"])]

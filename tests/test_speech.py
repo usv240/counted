@@ -76,7 +76,18 @@ def test_speak_has_its_own_daily_cap(client, monkeypatch):
 
 def test_rate_limits_are_per_endpoint(client):
     from types import SimpleNamespace
-    req = SimpleNamespace(client=SimpleNamespace(host="1.2.3.4"))
+    req = SimpleNamespace(headers={}, client=SimpleNamespace(host="1.2.3.4"))
     for _ in range(30):
         api.rate_limit(req, per_hour=200, bucket="interview")
     api.rate_limit(req, per_hour=30, bucket="assess")  # interview turns don't use up assessments
+
+
+def test_a_spoofed_forwarded_header_does_not_reset_the_limit(client):
+    from fastapi import HTTPException
+    from types import SimpleNamespace
+    for i in range(3):  # the client invents a new address each time; the load balancer appends the real one last
+        api.rate_limit(SimpleNamespace(headers={"x-forwarded-for": f"10.0.0.{i}, 203.0.113.7"}, client=None),
+                       per_hour=3, bucket="t")
+    with pytest.raises(HTTPException):
+        api.rate_limit(SimpleNamespace(headers={"x-forwarded-for": "10.9.9.9, 203.0.113.7"}, client=None),
+                       per_hour=3, bucket="t")

@@ -12,9 +12,11 @@ SECOND_EXAMINER_MODEL = os.getenv("COUNTED_SECOND_EXAMINER_MODEL", "us.amazon.no
 ADJUDICATOR_MODEL = os.getenv("COUNTED_ADJUDICATOR_MODEL", "us.anthropic.claude-opus-4-6-v1")
 # Used by ModelRouter when a primary model is throttled or unavailable.
 FALLBACK_MODEL = os.getenv("COUNTED_FALLBACK_MODEL", "global.anthropic.claude-sonnet-4-5-20250929-v1:0")
+# The second examiner's backup stays outside the Claude family, so the panel keeps two model families.
+SECOND_EXAMINER_FALLBACK = os.getenv("COUNTED_SECOND_EXAMINER_FALLBACK", "us.amazon.nova-pro-v1:0")
 
 # Days after a disaster's official end during which an indirect causal chain is still credible
 # (e.g. a dialysis patient who missed sessions during the outage and died a week later).
 AFTERMATH_WINDOW_DAYS = int(os.getenv("COUNTED_AFTERMATH_DAYS", "30"))
 
-HTTP_USER_AGENT = "Counted/0.1 (disaster death attribution research; github.com/counted)"
+HTTP_USER_AGENT = "Counted/0.1 (disaster death attribution research; github.com/usv240/counted)"

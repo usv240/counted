@@ -1,0 +1,101 @@
+{
+  "generated": "2026-11-01T17:12:58",
+  "sets": {
+    "near_miss": {
+      "n": 10,
+      "labels": {
+        "not_related": 10
+      },
+      "systems": {
+        "direct_only": {
+          "n": 10,
+          "accuracy": 0.9,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 1,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 9,
+              "direct": 1
+            }
+          }
+        },
+        "keywords": {
+          "n": 10,
+          "accuracy": 0.4,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 6,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 4,
+              "indirect": 5,
+              "direct": 1
+            }
+          }
+        },
+        "single_llm": {
+          "n": 10,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 10
+            }
+          }
+        },
+        "rules_only": {
+          "n": 10,
+          "accuracy": 0.8,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 2,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 8,
+              "indirect": 1,
+              "direct": 1
+            }
+          }
+        },
+        "counted": {
+          "n": 10,
+          "accuracy": 1.0,
+          "counted_deaths": 0,
+          "official_related": 0,
+          "recall_related": null,
+          "false_attributions": 0,
+          "precision_when_committed": null,
+          "abstained": 0,
+          "confusion": {
+            "not_related": {
+              "not_related": 10
+            }
+          }
+        }
+      },
+      "ceiling": 1.0,
+      "panel": {
+        "unanimous_rate": 0.8,
+        "adjudicated": 2,
+        "median_seconds": 11.3,
+        "with_fema_declaration": 10
+      },
+      "errors": 0
+    }
+  }
+}

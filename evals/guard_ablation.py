@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 GUARDS = ["cedar-authorization", "redact-identifiers", "consent-before-decision", "no-certifying-language",
-          "quote-must-be-verbatim"]
+          "quote-must-be-verbatim", "outcome-in-code-words"]
 ROOT = Path(__file__).resolve().parents[1]
 
 

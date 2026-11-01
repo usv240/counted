@@ -127,7 +127,7 @@ def test_identifiers_never_reach_the_case_file():
 @pytest.mark.parametrize("reply, expect", [
     ("I hereby certify that the storm caused this death.", "cannot certify"),
     ("The official cause of death is the storm.", "official"),
-    ("You will receive FEMA funeral assistance.", "Never promise FEMA"),
+    ("You will receive FEMA funeral assistance.", "Never promise or predict FEMA"),
     ("You should have taken her to a shelter.", "Never assign blame"),
     ("The outage may have contributed to her death.", "may have been caused by"),
     ("El apagón podría haber contribuido a su muerte.", "may have been caused by"),
@@ -148,6 +148,34 @@ def test_a_model_that_insists_still_never_reaches_the_family(bad):
     reply = str(result).strip()
     assert not any(p.search(reply) for p, _ in _FORBIDDEN)
     assert reply in SAFE_REPLY.values()
+
+
+# ------------------------------------------------------------ announcing the outcome
+
+UNRELATED = {"tool": "record_concern", "input": {"unrelated_explanation": "had been in hospice for terminal cancer since July"}}
+
+
+def test_the_model_cannot_announce_the_outcome_in_its_own_words():
+    # Seen live: "The medical examiner has determined..." and "officially connected to the storm".
+    bad = "The medical examiner has determined your mother's death was officially caused by the storm. Send it to FEMA today."
+    s, m, result = run([DETAILS, OXYGEN, CHECK, DECIDE, bad, bad, bad], consent=True)
+    reply = str(result).strip()
+    assert s.panel is not None and reply
+    assert not any(p.search(reply) for p, _ in _FORBIDDEN), reply
+
+
+def test_the_outcome_is_told_in_vetted_words():  # control: what the family hears is the vetted message
+    s, m, result = run([DETAILS, OXYGEN, CHECK, DECIDE, "Here it is."], consent=True)
+    assert "draft, not a decision" in str(result) and "indirectly caused" in str(result)
+
+
+def test_the_model_cannot_contradict_the_panel():
+    # No banned phrase here, so only the vetted outcome stops it: the panel found no link.
+    lie = "Good news: the storm caused your father's death, and the paperwork is done."
+    s, m, result = run([DETAILS, UNRELATED, CHECK, DECIDE, lie], consent=True)
+    reply = str(result).strip()
+    assert s.panel.final.label.value == "not_related"
+    assert "did not find a link" in reply and "storm caused your father's death" not in reply
 
 
 # ------------------------------------------------------------ runaway loops

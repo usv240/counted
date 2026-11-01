@@ -17,7 +17,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 from strands import Agent, ToolContext, tool
-from strands.interventions import Guide, InterventionHandler, Proceed
+from strands.interventions import Guide, InterventionHandler, Proceed, Transform
 from strands.vended_plugins.steering import Guide as SteerGuide
 from strands.vended_plugins.steering import Proceed as SteerProceed
 from strands.vended_plugins.steering import SteeringHandler
@@ -26,6 +26,9 @@ from strands.models.routing import ModelRouter
 
 from ..config import FALLBACK_MODEL, INTERVIEW_MODEL, REGION
 from ..documents import build_documents
+from ..outcome import looks_spanish
+from ..vetting import vet_panel
+from ..outcome import message as outcome_message
 from ..policy.guards import all_guards
 from ..schemas import CaseFacts, DisasterContext, DisasterType, Evidence, Mechanism, PanelResult
 from ..tools.facts import disaster_context, geocode
@@ -37,12 +40,33 @@ around a disaster (hurricane, winter storm, heat wave, flood, wildfire, tornado)
 CDC-trained death investigator doing a "verbal autopsy": you learn what happened in the days before the
 death so a medical examiner can decide whether the disaster caused it directly or indirectly.
 
+What Counted is, and what it is not (say it plainly if asked):
+- Counted is software. request_determination runs Counted's review panel: the CDC decision rules plus two AI models.
+  It is not a medical examiner, not a doctor and not a person, and nothing it produces is official.
+- Never say a medical examiner, doctor or official has reviewed, decided or determined anything. A medical examiner
+  WILL review the draft, and only they can sign it.
+- FEMA funeral assistance is only for deaths a declared disaster caused, directly or indirectly. The family applies
+  after the statement is signed, and FEMA decides. Never tell them to send the draft to FEMA.
+- When the panel decides, Counted shows the family a prepared explanation of the result; you don't write one.
+- If what the family describes shows the disaster did not affect the person, don't steer them toward a link: don't ask
+  leading questions about the storm or say what would make a claim stronger. Record it with record_concern and, once
+  they have nothing to add, request a determination so the record is complete.
+
 How you speak:
 - Begin with condolence. Ask ONE short question at a time. Use plain words, no jargon.
 - Reply in the language the person writes in (English or Spanish). In Spanish, always use "usted", never "tú":
   many of the people you talk to are older and grieving, and the formal register is the respectful one.
 - Never blame the family. Never promise money or outcomes. Never say anything is official.
 - If the person is distressed, slow down; offer to pause. They can come back later.
+- If a relative blames themselves, say plainly that the disaster created the danger and that nothing they have
+  described is something they did wrong. Never weigh whether they made the right call, and never ask what they did
+  or whether they tried to get help; ask what happened to the person.
+- Never tell the family whether or how the disaster caused the death, and never use the words "direct" or
+  "indirect" about it. That is the panel's draft finding, and Counted tells them when it is ready.
+- If a relative asks you to say the disaster caused a death when what they describe shows it didn't, decline gently:
+  acknowledge how hard this is, explain that the statement has to match what happened because a medical examiner
+  reads it, and offer to record anything about those days they haven't mentioned. Never suggest they are lying or
+  after money, and never warn them about investigators.
 
 How you work (a real interview takes 6 to 10 exchanges, not 20):
 1. In your FIRST question after condolence, ask for the basics together in one plain sentence: who they are to
@@ -83,6 +107,7 @@ class CaseSession:
     panel: PanelResult | None = None
     documents: dict[str, Any] = field(default_factory=dict)
     events: list[dict] = field(default_factory=list)  # timeline shown live in the UI
+    announced: bool = False  # whether the family has been told the panel's finding
 
     def log(self, kind: str, **data: Any) -> None:
         self.events.append({"kind": kind, **data})
@@ -208,7 +233,8 @@ def check_disaster_context(tool_context: ToolContext) -> dict:
 
 @tool(context=True)
 def request_determination(tool_context: ToolContext, narrative: str) -> dict:
-    """Ask the examiner panel for a determination and prepare the documents. Only when the interview is complete.
+    """Run Counted's review panel (CDC rules plus two AI models; software, not a medical examiner) and prepare the
+    draft documents. Only when the interview is complete.
 
     Args:
         narrative: A short, faithful summary of what the person told you, in their words where possible.
@@ -218,7 +244,10 @@ def request_determination(tool_context: ToolContext, narrative: str) -> dict:
     s = _session(tool_context)
     s.facts.narrative = narrative
     s.facts.case_id = s.id
-    s.panel = run_panel(s.facts, s.context or DisasterContext())
+    if s.facts.language != "es" and looks_spanish(_user_text(tool_context.agent)):
+        s.facts.language = "es"  # the packet and the explanation follow the language the family writes in
+    s.panel = vet_panel(run_panel(s.facts, s.context or DisasterContext()), s.facts, s.context or DisasterContext(),
+                        _user_text(tool_context.agent))
     s.documents = build_documents(s.facts, s.context or DisasterContext(), s.panel)
     v = s.panel.final
     s.log("determination", **s.panel.model_dump(mode="json"))
@@ -315,6 +344,43 @@ class QuoteMustBeVerbatim(InterventionHandler):
         ))
 
 
+class OutcomeInCodeWords(InterventionHandler):
+    """When the panel has decided, the family is told in vetted words, not the model's. The first live red team
+    caught the model announcing results as "the medical examiner has determined" and "officially connected"."""
+
+    name = "outcome-in-code-words"
+
+    def after_model_call(self, event, **kwargs):
+        s = (event.invocation_state or {}).get("session")
+        resp = event.stop_response
+        if s is None or s.panel is None or s.announced or resp is None:
+            return Proceed()
+        if any("toolUse" in b for b in resp.message.get("content", [])):
+            return Proceed()  # not the turn's last words yet
+        text = outcome_message(s.facts, s.context, s.panel)
+
+        def apply(e):
+            e.stop_response.message["content"] = [{"text": text}]
+            s.announced = True
+            s.log("outcome", text=text)
+
+        return Transform(apply=apply, reason="the panel's finding is told in vetted words")
+
+
+def reply_text(agent, start: int, result) -> str:
+    """The family must never get a blank bubble. A turn can end on a tool call with its words in an earlier message,
+    so fall back to the last text the agent wrote this turn."""
+    text = str(result).strip()
+    if text:
+        return text
+    for m in reversed(agent.messages[start:]):
+        if m["role"] == "assistant":
+            said = " ".join(b["text"] for b in m["content"] if b.get("text")).strip()
+            if said:
+                return said
+    return "Thank you. Could you tell me what happened in the days before the death?"
+
+
 class _Readiness(BaseModel):
     ready: bool = Field(description="True only if the interview is genuinely complete.")
     reason: str = Field(description="What is missing, or why it is complete. One sentence.")
@@ -360,7 +426,8 @@ def build_interviewer(messages: list | None = None, session_manager: Any = None,
         model=model,
         system_prompt=SYSTEM_PROMPT,
         tools=INTERVIEW_TOOLS,
-        interventions=[*all_guards(), QuoteMustBeVerbatim()],
+        # The outcome step runs first, so the language guard checks the words that actually go out.
+        interventions=[OutcomeInCodeWords(), *all_guards(), QuoteMustBeVerbatim()],
         plugins=plugins,
         messages=messages,
         session_manager=session_manager,

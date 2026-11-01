@@ -152,3 +152,4 @@ class PanelResult(BaseModel):
     unanimous: bool
     adjudicated: bool
     context: DisasterContext
+    vetted: list[str] = Field(default_factory=list, description="Why model-written lines were replaced, if they were.")

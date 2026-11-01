@@ -21,7 +21,7 @@ mcp = MCPServer(
     title="Counted: disaster death attribution",
     description="Finds the disaster hidden inside a death, following CDC certification guidance, and drafts the "
                 "certifier statement and FEMA Funeral Assistance packet. Drafts only; a human certifier signs.",
-    website_url="https://github.com/counted",
+    website_url="https://github.com/usv240/counted",
 )
 
 

@@ -30,7 +30,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from pydantic import BaseModel, Field
 
 from .. import __version__, budget, speech
-from ..agents.interviewer import CaseSession, build_interviewer
+from ..agents.interviewer import CaseSession, build_interviewer, reply_text
 from ..pipeline import assess
 from ..tools.facts import disaster_context, geocode
 from . import keys
@@ -89,7 +89,9 @@ _hits: dict[tuple[str, str], deque] = defaultdict(deque)
 
 def rate_limit(request: Request, per_hour: int = 30, bucket: str = "assess") -> None:
     """Per visitor and per endpoint, so an hour of interview turns doesn't use up the visitor's assessments."""
-    ip = request.client.host if request.client else "?"
+    # The ALB appends the address it saw to X-Forwarded-For; earlier entries are whatever the client sent.
+    forwarded = request.headers.get("x-forwarded-for", "")
+    ip = forwarded.split(",")[-1].strip() if forwarded else (request.client.host if request.client else "?")
     q, now = _hits[(ip, bucket)], time.time()
     while q and now - q[0] > 3600:
         q.popleft()
@@ -240,18 +242,8 @@ def interview_turn(sid: str, body: TurnRequest, request: Request):
         return {"id": sid, "reply": _reply_text(agent, start, result), "needs_consent": False, "case": _snapshot(s)}
 
 
-def _reply_text(agent, start: int, result) -> str:
-    """The family must never get a blank bubble. A turn can end on a tool call with its words in an earlier message,
-    so fall back to the last text the agent wrote this turn."""
-    text = str(result).strip()
-    if text:
-        return text
-    for m in reversed(agent.messages[start:]):
-        if m["role"] == "assistant":
-            said = " ".join(b["text"] for b in m["content"] if b.get("text")).strip()
-            if said:
-                return said
-    return "Thank you. Could you tell me what happened in the days before the death?"
+_reply_text = reply_text  # owned by the interviewer; kept under this name for the tests
+
 
 
 @app.get("/v1/interviews/{sid}", tags=["Interview"], summary="Get the live case file")
@@ -320,9 +312,11 @@ def _mount_a2a() -> None:
         def factory(_ctx: str) -> Agent:
             from ..agents.panel import bedrock
             from ..config import INTERVIEW_MODEL
+            from ..policy.guards import NoCertifyingLanguage
             return Agent(name="Counted", description="Determines whether a death was directly or indirectly caused by a "
                          "declared US disaster, following CDC guidance, and drafts the certifier statement.",
-                         model=bedrock(INTERVIEW_MODEL), tools=[assess_disaster_death], callback_handler=None)
+                         model=bedrock(INTERVIEW_MODEL), tools=[assess_disaster_death], callback_handler=None,
+                         interventions=[NoCertifyingLanguage()])
 
         base = os.getenv("COUNTED_PUBLIC_URL", "http://localhost:8080")
         server = A2AServer(agent_factory=factory, http_url=f"{base}/a2a", serve_at_root=True)

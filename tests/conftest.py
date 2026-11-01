@@ -27,3 +27,5 @@ def _disable_guard(monkeypatch):
                         lambda: [g for g in real() if getattr(g, "name", "") != _DISABLED])
     if _DISABLED == "quote-must-be-verbatim":
         monkeypatch.setattr(interviewer, "QuoteMustBeVerbatim", _Off)
+    if _DISABLED == "outcome-in-code-words":
+        monkeypatch.setattr(interviewer, "OutcomeInCodeWords", _Off)

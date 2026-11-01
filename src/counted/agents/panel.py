@@ -18,7 +18,8 @@ from strands.models.bedrock import BedrockModel
 from strands.models.routing import ModelRouter
 from strands.multiagent import GraphBuilder
 
-from ..config import ADJUDICATOR_MODEL, EXAMINER_MODEL, FALLBACK_MODEL, REGION, SECOND_EXAMINER_MODEL
+from ..config import (ADJUDICATOR_MODEL, EXAMINER_MODEL, FALLBACK_MODEL, REGION, SECOND_EXAMINER_FALLBACK,
+                      SECOND_EXAMINER_MODEL)
 from ..rules import classify
 from ..schemas import CaseFacts, DisasterContext, Label, PanelResult, Verdict
 
@@ -48,6 +49,7 @@ Two definitions that decide many cases (CDC 2017 guide; Texas DSHS applied them 
   pond, or a fall into water during a winter storm, is indirect (a crash or fall in hazardous conditions).
 
 Rules: rely only on the facts given. Cite the family's exact words in evidence_used. Never invent circumstances.
+Use only the dates, times and durations the account states; never estimate hours or days that are not given.
 A death certificate cause like "cardiac arrest" does not rule out an indirect disaster pathway. Write
 how_injury_occurred as one certificate-style line when label is direct or indirect, else empty."""
 
@@ -99,7 +101,7 @@ def run_panel(facts: CaseFacts, ctx: DisasterContext) -> PanelResult:
 
     examiner = Agent(name="examiner", model=_model(EXAMINER_MODEL, FALLBACK_MODEL), system_prompt=CDC_BRIEF,
                      structured_output_model=Verdict, callback_handler=None)
-    second = Agent(name="second_examiner", model=_model(SECOND_EXAMINER_MODEL, FALLBACK_MODEL), system_prompt=CDC_BRIEF,
+    second = Agent(name="second_examiner", model=_model(SECOND_EXAMINER_MODEL, SECOND_EXAMINER_FALLBACK), system_prompt=CDC_BRIEF,
                    structured_output_model=Verdict, callback_handler=None)
     adjudicator = Agent(
         name="adjudicator",

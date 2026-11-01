@@ -1,0 +1,280 @@
+{
+ "summary": {
+  "n": 16,
+  "completed": 16,
+  "reached_determination": 16,
+  "correct": 16,
+  "records_checked": 16,
+  "median_turns": 6,
+  "by_language": {
+   "en": "12/12",
+   "es": "4/4"
+  }
+ },
+ "cases": [
+  {
+   "id": "uri-158",
+   "set": "uri_replay",
+   "label": "direct",
+   "row": "Extreme cold exposure / Frostbite",
+   "persona": "grieving, terse, answers only what is asked, does not volunteer details",
+   "lang": "en",
+   "turns": 6,
+   "final": "direct",
+   "correct": true,
+   "circumstances": [
+    "environmental_cold_or_heat_exposure"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "uri-206",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Motor vehicle accident / Drowning",
+   "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "motor_vehicle_crash"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "irma-054",
+   "set": "irma_replay",
+   "label": "indirect",
+   "row": "Disruption of emergency medical services",
+   "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
+   "lang": "es",
+   "turns": 6,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "stress_related_cardiac_event"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4337-FL"
+  },
+  {
+   "id": "uri-237",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Fall / Blunt/other trauma",
+   "persona": "angry at the government, distrustful, short answers at first",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "fall_in_unsafe_conditions"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "uri-242",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Fall / Post-trauma condition",
+   "persona": "grieving, terse, answers only what is asked, does not volunteer details",
+   "lang": "en",
+   "turns": 7,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "loss_of_utilities",
+    "fall_in_unsafe_conditions"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "uri-175",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Exacerbation of pre-existing illness / Cardiovascular illness",
+   "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "loss_of_utilities",
+    "exacerbation_of_chronic_illness",
+    "loss_of_health_care"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "irma-059",
+   "set": "irma_replay",
+   "label": "indirect",
+   "row": "Carbon monoxide poisoning",
+   "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
+   "lang": "es",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "carbon_monoxide"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4337-FL"
+  },
+  {
+   "id": "uri-245",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Fall / Drowning",
+   "persona": "angry at the government, distrustful, short answers at first",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "fall_in_unsafe_conditions",
+    "drowning_flood_surge"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "irma-090",
+   "set": "irma_replay",
+   "label": "indirect",
+   "row": "Motor vehicle crash",
+   "persona": "grieving, terse, answers only what is asked, does not volunteer details",
+   "lang": "en",
+   "turns": 7,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "motor_vehicle_crash"
+   ],
+   "records_checked": true,
+   "declaration": null
+  },
+  {
+   "id": "irma-057",
+   "set": "irma_replay",
+   "label": "indirect",
+   "row": "Floodwater infection",
+   "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "drowning_flood_surge",
+    "infection_from_floodwater_or_disaster_injury"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4337-FL"
+  },
+  {
+   "id": "uri-169",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Exacerbation of pre-existing illness / Renal failure/illness",
+   "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
+   "lang": "es",
+   "turns": 7,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "loss_of_health_care"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "irma-000",
+   "set": "irma_replay",
+   "label": "direct",
+   "row": "Drowning related to flooding",
+   "persona": "angry at the government, distrustful, short answers at first",
+   "lang": "en",
+   "turns": 7,
+   "final": "direct",
+   "correct": true,
+   "circumstances": [
+    "drowning_flood_surge"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4337-FL"
+  },
+  {
+   "id": "uri-186",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Motor vehicle accident / Blunt/other trauma",
+   "persona": "grieving, terse, answers only what is asked, does not volunteer details",
+   "lang": "en",
+   "turns": 5,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "motor_vehicle_crash"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "irma-075",
+   "set": "irma_replay",
+   "label": "indirect",
+   "row": "Preparation/Repair injury",
+   "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
+   "lang": "en",
+   "turns": 8,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "cleanup_or_preparation_injury"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4337-FL"
+  },
+  {
+   "id": "uri-161",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Exacerbation of pre-existing illness / Respiratory illness",
+   "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
+   "lang": "es",
+   "turns": 6,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "environmental_cold_or_heat_exposure",
+    "loss_of_health_care",
+    "exacerbation_of_chronic_illness"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  },
+  {
+   "id": "uri-227",
+   "set": "uri_replay",
+   "label": "indirect",
+   "row": "Fire / Burns or soot/smoke inhalation",
+   "persona": "angry at the government, distrustful, short answers at first",
+   "lang": "en",
+   "turns": 6,
+   "final": "indirect",
+   "correct": true,
+   "circumstances": [
+    "loss_of_utilities",
+    "fire_from_alternative_heat_or_light"
+   ],
+   "records_checked": true,
+   "declaration": "DR-4586-TX"
+  }
+ ]
+}

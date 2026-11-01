@@ -21,6 +21,7 @@ from .documents import build_documents
 from .policy.guards import redact
 from .schemas import CaseFacts, DisasterContext, PanelResult
 from .tools.facts import disaster_context, geocode
+from .vetting import vet_panel
 
 EXTRACT_PROMPT = """Extract structured case facts from an account of a death around a disaster.
 Record ONLY what the account states. For each disaster-related circumstance, add an evidence item with the closest
@@ -59,7 +60,7 @@ def assess(account: str | None = None, facts: CaseFacts | None = None, *, langua
             context = disaster_context(facts.state, facts.county, facts.date_of_death, facts.lat, facts.lon)
             if place:
                 context.sources.insert(0, place["source"])
-    panel: PanelResult = run_panel(facts, context)
+    panel: PanelResult = vet_panel(run_panel(facts, context), facts, context, account)
     return {
         "case_id": facts.case_id,
         "facts": facts.model_dump(mode="json"),
