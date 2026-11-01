@@ -8,6 +8,7 @@ import pytest
 from counted.agents import interviewer, panel
 from counted.agents.interviewer import CaseSession, build_interviewer
 from counted.rules import classify
+from counted.policy.guards import _FORBIDDEN, SAFE_REPLY
 from counted.schemas import DisasterContext, PanelResult
 
 from scripted import ScriptedModel
@@ -135,6 +136,18 @@ def test_overclaiming_language_is_sent_back(reply, expect):
     s, m, result = run([reply, "I'm preparing a draft for the medical examiner to review."])
     assert expect in m.fed_back()
     assert str(result).strip() == "I'm preparing a draft for the medical examiner to review."
+
+
+@pytest.mark.parametrize("bad", [
+    "The outage may have contributed to her death.",
+    "El apagón podría haber contribuido a su muerte por la tormenta.",
+])
+def test_a_model_that_insists_still_never_reaches_the_family(bad):
+    # Two rewrites with feedback, then the guard fails closed: the words are replaced, never shown.
+    s, m, result = run([bad] * 4)
+    reply = str(result).strip()
+    assert not any(p.search(reply) for p, _ in _FORBIDDEN)
+    assert reply in SAFE_REPLY.values()
 
 
 # ------------------------------------------------------------ runaway loops

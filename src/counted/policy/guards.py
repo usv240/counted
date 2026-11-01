@@ -65,8 +65,18 @@ _FORBIDDEN = [
 ]
 
 
+SAFE_REPLY = {
+    "en": "I'm sorry, I can't put it that way. I prepare a draft for the medical examiner to review; they decide what "
+          "goes on the certificate, and FEMA decides on assistance.",
+    "es": "Lo siento, no puedo decirlo así. Preparo un borrador para que el médico forense lo revise; esa persona decide "
+          "qué va en el certificado, y FEMA decide sobre la ayuda.",
+}
+_SPANISH = re.compile(r"\b(?:usted|su|que|los|las|por|para|murió|tormenta|ayuda|certificado)\b", re.I)
+
+
 class NoCertifyingLanguage(InterventionHandler):
-    """After every model turn, block language that overclaims authority or blames the family."""
+    """After every model turn, block language that overclaims authority or blames the family. The model gets two
+    rewrites with targeted feedback; if it still insists, the reply is replaced, so the family never sees it."""
 
     name = "no-certifying-language"
     max_retries = 2
@@ -80,12 +90,21 @@ class NoCertifyingLanguage(InterventionHandler):
         if message is not None:
             for block in message.message.get("content", []):
                 text += block.get("text", "")
-        for pattern, feedback in _FORBIDDEN:
-            if text and pattern.search(text) and self._retries < self.max_retries:
-                self._retries += 1
-                return Guide(feedback=feedback, reason="overclaiming or blaming language")
+        hit = next((feedback for pattern, feedback in _FORBIDDEN if text and pattern.search(text)), None)
+        if hit is None:
+            self._retries = 0
+            return Proceed()
+        if self._retries < self.max_retries:
+            self._retries += 1
+            return Guide(feedback=hit, reason="overclaiming or blaming language")
         self._retries = 0
-        return Proceed()
+        safe = SAFE_REPLY["es" if len(_SPANISH.findall(text)) >= 2 else "en"]
+
+        def apply(e):  # fail closed: keep any tool calls, replace the words
+            msg = e.stop_response.message
+            msg["content"] = [{"text": safe}] + [b for b in msg.get("content", []) if "text" not in b]
+
+        return Transform(apply=apply, reason="forbidden wording after two rewrites; replaced with a safe reply")
 
 
 class ConsentBeforeDecision(InterventionHandler):
