@@ -143,6 +143,14 @@ h2 .i, h3 .i { vertical-align: 0.35em; }
 .num b { display: block; font: 900 clamp(56px, 8vw, 132px)/0.9 var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
 .num p { margin-top: 18px; max-width: 30ch; }
 .num .src { color: var(--muted); }
+.voices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 4vw; margin-top: 112px; align-items: start; }
+.voices h3 { grid-column: 1 / -1; font: 800 var(--step-lead)/1.2 var(--display); }
+.voice { margin: 0; }
+.voice .v-num { font: 900 clamp(40px, 4.6vw, 72px)/0.95 var(--display); letter-spacing: -0.03em; color: var(--accent); font-variant-numeric: tabular-nums; margin: 0 0 14px; }
+.voice .v-num span { font-weight: 500; font-size: 0.5em; letter-spacing: 0; }
+.voice blockquote { margin: 0; }
+.voice blockquote p { font-size: var(--step-lead); line-height: 1.4; margin: 0; }
+.voice figcaption { margin-top: 14px; color: var(--muted); font-size: var(--step-small); }
 
 /* ---------------------------------------------------------------- lights compare */
 .lights { padding: var(--gap-section) var(--margin) 0; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px 4vw; align-items: end; }
@@ -353,7 +361,7 @@ footer .name { font: 900 clamp(64px, 18.6vw, 340px)/0.8 var(--display); letter-s
   .stairs .statement span:nth-child(2) { padding-left: 5vw; } .stairs .statement span:nth-child(3) { padding-left: 10vw; }
   .stairs .statement span:nth-child(4) { padding-left: 15vw; } .stairs .statement span:nth-child(5) { padding-left: 20vw; }
   .stairs figure { grid-template-columns: 1fr 1fr; }
-  .num-grid, .lights, .demo-head, .headline-result, .limits, .never-grid, .api-grid, .stack-grid, .faq > div, .foot-grid { grid-template-columns: minmax(0, 1fr); }
+  .num-grid, .voices, .lights, .demo-head, .headline-result, .limits, .never-grid, .api-grid, .stack-grid, .faq > div, .foot-grid { grid-template-columns: minmax(0, 1fr); }
   .does li { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .app { grid-template-columns: minmax(0, 1fr); margin-inline: 0; }
   .seats { grid-template-columns: 1fr 1fr; }

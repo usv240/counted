@@ -106,6 +106,6 @@ Counted prepares drafts for qualified certifiers. It is not a death certificate,
 
 ## Sources
 
-CDC/NCHS, *A Reference Guide for Certification of Deaths in the Event of a Natural, Human-induced, or Chemical/Radiological Disaster* (2017) · Texas DSHS, *February 2021 Winter Storm-Related Deaths* (2021) · CDC MMWR 2018;67(30):829–832, Hurricane Irma deaths · FEMA, *Help with Funerals and Burials* (July 2025) · Milken Institute SPH, GWU, Hurricane Maria mortality (2018) · NAME position paper on disaster-related deaths · NPR and Boston University heat-death investigation (2026). Pictures: NOAA/NASA/CIRA and NASA public domain; David Kitto, CC0 (credits in `web/assets/credits.json`).
+US GAO-19-486 (2019): FEMA approved 55 of 1,941 Texas funeral-assistance applications after Hurricane Harvey · CDC/NCHS, *A Reference Guide for Certification of Deaths in the Event of a Natural, Human-induced, or Chemical/Radiological Disaster* (2017) · Texas DSHS, *February 2021 Winter Storm-Related Deaths* (2021) · CDC MMWR 2018;67(30):829–832, Hurricane Irma deaths · FEMA, *Help with Funerals and Burials* (July 2025) · Milken Institute SPH, GWU, Hurricane Maria mortality (2018) · NAME position paper on disaster-related deaths · NPR and Boston University heat-death investigation (2026). Pictures: NOAA/NASA/CIRA and NASA public domain; David Kitto, CC0 (credits in `web/assets/credits.json`).
 
 Licence: Apache-2.0.
