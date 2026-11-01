@@ -20,11 +20,13 @@ from collections import defaultdict, deque
 from datetime import date
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from mcp.server.transport_security import TransportSecuritySettings
 from pydantic import BaseModel, Field
 
 from .. import __version__, budget
@@ -40,7 +42,15 @@ WEB = ROOT / "web"
 RESULTS = ROOT / "evals" / "results"
 ADMIN_TOKEN = os.getenv("COUNTED_ADMIN_TOKEN", "")
 
-mcp_app = mcp.streamable_http_app(streamable_http_path="/", stateless_http=True, json_response=True)
+# MCP's DNS-rebinding guard defaults to localhost only; allow the public host too, keeping the guard on.
+_public_host = urlparse(os.getenv("COUNTED_PUBLIC_URL", "")).netloc
+_mcp_security = TransportSecuritySettings(
+    enable_dns_rebinding_protection=True,
+    allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*"] + ([_public_host] if _public_host else []),
+    allowed_origins=["http://127.0.0.1:*", "http://localhost:*", "http://[::1]:*"] + ([f"https://{_public_host}"] if _public_host else []),
+)
+mcp_app = mcp.streamable_http_app(streamable_http_path="/", stateless_http=True, json_response=True,
+                                  transport_security=_mcp_security)
 
 
 @contextlib.asynccontextmanager
