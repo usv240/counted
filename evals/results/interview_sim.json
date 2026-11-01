@@ -2,13 +2,13 @@
  "summary": {
   "n": 16,
   "completed": 16,
-  "reached_determination": 16,
-  "correct": 16,
+  "reached_determination": 15,
+  "correct": 15,
   "records_checked": 16,
-  "median_turns": 6,
+  "median_turns": 5,
   "by_language": {
    "en": "12/12",
-   "es": "4/4"
+   "es": "3/4"
   }
  },
  "cases": [
@@ -19,7 +19,7 @@
    "row": "Extreme cold exposure / Frostbite",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 7,
+   "turns": 5,
    "final": "direct",
    "correct": true,
    "circumstances": [
@@ -35,11 +35,12 @@
    "row": "Motor vehicle accident / Drowning",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
-    "motor_vehicle_crash"
+    "motor_vehicle_crash",
+    "drowning_flood_surge"
    ],
    "records_checked": true,
    "declaration": "DR-4586-TX"
@@ -51,7 +52,7 @@
    "row": "Disruption of emergency medical services",
    "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
    "lang": "es",
-   "turns": 10,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -83,7 +84,7 @@
    "row": "Fall / Post-trauma condition",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 8,
+   "turns": 6,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -100,13 +101,14 @@
    "row": "Exacerbation of pre-existing illness / Cardiovascular illness",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 5,
+   "turns": 6,
    "final": "indirect",
    "correct": true,
    "circumstances": [
     "loss_of_utilities",
     "environmental_cold_or_heat_exposure",
-    "loss_of_health_care"
+    "evacuation_or_fleeing",
+    "exacerbation_of_chronic_illness"
    ],
    "records_checked": true,
    "declaration": "DR-4586-TX"
@@ -118,7 +120,7 @@
    "row": "Carbon monoxide poisoning",
    "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
    "lang": "es",
-   "turns": 7,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -134,11 +136,10 @@
    "row": "Fall / Drowning",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 7,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
-    "fall_in_unsafe_conditions",
     "drowning_flood_surge"
    ],
    "records_checked": true,
@@ -151,7 +152,7 @@
    "row": "Motor vehicle crash",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 8,
+   "turns": 6,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -183,12 +184,10 @@
    "row": "Exacerbation of pre-existing illness / Renal failure/illness",
    "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
    "lang": "es",
-   "turns": 6,
-   "final": "indirect",
-   "correct": true,
-   "circumstances": [
-    "loss_of_health_care"
-   ],
+   "turns": 3,
+   "final": null,
+   "correct": false,
+   "circumstances": [],
    "records_checked": true,
    "declaration": "DR-4586-TX"
   },
@@ -199,7 +198,7 @@
    "row": "Drowning related to flooding",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 6,
+   "turns": 4,
    "final": "direct",
    "correct": true,
    "circumstances": [
@@ -215,7 +214,7 @@
    "row": "Motor vehicle accident / Blunt/other trauma",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 6,
+   "turns": 7,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -231,7 +230,7 @@
    "row": "Preparation/Repair injury",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -251,6 +250,7 @@
    "final": "indirect",
    "correct": true,
    "circumstances": [
+    "environmental_cold_or_heat_exposure",
     "loss_of_health_care",
     "exacerbation_of_chronic_illness"
    ],
@@ -264,7 +264,7 @@
    "row": "Fire / Burns or soot/smoke inhalation",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [

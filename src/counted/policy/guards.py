@@ -96,7 +96,9 @@ _FORBIDDEN = [
     (re.compile(r"\bFEMA (?:will|is going to|would) (?:help|pay|cover|approve|accept)\b"
                 r"|\bFEMA (?:le |les )?(?:ayudar[aá]|pagar[aá]|cubrir[aá]|aprobar[aá])\b"
                 r"|\b(?:makes?|make) (?:the|your) (?:case|claim) (?:real |stronger|strong)|\b(?:strongest|stronger) (?:case|claim)\b"
-                r"|\b(?:caso|reclamo) m[aá]s (?:fuerte|s[oó]lido)\b", re.I),
+                r"|\b(?:caso|reclamo) m[aá]s (?:fuerte|s[oó]lido)\b"
+                r"|\b(?:that'?s|that is) what (?:matters|counts) (?:to|for) FEMA\b|\bes lo que (?:importa|cuenta) para FEMA\b"
+                r"|\b(?:all|everything) (?:of )?that counts\b|\btodo eso cuenta\b", re.I),
      "Don't predict what FEMA will do, and don't coach the family toward a stronger claim. Say FEMA decides, and "
      "record what actually happened."),
     (_UnsignedToFema(),
