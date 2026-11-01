@@ -306,8 +306,12 @@
       barIO.observe($("#bars"));
       const c = irma.systems.counted, d = irma.systems.direct_only;
       const declined = c?.confusion?.possible?.possible ?? 0;
+      // Deaths officials classed indirect that a system still counts as storm deaths (direct or indirect both qualify for FEMA aid).
+      const recognised = (sys) => [irma, uri].reduce((n, s) => { const r = s?.systems?.[sys]?.confusion?.indirect || {}; return n + (r.direct || 0) + (r.indirect || 0); }, 0);
+      const indirect = uri ? { total: (irma.labels?.indirect || 0) + (uri.labels?.indirect || 0), direct_only: recognised("direct_only"), counted: recognised("counted") } : null;
       $("#say-uri").innerHTML = `Hurricane Irma, death by death: the CDC found <b>${total}</b> storm-related deaths. The convention that undercounted Maria finds <b>${d?.counted_deaths ?? "–"}</b>. Counted finds <b>${c?.counted_deaths ?? "–"}</b>, and declines the ${declined} the CDC itself marked only “possible”.` +
-        (uri ? `<br><br><span style="font-size:0.8em">Winter Storm Uri, ${uri.n} deaths: ${Math.round(uri.systems.counted.accuracy * 100)}% of Texas’s labels reproduced, where ${Math.round(uri.ceiling * 100)}% is the most any reader of the circumstances could reach.</span>` : "");
+        (uri ? `<br><br><span style="font-size:0.8em">Winter Storm Uri, ${uri.n} deaths: ${Math.round(uri.systems.counted.accuracy * 100)}% of Texas’s labels reproduced, where ${Math.round(uri.ceiling * 100)}% is the most any reader of the circumstances could reach.` +
+          (indirect ? ` Across both storms, officials classed ${indirect.total} deaths as indirect, the kind families lose aid over. The direct-only convention recognises ${indirect.direct_only} of them; Counted recognises ${indirect.counted}.` : "") + `</span>` : "");
     }
     const best = (s) => Math.max(...SYS.map(([k]) => s.systems[k]?.accuracy ?? -1));
     $("#res-table tbody").innerHTML = Object.entries(SETNAME).filter(([k]) => sets[k]).map(([k, name]) => {

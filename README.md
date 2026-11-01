@@ -19,6 +19,7 @@ Hurricane Maria's official toll was 64 until a government-commissioned study fou
 | Same deaths, relative pushing for a link | 8 | 0 | 2 | 0 | **0** |
 
 - **Irma:** the CDC counted 126 storm-related deaths. The direct-only convention finds 11 of them; Counted finds all 126 and declines the 3 the CDC marked only "possible".
+- **Indirect deaths, both storms:** officials classed 207 deaths as indirect (Irma 115, Uri 92). FEMA funeral assistance covers indirect deaths too, if the paperwork names the disaster. The direct-only convention recognises 28 of the 207 as storm deaths; Counted recognises all 207.
 - **Ceiling:** some official circumstance rows split across labels (Uri hypothermia: 146 direct, 10 indirect, 2 possible), so no reader of the circumstances can reproduce every label. The ceiling is reported beside each score.
 - **Honest limit:** replay accounts are generated from the official tables. The labels are the government's; the wording is ours, from templates that never contain a label word (checked by `evals/build_cases.py`). On template wording, plain keyword rules come within 1 point of Counted on Uri. On CDC's written scenarios they collapse to 59%.
 
