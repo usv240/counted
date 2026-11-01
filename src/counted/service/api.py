@@ -210,6 +210,7 @@ def interview_turn(sid: str, body: TurnRequest, request: Request):
             entry["pending"] = []
         else:
             prompt = body.message
+        start = len(agent.messages)
         result = agent(prompt, invocation_state=state)
         entry["updated"] = time.time()
         interrupts = getattr(result, "interrupts", None) or []
@@ -217,7 +218,21 @@ def interview_turn(sid: str, body: TurnRequest, request: Request):
             entry["pending"] = [i.id for i in interrupts]
             return {"id": sid, "reply": interrupts[0].reason if isinstance(interrupts[0].reason, str) else
                     "May Counted prepare a draft determination for the medical examiner?", "needs_consent": True, "case": _snapshot(s)}
-        return {"id": sid, "reply": str(result).strip(), "needs_consent": False, "case": _snapshot(s)}
+        return {"id": sid, "reply": _reply_text(agent, start, result), "needs_consent": False, "case": _snapshot(s)}
+
+
+def _reply_text(agent, start: int, result) -> str:
+    """The family must never get a blank bubble. A turn can end on a tool call with its words in an earlier message,
+    so fall back to the last text the agent wrote this turn."""
+    text = str(result).strip()
+    if text:
+        return text
+    for m in reversed(agent.messages[start:]):
+        if m["role"] == "assistant":
+            said = " ".join(b["text"] for b in m["content"] if b.get("text")).strip()
+            if said:
+                return said
+    return "Thank you. Could you tell me what happened in the days before the death?"
 
 
 @app.get("/v1/interviews/{sid}", tags=["Interview"], summary="Get the live case file")

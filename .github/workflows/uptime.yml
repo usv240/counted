@@ -1,0 +1,25 @@
+name: uptime
+
+# The public demo must stay up through judging. GitHub emails the repository owner when a scheduled run fails.
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+jobs:
+  live-demo:
+    runs-on: ubuntu-latest
+    env:
+      URL: https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws
+    steps:
+      - name: site, API, MCP and A2A answer
+        run: |
+          set -e
+          for path in / /v1/health /docs /a2a/.well-known/agent-card.json; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --retry 3 --retry-delay 10 "$URL$path")
+            echo "$path $code"; test "$code" = 200
+          done
+          curl -sf --retry 3 -X POST "$URL/mcp/" -H "content-type: application/json" \
+            -H "accept: application/json, text/event-stream" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | grep -q assess_disaster_death
+          echo "mcp ok"

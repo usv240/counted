@@ -258,7 +258,7 @@ label.lbl { font-weight: 500; font-size: 15px; display: flex; align-items: cente
 .bars { display: grid; gap: 14px; }
 .bar { display: grid; grid-template-columns: 170px minmax(0, 1fr) 72px; gap: 14px; align-items: center; font-size: 15px; }
 .bar .track { height: 34px; background: var(--surface); position: relative; }
-.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--ink); transform-origin: left; transition: transform 900ms var(--ease-out); }
+.bar .fill { position: absolute; inset: 0; background: var(--ink); transform-origin: left; transition: transform 900ms var(--ease-out); }
 .bar.base .fill { background: var(--muted); }
 .bar .val { font-variant-numeric: tabular-nums; font-weight: 500; text-align: right; }
 .result-say { font-size: var(--step-lead); line-height: 1.4; }

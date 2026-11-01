@@ -143,3 +143,4 @@ def test_runaway_recording_is_cut_off():
     calls = [OXYGEN] * 63 + ["done"]
     s, m, _ = run(calls)
     assert len(s.facts.evidence) <= 61 and "DENIED" in m.fed_back()
+
