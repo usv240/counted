@@ -60,6 +60,8 @@ _FORBIDDEN = [
     (re.compile(r"\b(?:is|was) officially\b|\bofficial cause of death\b", re.I), "Do not call anything official. Only the certifier makes it official."),
     (re.compile(r"\byou (?:will|are going to) (?:get|receive|qualify for)\b", re.I), "Never promise FEMA benefits. Say what the documentation supports and that FEMA decides."),
     (re.compile(r"\bit was (?:your|his|her) fault\b|\bshould have\b", re.I), "Never assign blame to the family. Remove it and acknowledge their loss."),
+    (re.compile(r"\bmay have (?:been caused|contributed)\b|\bpodr[ií]a haber (?:sido causad|contribuido)", re.I),
+     "FEMA rejects 'may have been caused by'. State the link plainly, or say the evidence is not enough to decide."),
 ]
 
 
