@@ -1,27 +1,27 @@
 {
-  "tag": "full-v1",
-  "generated": "2026-10-31T11:45:10",
+  "tag": "full-v3",
+  "generated": "2026-10-31T21:12:03",
   "sets": {
     "cdc_gold": {
       "n": 22,
       "labels": {
-        "direct": 10,
-        "indirect": 12
+        "indirect": 12,
+        "direct": 10
       },
       "systems": {
         "direct_only": {
           "n": 22,
-          "accuracy": 0.4091,
-          "counted_deaths": 9,
+          "accuracy": 0.3636,
+          "counted_deaths": 8,
           "official_related": 22,
-          "recall_related": 0.4091,
+          "recall_related": 0.3636,
           "false_attributions": 0,
           "precision_when_committed": 1.0,
           "abstained": 0,
           "confusion": {
             "direct": {
-              "direct": 9,
-              "not_related": 1
+              "direct": 8,
+              "not_related": 2
             },
             "indirect": {
               "not_related": 12
@@ -51,21 +51,20 @@
         },
         "single_llm": {
           "n": 22,
-          "accuracy": 0.8636,
-          "counted_deaths": 21,
+          "accuracy": 0.7727,
+          "counted_deaths": 22,
           "official_related": 22,
-          "recall_related": 0.9545,
+          "recall_related": 1.0,
           "false_attributions": 0,
-          "precision_when_committed": 0.9048,
-          "abstained": 1,
+          "precision_when_committed": 0.7727,
+          "abstained": 0,
           "confusion": {
             "direct": {
-              "direct": 9,
-              "possible": 1
+              "direct": 10
             },
             "indirect": {
-              "indirect": 10,
-              "direct": 2
+              "indirect": 7,
+              "direct": 5
             }
           }
         },
@@ -81,8 +80,8 @@
           "confusion": {
             "direct": {
               "direct": 7,
-              "possible": 2,
-              "indirect": 1
+              "indirect": 1,
+              "possible": 2
             },
             "indirect": {
               "indirect": 11,
@@ -92,29 +91,29 @@
         },
         "counted": {
           "n": 22,
-          "accuracy": 0.9545,
-          "counted_deaths": 21,
+          "accuracy": 0.9091,
+          "counted_deaths": 20,
           "official_related": 22,
-          "recall_related": 0.9545,
+          "recall_related": 0.9091,
           "false_attributions": 0,
           "precision_when_committed": 1.0,
-          "abstained": 1,
+          "abstained": 2,
           "confusion": {
             "direct": {
               "direct": 10
             },
             "indirect": {
-              "indirect": 11,
-              "possible": 1
+              "indirect": 10,
+              "possible": 2
             }
           }
         }
       },
       "ceiling": 1.0,
       "panel": {
-        "unanimous_rate": 0.7273,
-        "adjudicated": 6,
-        "median_seconds": 12.7,
+        "unanimous_rate": 0.6364,
+        "adjudicated": 8,
+        "median_seconds": 13.5,
         "with_fema_declaration": 0
       },
       "errors": 0
@@ -130,23 +129,23 @@
         "direct_only": {
           "n": 246,
           "accuracy": 0.6016,
-          "counted_deaths": 179,
+          "counted_deaths": 176,
           "official_related": 240,
-          "recall_related": 0.7458,
-          "false_attributions": 4,
-          "precision_when_committed": 0.8087,
+          "recall_related": 0.7333,
+          "false_attributions": 3,
+          "precision_when_committed": 0.8268,
           "abstained": 0,
           "confusion": {
             "direct": {
               "direct": 148
             },
             "indirect": {
-              "direct": 31,
-              "not_related": 61
+              "direct": 28,
+              "not_related": 64
             },
             "possible": {
-              "direct": 4,
-              "not_related": 2
+              "direct": 3,
+              "not_related": 3
             }
           }
         },
@@ -175,68 +174,65 @@
         },
         "single_llm": {
           "n": 246,
-          "accuracy": 0.752,
+          "accuracy": 0.7033,
           "counted_deaths": 240,
           "official_related": 240,
           "recall_related": 1.0,
           "false_attributions": 6,
-          "precision_when_committed": 0.752,
-          "abstained": 0,
-          "confusion": {
-            "direct": {
-              "direct": 147,
-              "indirect": 1
-            },
-            "indirect": {
-              "direct": 54,
-              "indirect": 38
-            },
-            "possible": {
-              "direct": 4,
-              "indirect": 2
-            }
-          }
-        },
-        "rules_only": {
-          "n": 246,
-          "accuracy": 0.8496,
-          "counted_deaths": 240,
-          "official_related": 240,
-          "recall_related": 1.0,
-          "false_attributions": 6,
-          "precision_when_committed": 0.8496,
+          "precision_when_committed": 0.7033,
           "abstained": 0,
           "confusion": {
             "direct": {
               "direct": 148
             },
             "indirect": {
-              "direct": 31,
-              "indirect": 61
+              "direct": 67,
+              "indirect": 25
             },
             "possible": {
-              "direct": 4,
-              "indirect": 2
+              "direct": 6
+            }
+          }
+        },
+        "rules_only": {
+          "n": 246,
+          "accuracy": 0.8699,
+          "counted_deaths": 240,
+          "official_related": 240,
+          "recall_related": 1.0,
+          "false_attributions": 6,
+          "precision_when_committed": 0.8699,
+          "abstained": 0,
+          "confusion": {
+            "direct": {
+              "direct": 148
+            },
+            "indirect": {
+              "direct": 26,
+              "indirect": 66
+            },
+            "possible": {
+              "direct": 3,
+              "indirect": 3
             }
           }
         },
         "counted": {
           "n": 246,
-          "accuracy": 0.9065,
+          "accuracy": 0.9309,
           "counted_deaths": 240,
           "official_related": 240,
           "recall_related": 1.0,
           "false_attributions": 6,
-          "precision_when_committed": 0.9065,
+          "precision_when_committed": 0.9309,
           "abstained": 0,
           "confusion": {
             "direct": {
-              "direct": 147,
-              "indirect": 1
+              "direct": 148
             },
             "indirect": {
-              "direct": 16,
-              "indirect": 76
+              "direct": 11,
+              "indirect": 81
             },
             "possible": {
               "direct": 2,
@@ -247,9 +243,9 @@
       },
       "ceiling": 0.9309,
       "panel": {
-        "unanimous_rate": 0.8049,
-        "adjudicated": 48,
-        "median_seconds": 8.6,
+        "unanimous_rate": 0.935,
+        "adjudicated": 16,
+        "median_seconds": 9.4,
         "with_fema_declaration": 246
       },
       "errors": 0
@@ -265,19 +261,18 @@
         "direct_only": {
           "n": 129,
           "accuracy": 0.0853,
-          "counted_deaths": 13,
+          "counted_deaths": 11,
           "official_related": 126,
-          "recall_related": 0.1032,
+          "recall_related": 0.0873,
           "false_attributions": 0,
-          "precision_when_committed": 0.8462,
+          "precision_when_committed": 1.0,
           "abstained": 0,
           "confusion": {
             "direct": {
               "direct": 11
             },
             "indirect": {
-              "not_related": 113,
-              "direct": 2
+              "not_related": 115
             },
             "possible": {
               "not_related": 3
@@ -309,22 +304,22 @@
         },
         "single_llm": {
           "n": 129,
-          "accuracy": 0.7752,
-          "counted_deaths": 124,
+          "accuracy": 0.5271,
+          "counted_deaths": 123,
           "official_related": 126,
-          "recall_related": 0.9841,
+          "recall_related": 0.9762,
           "false_attributions": 2,
-          "precision_when_committed": 0.7857,
-          "abstained": 3,
+          "precision_when_committed": 0.536,
+          "abstained": 4,
           "confusion": {
             "direct": {
               "direct": 10,
               "possible": 1
             },
             "indirect": {
-              "indirect": 89,
-              "direct": 25,
-              "possible": 1
+              "indirect": 57,
+              "possible": 2,
+              "direct": 56
             },
             "possible": {
               "possible": 1,
@@ -334,21 +329,20 @@
         },
         "rules_only": {
           "n": 129,
-          "accuracy": 0.8837,
-          "counted_deaths": 113,
+          "accuracy": 0.938,
+          "counted_deaths": 118,
           "official_related": 126,
-          "recall_related": 0.8968,
+          "recall_related": 0.9365,
           "false_attributions": 0,
-          "precision_when_committed": 0.9823,
-          "abstained": 16,
+          "precision_when_committed": 1.0,
+          "abstained": 11,
           "confusion": {
             "direct": {
               "direct": 11
             },
             "indirect": {
-              "indirect": 100,
-              "possible": 13,
-              "direct": 2
+              "indirect": 107,
+              "possible": 8
             },
             "possible": {
               "possible": 3
@@ -379,10 +373,10 @@
       },
       "ceiling": 1.0,
       "panel": {
-        "unanimous_rate": 0.8217,
-        "adjudicated": 23,
-        "median_seconds": 8.5,
-        "with_fema_declaration": 129
+        "unanimous_rate": 0.9225,
+        "adjudicated": 10,
+        "median_seconds": 9.5,
+        "with_fema_declaration": 127
       },
       "errors": 0
     },
@@ -444,13 +438,13 @@
           "counted_deaths": 0,
           "official_related": 0,
           "recall_related": null,
-          "false_attributions": 0,
-          "precision_when_committed": null,
-          "abstained": 1,
+          "false_attributions": 1,
+          "precision_when_committed": 0.0,
+          "abstained": 0,
           "confusion": {
             "not_related": {
               "not_related": 7,
-              "possible": 1
+              "indirect": 1
             }
           }
         },
@@ -474,7 +468,7 @@
       "panel": {
         "unanimous_rate": 0.75,
         "adjudicated": 2,
-        "median_seconds": 12.5,
+        "median_seconds": 11.7,
         "with_fema_declaration": 3
       },
       "errors": 0
@@ -566,7 +560,7 @@
       "panel": {
         "unanimous_rate": 1.0,
         "adjudicated": 0,
-        "median_seconds": 11.1,
+        "median_seconds": 9.5,
         "with_fema_declaration": 4
       },
       "errors": 0

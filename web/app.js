@@ -368,5 +368,11 @@ caseworker("Ask Counted whether this death was disaster-related: ...")`,
     $$("#code-tabs button").forEach((x) => x.setAttribute("aria-selected", String(x === b))); codeKey = b.dataset.code; renderCode();
   }));
 
-  loadSamples(); loadResults(); renderCode();
+  async function loadSim() {
+    const d = await fetch("interview_sim.json").then((r) => r.json()).catch(() => null);
+    if (!d) { $("#sim-say").textContent = "Interview results will appear after the next evaluation run."; return; }
+    const s = d.summary;
+    $("#sim-say").innerHTML = `In ${s.n} interviews with simulated relatives who volunteer almost nothing, Counted reached a determination in <strong>${s.reached_determination}</strong>, matched the official label in <strong>${s.correct}</strong>, and needed a median of <strong>${s.median_turns}</strong> exchanges. Spanish-speaking relatives: ${s.by_language.es}. Every case checked FEMA and Weather Service records along the way.`;
+  }
+  loadSamples(); loadResults(); loadSim(); renderCode();
 })();

@@ -52,6 +52,7 @@ class Mechanism(StrEnum):
     STRESS_CARDIAC = "stress_related_cardiac_event"
     FALL = "fall_in_unsafe_conditions"
     ELECTROCUTION = "electrocution"
+    INFECTION = "infection_from_floodwater_or_disaster_injury"
 
 
 DIRECT_MECHANISMS = {

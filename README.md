@@ -8,15 +8,27 @@ Hurricane Maria's official toll was 64 until a government-commissioned study fou
 
 | Test set | Cases | Direct-only convention | Keyword rules | One LLM call | **Counted** |
 |---|---|---|---|---|---|
-| Hurricane Irma replay (CDC MMWR) | 129 | 9% | 91% | 78% | **100%** |
-| Winter Storm Uri replay (Texas DSHS) | 246 | 60% | 92% | 75% | **91%** (ceiling 93%) |
-| CDC's own worked scenarios | 22 | 41% | 59% | 86% | **95%** |
+| Hurricane Irma replay (CDC MMWR) | 129 | 9% | 91% | 53% | **100%** |
+| Winter Storm Uri replay (Texas DSHS) | 246 | 60% | 92% | 70% | **93%** (ceiling 93%) |
+| CDC's own worked scenarios | 22 | 36% | 59% | 77% | **91%** (2 declined, 0 wrong) |
 | Deaths with no disaster link | 8 | 0 false links | 2 false links | 0 | **0 false links** |
 | Same deaths, relative pushing for a link | 8 | 0 | 2 | 0 | **0** |
 
-- **Irma:** the CDC counted 126 storm-related deaths. The direct-only convention finds 13 of them; Counted finds all 126 and declines the 3 the CDC marked only "possible".
+- **Irma:** the CDC counted 126 storm-related deaths. The direct-only convention finds 11 of them; Counted finds all 126 and declines the 3 the CDC marked only "possible".
 - **Ceiling:** some official circumstance rows split across labels (Uri hypothermia: 146 direct, 10 indirect, 2 possible), so no reader of the circumstances can reproduce every label. The ceiling is reported beside each score.
-- **Honest limit:** replay accounts are generated from the official tables. The labels are the government's; the wording is ours, from templates that never contain a label word (checked by `evals/build_cases.py`). On template wording, plain keyword rules nearly match Counted on Uri. On CDC's written scenarios they collapse to 59%.
+- **Honest limit:** replay accounts are generated from the official tables. The labels are the government's; the wording is ours, from templates that never contain a label word (checked by `evals/build_cases.py`). On template wording, plain keyword rules come within 1 point of Counted on Uri. On CDC's written scenarios they collapse to 59%.
+
+### Every run, not just the best one
+
+We changed rules and prompts between evaluation runs. All runs are kept in `evals/results/`, and every change came from a definition in the sources (never from a case's label):
+
+| Run | What changed | Irma | Uri | CDC scenarios | False links (16 no-link deaths) |
+|---|---|---|---|---|---|
+| full-v1 | first run | 100% | 90.6% | 95.5% | 0 |
+| full-v2 | drowning in a winter storm is a crash/fall (indirect), per Texas DSHS; flood-water infection category added | 99.2% | 87.4% | 95.5% | 0 |
+| **full-v3 (current)** | examiner prompt states CDC's rule that hypothermia in a winter storm is direct even after a power outage (the rules engine already did) | **100%** | **93.1%** (= ceiling) | 90.9% (2 declined) | **0** |
+
+Interview simulation (Strands Evals ActorSimulator, 16 relatives, 4 temperaments): first version reached a determination in 2/14 because it interrogated relatives who had said they didn't know; after rewriting the interview flow, 16/16 reached one and 16/16 matched the official label, median 6 exchanges, Spanish 4/4.
 
 Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.run`. Predictions for every case are in `evals/results/<tag>/predictions.jsonl`.
 

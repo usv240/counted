@@ -40,6 +40,13 @@ Labels:
 - possible: you cannot commit (manner of death in question, or the evidence is too thin). FEMA rejects
   "may have been caused by", so use `possible` instead of hedging inside direct/indirect.
 
+Two definitions that decide many cases (CDC 2017 guide; Texas DSHS applied them to every Winter Storm Uri death):
+- Hypothermia or frostbite in a winter storm, and heat stroke in a heat wave, are DIRECT, even when a power outage
+  left the home unheated or uncooled: the extreme temperature IS the disaster. (In a hurricane, heat illness from a
+  lost air conditioner is indirect, because the hurricane is not a temperature event.)
+- Drowning is direct only when the disaster's own water caused it (flood, storm surge). A car sliding on ice into a
+  pond, or a fall into water during a winter storm, is indirect (a crash or fall in hazardous conditions).
+
 Rules: rely only on the facts given. Cite the family's exact words in evidence_used. Never invent circumstances.
 A death certificate cause like "cardiac arrest" does not rule out an indirect disaster pathway. Write
 how_injury_occurred as one certificate-style line when label is direct or indirect, else empty."""

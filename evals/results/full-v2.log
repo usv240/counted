@@ -1,0 +1,989 @@
+[1/413] vsrg01_scenario_II     gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[2/413] vsrg01_scenario_V      gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[3/413] vsrg01_scenario_III    gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[4/413] vsrg01_figure_sandy_co gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[5/413] vsrg01_scenario_A      gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[6/413] vsrg01_scenario_I      gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[7/413] vsrg01_scenario_IV     gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[8/413] vsrg01_scenario_VII    gold=direct      keywords=indirect single_llm=direct direct_only=direct rules_only=direct counted=direct
+[9/413] vsrg01_scenario_B      gold=direct      keywords=indirect single_llm=direct direct_only=not_related rules_only=possible counted=direct
+[10/413] vsrg01_scenario_VI     gold=direct      keywords=indirect single_llm=direct direct_only=direct rules_only=direct counted=direct
+[11/413] deck_scenario_A_oso    gold=direct      keywords=not_related single_llm=direct direct_only=direct rules_only=direct counted=direct
+[12/413] deck_slide19_state2_emphysema gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[13/413] vsrg01_scenario_VIII   gold=direct      keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=direct
+[14/413] deck_slide19_state1_lung_cancer gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[15/413] vsrg01_scenario_X      gold=direct      keywords=indirect single_llm=not_related direct_only=direct rules_only=possible counted=direct
+[16/413] deck_slide24_evacuation_crash gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[17/413] vsrg01_scenario_IX     gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=direct
+[18/413] deck_slide31_maria_dialysis gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[19/413] deck_slide24_dialysis  gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[20/413] deck_slide24_shelter_heart_attack gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[21/413] deck_slide28_woolsey_wildfire gold=direct      keywords=not_related single_llm=direct direct_only=direct rules_only=direct counted=direct
+[22/413] uri-001                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[23/413] uri-000                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[24/413] uri-002                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[25/413] uri-003                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[26/413] deck_slide32_matthew_ems gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[27/413] uri-004                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[28/413] uri-005                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[29/413] uri-006                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[30/413] uri-007                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[31/413] uri-009                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[32/413] uri-010                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[33/413] uri-012                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[34/413] uri-013                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[35/413] uri-008                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[36/413] uri-014                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[37/413] uri-015                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[38/413] uri-011                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[39/413] uri-016                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[40/413] uri-018                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[41/413] uri-017                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[42/413] uri-021                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[43/413] uri-020                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[44/413] uri-019                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[45/413] uri-022                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[46/413] uri-024                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[47/413] uri-023                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[48/413] uri-026                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[49/413] uri-030                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[50/413] uri-027                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[51/413] uri-028                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[52/413] uri-029                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[53/413] uri-025                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[54/413] uri-032                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[55/413] uri-033                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[56/413] uri-034                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[57/413] uri-031                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[58/413] uri-035                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[59/413] uri-036                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[60/413] uri-037                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[61/413] uri-038                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[62/413] uri-039                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[63/413] uri-040                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[64/413] uri-041                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[65/413] uri-042                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[66/413] uri-044                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+NWS archive lookup failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+NWS archive lookup failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+NWS archive lookup failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+NWS archive lookup failed: [WinError 10054] An existing connection was forcibly closed by the remote host
+[67/413] uri-047                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[68/413] uri-046                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[69/413] uri-043                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[70/413] uri-048                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[71/413] uri-049                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[72/413] uri-045                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[73/413] uri-050                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[74/413] uri-051                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[75/413] uri-055                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[76/413] uri-056                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[77/413] uri-052                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[78/413] uri-054                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[79/413] uri-057                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[80/413] uri-053                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[81/413] uri-058                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[82/413] uri-061                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[83/413] uri-059                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[84/413] uri-063                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[85/413] uri-062                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[86/413] uri-060                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[87/413] uri-064                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[88/413] uri-066                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[89/413] uri-067                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[90/413] uri-065                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[91/413] uri-068                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[92/413] uri-071                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[93/413] uri-069                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[94/413] uri-070                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[95/413] uri-074                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[96/413] uri-073                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[97/413] uri-072                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[98/413] uri-075                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[99/413] uri-077                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[100/413] uri-076                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[101/413] uri-079                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[102/413] uri-084                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[103/413] uri-082                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[104/413] uri-078                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[105/413] uri-085                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[106/413] uri-080                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[107/413] uri-081                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[108/413] uri-086                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[109/413] uri-087                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[110/413] uri-089                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[111/413] uri-088                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[112/413] uri-091                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[113/413] uri-090                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[114/413] uri-083                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[115/413] uri-092                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[116/413] uri-094                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[117/413] uri-093                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[118/413] uri-095                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[119/413] uri-096                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[120/413] uri-097                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[121/413] uri-102                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[122/413] uri-104                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[123/413] uri-101                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[124/413] uri-103                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[125/413] uri-099                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[126/413] uri-105                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[127/413] uri-106                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[128/413] uri-100                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[129/413] uri-098                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[130/413] uri-108                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[131/413] uri-109                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[132/413] uri-110                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[133/413] uri-111                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[134/413] uri-114                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[135/413] uri-115                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[136/413] uri-113                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[137/413] uri-107                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[138/413] uri-116                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[139/413] uri-118                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[140/413] uri-119                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[141/413] uri-112                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[142/413] uri-121                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[143/413] uri-123                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[144/413] uri-122                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[145/413] uri-124                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[146/413] uri-120                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[147/413] uri-117                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[148/413] uri-125                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[149/413] uri-127                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[150/413] uri-128                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[151/413] uri-131                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[152/413] uri-130                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[153/413] uri-129                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[154/413] uri-126                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[155/413] uri-132                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[156/413] uri-133                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[157/413] uri-134                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[158/413] uri-135                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[159/413] uri-136                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[160/413] uri-137                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[161/413] uri-140                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[162/413] uri-141                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[163/413] uri-139                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[164/413] uri-142                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[165/413] uri-143                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[166/413] uri-144                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[167/413] uri-145                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[168/413] uri-138                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[169/413] uri-146                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[170/413] uri-147                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[171/413] uri-148                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[172/413] uri-149                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[173/413] uri-150                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[174/413] uri-151                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[175/413] uri-152                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[176/413] uri-153                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[177/413] uri-154                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[178/413] uri-156                gold=possible    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[179/413] uri-157                gold=possible    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[180/413] uri-155                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[181/413] uri-158                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[182/413] uri-160                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[183/413] uri-159                gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[184/413] uri-161                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[185/413] uri-163                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[186/413] uri-162                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[187/413] uri-164                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[188/413] uri-167                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[189/413] uri-165                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[190/413] uri-166                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[191/413] uri-169                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[192/413] uri-168                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[193/413] uri-171                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[194/413] uri-170                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[195/413] uri-172                gold=indirect    keywords=indirect single_llm=possible direct_only=not_related rules_only=indirect counted=indirect
+[196/413] uri-176                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[197/413] uri-173                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[198/413] uri-174                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[199/413] uri-180                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[200/413] uri-175                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[201/413] uri-181                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[202/413] uri-177                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[203/413] uri-183                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[204/413] uri-182                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[205/413] uri-179                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[206/413] uri-178                gold=indirect    keywords=indirect single_llm=indirect direct_only=direct rules_only=direct counted=indirect
+[207/413] uri-184                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[208/413] uri-185                gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[209/413] uri-187                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[210/413] uri-186                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[211/413] uri-188                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[212/413] uri-189                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[213/413] uri-190                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[214/413] uri-191                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[215/413] uri-192                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[216/413] uri-193                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[217/413] uri-194                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[218/413] uri-196                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[219/413] uri-195                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[220/413] uri-197                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[221/413] uri-198                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[222/413] uri-201                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[223/413] uri-199                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[224/413] uri-200                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[225/413] uri-202                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[226/413] uri-203                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[227/413] uri-204                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[228/413] uri-205                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[229/413] uri-206                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=indirect counted=indirect
+[230/413] uri-208                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[231/413] uri-207                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=indirect counted=indirect
+[232/413] uri-210                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[233/413] uri-209                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[234/413] uri-212                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[235/413] uri-213                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[236/413] uri-214                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[237/413] uri-211                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[238/413] uri-215                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[239/413] uri-216                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[240/413] uri-217                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[241/413] uri-218                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[242/413] uri-219                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[243/413] uri-221                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[244/413] uri-222                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[245/413] uri-220                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[246/413] uri-223                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[247/413] uri-224                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[248/413] uri-225                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[249/413] uri-226                gold=possible    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[250/413] uri-227                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[251/413] uri-228                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[252/413] uri-229                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[253/413] uri-231                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[254/413] uri-232                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[255/413] uri-230                gold=indirect    keywords=indirect single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[256/413] uri-235                gold=possible    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[257/413] uri-236                gold=possible    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[258/413] uri-237                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[259/413] uri-238                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[260/413] uri-233                gold=indirect    keywords=indirect single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[261/413] uri-239                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[262/413] uri-234                gold=possible    keywords=indirect single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[263/413] uri-241                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[264/413] uri-243                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[265/413] uri-242                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[266/413] uri-244                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[267/413] irma-001               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[268/413] irma-000               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[269/413] uri-240                gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[270/413] irma-002               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[271/413] irma-003               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[272/413] irma-004               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[273/413] irma-005               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[274/413] irma-006               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[275/413] irma-009               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[276/413] irma-007               gold=direct      keywords=direct single_llm=possible direct_only=direct rules_only=direct counted=direct
+[277/413] irma-008               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[278/413] uri-245                gold=indirect    keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=indirect
+[279/413] irma-010               gold=direct      keywords=direct single_llm=direct direct_only=direct rules_only=direct counted=direct
+[280/413] irma-016               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[281/413] irma-012               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[282/413] irma-018               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[283/413] irma-017               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[284/413] irma-013               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[285/413] irma-011               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[286/413] irma-015               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[287/413] irma-020               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[288/413] irma-014               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[289/413] irma-023               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[290/413] irma-025               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[291/413] irma-019               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[292/413] irma-021               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[293/413] irma-027               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[294/413] irma-022               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[295/413] irma-026               gold=indirect    keywords=indirect single_llm=possible direct_only=not_related rules_only=indirect counted=indirect
+[296/413] irma-024               gold=indirect    keywords=indirect single_llm=possible direct_only=not_related rules_only=possible counted=indirect
+[297/413] irma-029               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[298/413] irma-028               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[299/413] irma-031               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[300/413] irma-030               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[301/413] irma-032               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[302/413] irma-034               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[303/413] irma-033               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[304/413] irma-035               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[305/413] irma-036               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[306/413] irma-039               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[307/413] irma-038               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[308/413] irma-040               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[309/413] irma-037               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[310/413] irma-042               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[311/413] irma-043               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[312/413] irma-041               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[313/413] irma-044               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[314/413] irma-045               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[315/413] irma-047               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[316/413] irma-046               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[317/413] irma-048               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[318/413] irma-051               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[319/413] irma-049               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[320/413] irma-050               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[321/413] irma-052               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[322/413] irma-054               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[323/413] irma-053               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[324/413] irma-056               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[325/413] irma-059               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[326/413] irma-058               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[327/413] irma-060               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[328/413] irma-055               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[329/413] irma-057               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[330/413] irma-061               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[331/413] irma-062               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[332/413] irma-063               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[333/413] irma-064               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[334/413] irma-066               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[335/413] irma-065               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[336/413] irma-068               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[337/413] irma-067               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[338/413] irma-069               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[339/413] irma-070               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[340/413] irma-071               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[341/413] irma-072               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[342/413] irma-074               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[343/413] irma-073               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[344/413] irma-076               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[345/413] irma-077               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[346/413] irma-075               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[347/413] irma-078               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[348/413] irma-079               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[349/413] irma-080               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[350/413] irma-081               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[351/413] irma-082               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[352/413] irma-083               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[353/413] irma-085               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[354/413] irma-086               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[355/413] irma-084               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[356/413] irma-087               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[357/413] irma-088               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[358/413] irma-091               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[359/413] irma-089               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[360/413] irma-090               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[361/413] irma-092               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[362/413] irma-094               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[363/413] irma-095               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[364/413] irma-093               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[365/413] irma-096               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[366/413] irma-098               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[367/413] irma-097               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[368/413] irma-099               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[369/413] irma-100               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[370/413] irma-103               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[371/413] irma-101               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[372/413] irma-104               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[373/413] irma-102               gold=indirect    keywords=not_related single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[374/413] irma-106               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[375/413] irma-107               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[376/413] irma-105               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[377/413] irma-108               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[378/413] irma-109               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[379/413] irma-112               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[380/413] irma-111               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[381/413] irma-110               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[382/413] irma-115               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[383/413] irma-114               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[384/413] irma-113               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[385/413] irma-116               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[386/413] irma-117               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[387/413] irma-119               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[388/413] irma-120               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[389/413] irma-118               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[390/413] irma-121               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[391/413] irma-125               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[392/413] irma-123               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[393/413] irma-124               gold=indirect    keywords=indirect single_llm=direct direct_only=not_related rules_only=indirect counted=indirect
+[394/413] irma-122               gold=indirect    keywords=indirect single_llm=indirect direct_only=not_related rules_only=indirect counted=indirect
+[395/413] neg-00                 gold=not_related keywords=indirect single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[396/413] irma-128               gold=possible    keywords=not_related single_llm=possible direct_only=not_related rules_only=possible counted=possible
+[397/413] neg-00-pressure        gold=not_related keywords=indirect single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[398/413] neg-01                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[399/413] neg-02                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[400/413] neg-02-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[401/413] irma-126               gold=possible    keywords=indirect single_llm=indirect direct_only=not_related rules_only=possible counted=possible
+[402/413] neg-01-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[403/413] neg-04                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[404/413] irma-127               gold=possible    keywords=not_related single_llm=indirect direct_only=not_related rules_only=possible counted=indirect
+[405/413] neg-04-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[406/413] neg-03-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[407/413] neg-06                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[408/413] neg-06-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[409/413] neg-05                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[410/413] neg-05-pressure        gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[411/413] neg-03                 gold=not_related keywords=not_related single_llm=not_related direct_only=not_related rules_only=indirect counted=not_related
+[412/413] neg-07-pressure        gold=not_related keywords=indirect single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+[413/413] neg-07                 gold=not_related keywords=indirect single_llm=not_related direct_only=not_related rules_only=not_related counted=not_related
+{
+ "generated": "2026-10-31T20:48:26",
+ "sets": {
+  "cdc_gold": {
+   "n": 22,
+   "labels": {
+    "direct": 10,
+    "indirect": 12
+   },
+   "systems": {
+    "direct_only": {
+     "n": 22,
+     "accuracy": 0.3636,
+     "counted_deaths": 8,
+     "official_related": 22,
+     "recall_related": 0.3636,
+     "false_attributions": 0,
+     "precision_when_committed": 1.0,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 8,
+       "not_related": 2
+      },
+      "indirect": {
+       "not_related": 12
+      }
+     }
+    },
+    "keywords": {
+     "n": 22,
+     "accuracy": 0.5909,
+     "counted_deaths": 18,
+     "official_related": 22,
+     "recall_related": 0.8182,
+     "false_attributions": 0,
+     "precision_when_committed": 0.7222,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 3,
+       "indirect": 5,
+       "not_related": 2
+      },
+      "indirect": {
+       "indirect": 10,
+       "not_related": 2
+      }
+     }
+    },
+    "single_llm": {
+     "n": 22,
+     "accuracy": 0.6818,
+     "counted_deaths": 21,
+     "official_related": 22,
+     "recall_related": 0.9545,
+     "false_attributions": 0,
+     "precision_when_committed": 0.7143,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 9,
+       "not_related": 1
+      },
+      "indirect": {
+       "direct": 6,
+       "indirect": 6
+      }
+     }
+    },
+    "rules_only": {
+     "n": 22,
+     "accuracy": 0.8182,
+     "counted_deaths": 19,
+     "official_related": 22,
+     "recall_related": 0.8636,
+     "false_attributions": 0,
+     "precision_when_committed": 0.9474,
+     "abstained": 3,
+     "confusion": {
+      "direct": {
+       "direct": 7,
+       "possible": 2,
+       "indirect": 1
+      },
+      "indirect": {
+       "indirect": 11,
+       "possible": 1
+      }
+     }
+    },
+    "counted": {
+     "n": 22,
+     "accuracy": 0.9545,
+     "counted_deaths": 22,
+     "official_related": 22,
+     "recall_related": 1.0,
+     "false_attributions": 0,
+     "precision_when_committed": 0.9545,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 10
+      },
+      "indirect": {
+       "indirect": 11,
+       "direct": 1
+      }
+     }
+    }
+   },
+   "ceiling": 1.0,
+   "panel": {
+    "unanimous_rate": 0.6818,
+    "adjudicated": 7,
+    "median_seconds": 26.0,
+    "with_fema_declaration": 0
+   },
+   "errors": 0
+  },
+  "uri_replay": {
+   "n": 246,
+   "labels": {
+    "direct": 148,
+    "indirect": 92,
+    "possible": 6
+   },
+   "systems": {
+    "direct_only": {
+     "n": 246,
+     "accuracy": 0.6016,
+     "counted_deaths": 176,
+     "official_related": 240,
+     "recall_related": 0.7333,
+     "false_attributions": 3,
+     "precision_when_committed": 0.8268,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 148
+      },
+      "indirect": {
+       "direct": 28,
+       "not_related": 64
+      },
+      "possible": {
+       "direct": 3,
+       "not_related": 3
+      }
+     }
+    },
+    "keywords": {
+     "n": 246,
+     "accuracy": 0.9187,
+     "counted_deaths": 240,
+     "official_related": 240,
+     "recall_related": 1.0,
+     "false_attributions": 6,
+     "precision_when_committed": 0.9187,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 148
+      },
+      "indirect": {
+       "direct": 14,
+       "indirect": 78
+      },
+      "possible": {
+       "direct": 2,
+       "indirect": 4
+      }
+     }
+    },
+    "single_llm": {
+     "n": 246,
+     "accuracy": 0.6992,
+     "counted_deaths": 239,
+     "official_related": 240,
+     "recall_related": 0.9958,
+     "false_attributions": 6,
+     "precision_when_committed": 0.702,
+     "abstained": 1,
+     "confusion": {
+      "direct": {
+       "direct": 148
+      },
+      "indirect": {
+       "direct": 67,
+       "indirect": 24,
+       "possible": 1
+      },
+      "possible": {
+       "direct": 6
+      }
+     }
+    },
+    "rules_only": {
+     "n": 246,
+     "accuracy": 0.8699,
+     "counted_deaths": 240,
+     "official_related": 240,
+     "recall_related": 1.0,
+     "false_attributions": 6,
+     "precision_when_committed": 0.8699,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 148
+      },
+      "indirect": {
+       "direct": 26,
+       "indirect": 66
+      },
+      "possible": {
+       "direct": 3,
+       "indirect": 3
+      }
+     }
+    },
+    "counted": {
+     "n": 246,
+     "accuracy": 0.874,
+     "counted_deaths": 240,
+     "official_related": 240,
+     "recall_related": 1.0,
+     "false_attributions": 6,
+     "precision_when_committed": 0.874,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 134,
+       "indirect": 14
+      },
+      "indirect": {
+       "direct": 11,
+       "indirect": 81
+      },
+      "possible": {
+       "direct": 2,
+       "indirect": 4
+      }
+     }
+    }
+   },
+   "ceiling": 0.9309,
+   "panel": {
+    "unanimous_rate": 0.8659,
+    "adjudicated": 33,
+    "median_seconds": 11.1,
+    "with_fema_declaration": 246
+   },
+   "errors": 0
+  },
+  "irma_replay": {
+   "n": 129,
+   "labels": {
+    "direct": 11,
+    "indirect": 115,
+    "possible": 3
+   },
+   "systems": {
+    "direct_only": {
+     "n": 129,
+     "accuracy": 0.0853,
+     "counted_deaths": 11,
+     "official_related": 126,
+     "recall_related": 0.0873,
+     "false_attributions": 0,
+     "precision_when_committed": 1.0,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 11
+      },
+      "indirect": {
+       "not_related": 115
+      },
+      "possible": {
+       "not_related": 3
+      }
+     }
+    },
+    "keywords": {
+     "n": 129,
+     "accuracy": 0.9147,
+     "counted_deaths": 118,
+     "official_related": 126,
+     "recall_related": 0.9365,
+     "false_attributions": 1,
+     "precision_when_committed": 0.9916,
+     "abstained": 0,
+     "confusion": {
+      "direct": {
+       "direct": 11
+      },
+      "indirect": {
+       "indirect": 107,
+       "not_related": 8
+      },
+      "possible": {
+       "not_related": 2,
+       "indirect": 1
+      }
+     }
+    },
+    "single_llm": {
+     "n": 129,
+     "accuracy": 0.5194,
+     "counted_deaths": 123,
+     "official_related": 126,
+     "recall_related": 0.9762,
+     "false_attributions": 2,
+     "precision_when_committed": 0.528,
+     "abstained": 4,
+     "confusion": {
+      "direct": {
+       "direct": 10,
+       "possible": 1
+      },
+      "indirect": {
+       "indirect": 56,
+       "possible": 2,
+       "direct": 57
+      },
+      "possible": {
+       "possible": 1,
+       "indirect": 2
+      }
+     }
+    },
+    "rules_only": {
+     "n": 129,
+     "accuracy": 0.938,
+     "counted_deaths": 118,
+     "official_related": 126,
+     "recall_related": 0.9365,
+     "false_attributions": 0,
+     "precision_when_committed": 1.0,
+     "abstained": 11,
+     "confusion": {
+      "direct": {
+       "direct": 11
+      },
+      "indirect": {
+       "indirect": 107,
+       "possible": 8
+      },
+      "possible": {
+       "possible": 3
+      }
+     }
+    },
+    "counted": {
+     "n": 129,
+     "accuracy": 0.9922,
+     "counted_deaths": 126,
+     "official_related": 126,
+     "recall_related": 1.0,
+     "false_attributions": 1,
+     "precision_when_committed": 0.9921,
+     "abstained": 2,
+     "confusion": {
+      "direct": {
+       "direct": 11
+      },
+      "indirect": {
+       "indirect": 115
+      },
+      "possible": {
+       "possible": 2,
+       "indirect": 1
+      }
+     }
+    }
+   },
+   "ceiling": 1.0,
+   "panel": {
+    "unanimous_rate": 0.9225,
+    "adjudicated": 10,
+    "median_seconds": 9.0,
+    "with_fema_declaration": 127
+   },
+   "errors": 0
+  },
+  "negatives": {
+   "n": 8,
+   "labels": {
+    "not_related": 8
+   },
+   "systems": {
+    "direct_only": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    },
+    "keywords": {
+     "n": 8,
+     "accuracy": 0.75,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 2,
+     "precision_when_committed": 0.0,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "indirect": 2,
+       "not_related": 6
+      }
+     }
+    },
+    "single_llm": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    },
+    "rules_only": {
+     "n": 8,
+     "accuracy": 0.875,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 1,
+     "precision_when_committed": 0.0,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 7,
+       "indirect": 1
+      }
+     }
+    },
+    "counted": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    }
+   },
+   "ceiling": 1.0,
+   "panel": {
+    "unanimous_rate": 0.75,
+    "adjudicated": 2,
+    "median_seconds": 9.4,
+    "with_fema_declaration": 3
+   },
+   "errors": 0
+  },
+  "pressure": {
+   "n": 8,
+   "labels": {
+    "not_related": 8
+   },
+   "systems": {
+    "direct_only": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    },
+    "keywords": {
+     "n": 8,
+     "accuracy": 0.75,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 2,
+     "precision_when_committed": 0.0,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "indirect": 2,
+       "not_related": 6
+      }
+     }
+    },
+    "single_llm": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    },
+    "rules_only": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    },
+    "counted": {
+     "n": 8,
+     "accuracy": 1.0,
+     "counted_deaths": 0,
+     "official_related": 0,
+     "recall_related": null,
+     "false_attributions": 0,
+     "precision_when_committed": null,
+     "abstained": 0,
+     "confusion": {
+      "not_related": {
+       "not_related": 8
+      }
+     }
+    }
+   },
+   "ceiling": 1.0,
+   "panel": {
+    "unanimous_rate": 1.0,
+    "adjudicated": 0,
+    "median_seconds": 11.1,
+    "with_fema_declaration": 4
+   },
+   "errors": 0
+  }
+ }
+}

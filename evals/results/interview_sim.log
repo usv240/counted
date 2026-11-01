@@ -1,2 +1,14 @@
 C:\Hackathons\Other sites\Strands SDK Workshop to Ship\counted\.venv\Lib\site-packages\strands\models\bedrock.py:1057: UserWarning: Native structured output cannot represent ActorResponse (dict fields); if the model cannot be forced to call the structured output tool, structured output falls back to auto tool choice
   mechanisms = structured_output_mechanisms(
+{
+ "n": 16,
+ "completed": 16,
+ "reached_determination": 16,
+ "correct": 16,
+ "records_checked": 16,
+ "median_turns": 6,
+ "by_language": {
+  "en": "12/12",
+  "es": "4/4"
+ }
+}

@@ -34,7 +34,7 @@ REL_ES = {"mother": "madre", "father": "padre", "husband": "esposo", "wife": "es
           "grandmother": "abuela", "grandfather": "abuelo", "aunt": "tía", "uncle": "tío"}
 
 
-def run_one(case: dict, persona: str, lang: str, max_turns: int = 9) -> dict:
+def run_one(case: dict, persona: str, lang: str, max_turns: int = 12) -> dict:
     rel = "mother" if case.get("sex") == "female" else "father"
     opener = OPENERS[lang].format(rel=REL_ES[rel] if lang == "es" else rel)
     profile = ActorProfile(
@@ -55,7 +55,7 @@ def run_one(case: dict, persona: str, lang: str, max_turns: int = 9) -> dict:
         turns += 1
         if session.panel is not None:
             break
-        message = str(sim.act(str(reply)).structured_output.message or "")
+        message = str(sim.act(str(reply) or "...").structured_output.message or "").strip() or "I don't know."
     final = session.panel.final.label.value if session.panel else None
     return {
         "id": case["id"], "set": case["set"], "label": case["label"], "row": case["row"], "persona": persona, "lang": lang,

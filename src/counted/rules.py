@@ -33,6 +33,7 @@ TEMPERATURE_IS_THE_DISASTER = {DisasterType.WINTER_STORM, DisasterType.HEAT_WAVE
 INDIRECT_PRIORITY = [
     Mechanism.CARBON_MONOXIDE,
     Mechanism.POWER_DEPENDENT_DEVICE,
+    Mechanism.INFECTION,
     Mechanism.HEALTHCARE_DISRUPTION,
     Mechanism.FIRE_ALTERNATIVE_HEAT,
     Mechanism.ELECTROCUTION,
@@ -77,6 +78,7 @@ INJURY_PHRASES = {
     Mechanism.STRESS_CARDIAC: "Cardiac event attributed to physical or emotional stress of {d}",
     Mechanism.FALL: "Fall in unsafe conditions created by {d}",
     Mechanism.ELECTROCUTION: "Electrocution from downed or damaged power lines after {d}",
+    Mechanism.INFECTION: "Infection of a wound or exposure sustained in floodwater or debris during {d}",
 }
 
 
@@ -134,9 +136,14 @@ def classify(facts: CaseFacts, ctx: DisasterContext | None = None) -> Verdict:
 
     # Temperature exposure is direct only when the temperature itself is the disaster.
     temperature_direct = facts.disaster_type in TEMPERATURE_IS_THE_DISASTER
+    # Drowning is direct only when the disaster's own water did it (flood, surge, storm rain). In a winter storm or
+    # heat wave a drowning comes through a crash on ice or a fall, which CDC and Texas DSHS class as indirect.
+    water_is_the_disaster = facts.disaster_type not in TEMPERATURE_IS_THE_DISASTER
     direct_candidates = [
         e for e in evidence
-        if e.mechanism in DIRECT_MECHANISMS and (e.mechanism != Mechanism.ENVIRONMENTAL_TEMPERATURE or temperature_direct)
+        if e.mechanism in DIRECT_MECHANISMS
+        and (e.mechanism != Mechanism.ENVIRONMENTAL_TEMPERATURE or temperature_direct)
+        and (e.mechanism != Mechanism.DROWNING or water_is_the_disaster)
     ]
 
     # Step 2a: direct.
