@@ -4,6 +4,8 @@
 
 Hurricane Maria's official toll was 64 until a government-commissioned study found 2,975. The study blamed certification rules that counted only *direct* deaths. Counted is built to find the indirect ones: the oxygen machine that stopped, the dialysis center that closed, the generator in the garage.
 
+**Try it:** https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws (live demo, API docs at `/docs`, MCP at `/mcp/`, A2A at `/a2a/`)
+
 ## Results (all labels from Texas DSHS and the CDC, not from us)
 
 | Test set | Cases | Direct-only convention | Keyword rules | One LLM call | **Counted** |
@@ -82,7 +84,9 @@ curl -X POST localhost:8080/v1/assess -H "x-api-key: ct_..." -H "content-type: a
   -d '{"account":"My mother, 78, lived at 4602 Kiam St, Houston, TX. During Winter Storm Uri the power went out Feb 15 and her oxygen machine stopped. She died at home on 2021-02-17."}'
 ```
 
-MCP client config: `{"mcpServers": {"counted": {"type": "http", "url": "http://localhost:8080/mcp/"}}}`
+MCP client config: `{"mcpServers": {"counted": {"type": "http", "url": "https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws/mcp/"}}}` (or `http://localhost:8080/mcp/` locally)
+
+The public demo runs this image (`Dockerfile`) on Amazon ECS Express Mode (Fargate behind HTTPS), with a task role limited to Bedrock invoke, Amazon Location geocoding and the API-key table, and a daily cap on model runs (`COUNTED_DAILY_RUNS`).
 
 Deploy to Amazon Bedrock AgentCore Runtime (entrypoint `src/counted/agentcore_app.py`):
 
