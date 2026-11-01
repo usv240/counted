@@ -79,7 +79,13 @@
 
   /* ------------------------------------------------------------ markdown (documents are ours, but escape anyway) */
   function md(src) {
-    const lines = esc(src).split("\n"); let html = "", inTable = false, inList = false;
+    // Join wrapped quote lines ("> a" then "> b") into one, so bold can span the wrap.
+    const lines = esc(src).split("\n").reduce((out, l) => {
+      if (/^&gt; /.test(l) && /^&gt; /.test(out[out.length - 1] || "")) out[out.length - 1] += " " + l.slice(5);
+      else out.push(l);
+      return out;
+    }, []);
+    let html = "", inTable = false, inList = false;
     const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/_(.+?)_/g, "<em>$1</em>")
       .replace(/&lt;sub&gt;(.+?)&lt;\/sub&gt;/g, "<small>$1</small>");
     for (const raw of lines) {
@@ -91,8 +97,8 @@
       } else if (inTable) { html += "</table>"; inTable = false; }
       if (/^- /.test(l)) { if (!inList) { html += "<ul>"; inList = true; } html += `<li>${inline(l.slice(2))}</li>`; continue; }
       else if (inList) { html += "</ul>"; inList = false; }
-      if (/^# /.test(l)) html += `<h1>${inline(l.slice(2))}</h1>`;
-      else if (/^## /.test(l)) html += `<h2>${inline(l.slice(3))}</h2>`;
+      if (/^# /.test(l)) html += `<p class="d-h1">${inline(l.slice(2))}</p>`;
+      else if (/^## /.test(l)) html += `<p class="d-h2">${inline(l.slice(3))}</p>`;
       else if (/^&gt; /.test(l)) html += `<blockquote>${inline(l.slice(5))}</blockquote>`;
       else if (l) html += `<p>${inline(l)}</p>`;
     }
@@ -148,7 +154,12 @@
     const steps = [() => renderFacts(r.facts), () => renderRecords(r.context, r.facts), () => renderPanel(r.panel), () => renderDocs(r.documents)];
     const ids = ["#s-facts", "#s-records", "#s-panel", "#s-verdict"];
     steps.forEach((fn, i) => setTimeout(() => { fn(); const el = $(ids[i]); el.classList.remove("reveal"); void el.offsetWidth; el.classList.add("reveal"); }, i * 220));
-    setTimeout(() => $("#s-docs").classList.add("done"), 900);
+    setTimeout(() => {
+      $("#s-docs").classList.add("done");
+      // The case file scrolls on its own; land it on the verdict, the answer the reader came for.
+      const pane = $(".casefile"), v = $("#s-verdict");
+      pane.scrollTo({ top: v.offsetTop - 12, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }, 900);
   }
   function resetCase() {
     $$(".casefile .step").forEach((s) => s.classList.remove("done", "reveal"));

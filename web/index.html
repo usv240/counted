@@ -172,11 +172,11 @@
       </div>
     </div>
 
-    <div class="app-right casefile" aria-label="Live case file" data-ui>
+    <div class="app-right casefile" aria-label="Live case file" tabindex="0" data-ui>
       <div class="recorded" id="recorded" hidden></div>
-      <div class="step" id="s-facts"><h3>What the family said<button class="i" type="button" data-tip="<b>Evidence, with receipts</b>Each circumstance is stored with the family’s exact words and the CDC category it maps to. The examiners can only cite what is here."><svg><use href="#i"/></svg></button></h3><div class="facts" id="facts"><p class="status">Nothing yet.</p></div></div>
-      <div class="step" id="s-records"><h3>Public records<button class="i" type="button" data-tip="<b>Checked, not assumed</b>FEMA declaration and incident period, whether Individual Assistance (the program that pays funeral aid) was approved for the county, and Weather Service warnings in force that week."><svg><use href="#i"/></svg></button></h3><dl class="kv" id="records"><dt>Status</dt><dd>Waiting for an address and a date.</dd></dl></div>
-      <div class="step" id="s-panel"><h3>The panel<button class="i" type="button" data-tip="<b>Three seats and a chair</b>CDC rules (code), Claude and Amazon Nova decide independently. The adjudicator (Claude Opus) is called only on disagreement."><svg><use href="#i"/></svg></button></h3>
+      <div class="step" id="s-facts"><div class="step-h" role="heading" aria-level="3">What the family said<button class="i" type="button" data-tip="<b>Evidence, with receipts</b>Each circumstance is stored with the family’s exact words and the CDC category it maps to. The examiners can only cite what is here."><svg><use href="#i"/></svg></button></div><div class="facts" id="facts"><p class="status">Nothing yet.</p></div></div>
+      <div class="step" id="s-records"><div class="step-h" role="heading" aria-level="3">Public records<button class="i" type="button" data-tip="<b>Checked, not assumed</b>FEMA declaration and incident period, whether Individual Assistance (the program that pays funeral aid) was approved for the county, and Weather Service warnings in force that week."><svg><use href="#i"/></svg></button></div><dl class="kv" id="records"><dt>Status</dt><dd>Waiting for an address and a date.</dd></dl></div>
+      <div class="step" id="s-panel"><div class="step-h" role="heading" aria-level="3">The panel<button class="i" type="button" data-tip="<b>Three seats and a chair</b>CDC rules (code), Claude and Amazon Nova decide independently. The adjudicator (Claude Opus) is called only on disagreement."><svg><use href="#i"/></svg></button></div>
         <div class="seats" id="seats">
           <div class="seat"><span class="who">CDC decision tree</span><span class="lab">·</span></div>
           <div class="seat"><span class="who">Claude examiner</span><span class="lab">·</span></div>
@@ -185,7 +185,7 @@
         </div>
       </div>
       <div class="step" id="s-verdict"><div class="verdict not_related" id="verdict"><div class="big">Awaiting a case</div><p class="chain">The determination appears here with its causal chain and the line for the certificate.</p></div></div>
-      <div class="step" id="s-docs"><h3>What it leaves behind<button class="i" type="button" data-tip="<b>Three documents</b>A draft certifier statement (the medical examiner reviews and signs), a FEMA funeral-assistance packet for the family in their language, and a CDC-style surveillance record for the county."><svg><use href="#i"/></svg></button></h3>
+      <div class="step" id="s-docs"><div class="step-h" role="heading" aria-level="3">What it leaves behind<button class="i" type="button" data-tip="<b>Three documents</b>A draft certifier statement (the medical examiner reviews and signs), a FEMA funeral-assistance packet for the family in their language, and a CDC-style surveillance record for the county."><svg><use href="#i"/></svg></button></div>
         <div class="docs-tabs" role="tablist" id="doc-tabs">
           <button role="tab" aria-selected="true" data-doc="certifier_statement">Certifier statement</button>
           <button role="tab" aria-selected="false" data-doc="family_packet">Family packet</button>
