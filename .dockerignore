@@ -1,0 +1,7 @@
+.venv
+.git
+.taste-skill
+.keys.json
+.env
+**/__pycache__
+evals/results/*/predictions.jsonl.tmp

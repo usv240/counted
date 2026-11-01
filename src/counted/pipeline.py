@@ -14,6 +14,7 @@ from strands import Agent
 from strands.models.bedrock import BedrockModel
 from strands.models.routing import ModelRouter
 
+from . import budget
 from .agents.panel import run_panel
 from .config import EXAMINER_MODEL, FALLBACK_MODEL, INTERVIEW_MODEL, REGION
 from .documents import build_documents
@@ -43,6 +44,7 @@ def extract_facts(account: str, language: str = "en") -> CaseFacts:
 def assess(account: str | None = None, facts: CaseFacts | None = None, *, language: str = "en",
            context: DisasterContext | None = None, check_public_records: bool = True) -> dict:
     """Full pipeline. Pass `facts` to skip extraction, `context` to skip public-record lookups."""
+    budget.spend()
     t0 = time.perf_counter()
     if facts is None:
         facts = extract_facts(account or "", language)

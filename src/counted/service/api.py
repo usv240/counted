@@ -27,7 +27,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from .. import __version__
+from .. import __version__, budget
 from ..agents.interviewer import CaseSession, build_interviewer
 from ..pipeline import assess
 from ..tools.facts import disaster_context, geocode
@@ -63,6 +63,12 @@ app = FastAPI(
     lifespan=lifespan,
 )
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+
+@app.exception_handler(budget.BudgetExceeded)
+def _over_budget(_: Request, exc: budget.BudgetExceeded):
+    return JSONResponse({"detail": str(exc)}, status_code=429)
+
 app.mount("/mcp", mcp_app)
 
 
@@ -181,6 +187,7 @@ def start_interview(body: InterviewStart, request: Request):
 @app.post("/v1/interviews/{sid}/turn", tags=["Interview"], summary="Send the next message")
 def interview_turn(sid: str, body: TurnRequest, request: Request):
     rate_limit(request, per_hour=200)
+    budget.spend()
     entry = _sessions.get(sid)
     if not entry:
         raise HTTPException(404, "Interview not found or expired.")
@@ -295,7 +302,9 @@ def main() -> None:
     import uvicorn
 
     logging.basicConfig(level=logging.INFO)
-    uvicorn.run(app, host=os.getenv("HOST", "0.0.0.0"), port=int(os.getenv("PORT", "8080")))
+    # Behind a load balancer, rate limits must see the visitor's address, not the balancer's.
+    uvicorn.run(app, host=os.getenv("HOST", "0.0.0.0"), port=int(os.getenv("PORT", "8080")),
+                proxy_headers=True, forwarded_allow_ips="*")
 
 
 if __name__ == "__main__":
