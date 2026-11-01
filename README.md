@@ -4,7 +4,7 @@
 
 **No disaster death goes uncounted.** Counted interviews a grieving family after a hurricane, winter storm or heat wave, checks FEMA and National Weather Service records, finds the disaster hidden inside the death using CDC certification guidance, and drafts the statement a medical examiner signs. That signed statement is what gets the death counted, and it is what FEMA requires before it pays funeral assistance.
 
-Hurricane Maria's official toll was 64 until a government-commissioned study found 2,975. The study blamed certification rules that counted only *direct* deaths. Counted is built to find the indirect ones: the oxygen machine that stopped, the dialysis center that closed, the generator in the garage.
+Hurricane Maria's official toll was 64 until a government-commissioned study estimated 2,975. The study blamed certification rules that counted only *direct* deaths. Counted is built to find the indirect ones: the oxygen machine that stopped, the dialysis center that closed, the generator in the garage.
 
 **Try it:** https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws (live demo, API docs at `/docs`, MCP at `/mcp/`, A2A at `/a2a/`)
 
