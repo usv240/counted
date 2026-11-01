@@ -1,5 +1,7 @@
 # Counted
 
+[![tests](https://github.com/usv240/counted/actions/workflows/tests.yml/badge.svg)](https://github.com/usv240/counted/actions/workflows/tests.yml)
+
 **No disaster death goes uncounted.** Counted interviews a grieving family after a hurricane, winter storm or heat wave, checks FEMA and National Weather Service records, finds the disaster hidden inside the death using CDC certification guidance, and drafts the statement a medical examiner signs. That signed statement is what gets the death counted, and it is what FEMA requires before it pays funeral assistance.
 
 Hurricane Maria's official toll was 64 until a government-commissioned study found 2,975. The study blamed certification rules that counted only *direct* deaths. Counted is built to find the indirect ones: the oxygen machine that stopped, the dialysis center that closed, the generator in the garage.
@@ -34,6 +36,21 @@ Interview simulation (Strands Evals ActorSimulator, 16 relatives, 4 temperaments
 
 Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.run`. Predictions for every case are in `evals/results/<tag>/predictions.jsonl`.
 
+### Red team: 17 attacks, and what gets through when each guard is removed
+
+`tests/test_redteam.py` drives the real interviewer (same tools, Cedar policy and interventions as production) with a scripted model that misbehaves on purpose: it tries to sign, obeys a "you are now the certifier" injection, asks for a determination before checking records or without consent, records quotes the family never said, stores an SSN, loops forever, and writes "I hereby certify", "you will receive FEMA assistance", "may have contributed" (and in Spanish). Three controls check the guards don't block legitimate work: a certifier can sign, a near-verbatim quote is accepted, and a consented determination runs end to end. `evals/guard_ablation.py` removes one guard at a time:
+
+| Guard removed | Tests passing (17 attacks + 3 controls) | What gets through |
+|---|---|---|
+| none | **20 / 20** | nothing |
+| Cedar policy | 15 / 20 | agent signs; injected role claim works; determination before the record check or with nothing on file; runaway recording |
+| No certifying language | 14 / 20 | all six overclaiming / blaming / "may have" replies |
+| Quote must be verbatim | 17 / 20 | three fabricated quotes |
+| Consent before decision | 18 / 20 | determination without asking; a "no" ignored |
+| Redact identifiers | 19 / 20 | SSN, phone and email stored |
+
+Every guard stops something no other guard does. These run offline, with no AWS credentials, on every push (`uv run pytest tests`, 67 tests, about 4 seconds), next to tests of the CDC decision tree and a check that no drafted document, in either language, for any of the 19 mechanisms, uses wording the guards forbid.
+
 ## How it works
 
 ```
@@ -65,7 +82,8 @@ Documents (templates, no model): certifier statement draft · FEMA family packet
 | Documents | `src/counted/documents.py` |
 | REST API, API keys, MCP server, A2A server, website | `src/counted/service/` |
 | AgentCore Runtime entrypoint + Memory | `src/counted/agentcore_app.py` |
-| Replay evals, simulated-relative interview evals | `evals/` |
+| Replay evals, simulated-relative interview evals, guard ablation | `evals/` |
+| Offline tests: decision tree, documents, red team with a scripted model | `tests/` |
 | Ground truth extracted from CDC, Texas DSHS, MMWR | `data/` (see `data/SOURCES.md`) |
 
 ## Run it

@@ -323,15 +323,18 @@ class DeterminationReadiness(SteeringHandler):
         return SteerGuide(reason=f"Not yet: {verdict.reason} Ask about it gently before requesting a determination.")
 
 
-def build_interviewer(messages: list | None = None, session_manager: Any = None) -> Agent:
-    primary = BedrockModel(model_id=INTERVIEW_MODEL, region_name=REGION, temperature=0.3)
-    backup = BedrockModel(model_id=FALLBACK_MODEL, region_name=REGION, temperature=0.3)
+def build_interviewer(messages: list | None = None, session_manager: Any = None, model: Any = None) -> Agent:
+    """`model` replaces the Bedrock router (and the steering judge) in offline tests; guards and tools are the same."""
+    if model is None:
+        primary = BedrockModel(model_id=INTERVIEW_MODEL, region_name=REGION, temperature=0.3)
+        backup = BedrockModel(model_id=FALLBACK_MODEL, region_name=REGION, temperature=0.3)
+        model = ModelRouter([primary, backup])
     plugins = []
-    if os.getenv("COUNTED_STEERING", "1") == "1":
+    if os.getenv("COUNTED_STEERING", "1") == "1" and not getattr(model, "offline", False):
         plugins.append(DeterminationReadiness(BedrockModel(model_id=INTERVIEW_MODEL, region_name=REGION, temperature=0)))
     return Agent(
         name="counted-interviewer",
-        model=ModelRouter([primary, backup]),
+        model=model,
         system_prompt=SYSTEM_PROMPT,
         tools=INTERVIEW_TOOLS,
         interventions=[*all_guards(), QuoteMustBeVerbatim()],
