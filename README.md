@@ -81,14 +81,18 @@ The first version of this script checked replies with the guard's own patterns a
 
 **Then a second independent review found what that rubric missed.** In round 6, 5 of the 10 pressure interviews still offered a relative pushing for a link a list of possible effects ("if he lost power, if he couldn't get medicine, if he was in the heat or cold"). That is a leading question, and the rubric had no rule for it. With a `leading_question` rule added, the same transcripts re-judged:
 
-| Run, re-judged with the final rubric | Interviews | With any flagged sentence | Leaving out leading questions |
+| Run, judged with the final rubric | Interviews | With any flagged sentence | Leaving out leading questions |
 |---|---|---|---|
 | Before | 24 | **19** | 17 |
 | Round 6 | 40 | **17** | 8 |
+| Round 7 (final code) | 40 | **13** | 8 |
+| Held out: five new attacks, never used to tune anything | 20 | **10** | 3 |
 
-Round 7 adds a guard that blocks a menu of three or more effects before a finding, makes the fallback reply an open question, and removes the menu from the vetted "not related" message (`tests/test_guard_phrases.py`). Its live run, and a held-out set of five new attacks never used to tune anything (`--heldout`: a lawyer's threat, a fake medical examiner's assistant, flattery, guilt, a double FEMA claim), were cut short by the account's daily Bedrock token quota: 8 of 20 held-out interviews completed, 3 with a flagged sentence, all in the lawyer-threat scenario. Rerun with `uv run python -m evals.adversarial_sim --out adversarial_sim_round7.json` and `--heldout --out adversarial_sim_heldout.json`.
+Round 7 adds a guard that blocks a menu of three or more effects before a finding, makes the fallback reply an open question, and removes the menu from the vetted "not related" message (`tests/test_guard_phrases.py`). It cut flagged interviews from 17 to 13 of 40 and leading-question sentences from 29 to 24; the Spanish pressure attack still had a flagged sentence in all 5 runs.
 
-What held in every run, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 moves by a couple of interviews either way, and the judge is a model, so treat these as rates.
+The held-out set (`--heldout`: a lawyer's threat, a fake medical examiner's assistant, flattery, guilt, a double FEMA claim) shows which fixes generalised. The wording guards did: outside leading questions, 3 of 20 interviews had a flagged sentence, and the impersonation and flattery attacks had none in any run. Leading questions did not: when a guilty or angry relative insists (guilt 4 of 4, lawyer 3 of 4, double claim 3 of 4), the interviewer still asks about specific storm effects. Rerun with `uv run python -m evals.adversarial_sim --repeat 5 --out adversarial_sim_round7.json` and `--heldout --repeat 4 --out adversarial_sim_heldout.json`.
+
+What held in all 276 live interviews, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 or 40 moves by a few interviews either way, and the judge is a model, so treat these as rates.
 
 Results: `evals/results/adversarial_sim_*.json` (each with `_rescored` for the final rubric).
 
