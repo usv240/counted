@@ -49,7 +49,9 @@ Two definitions that decide many cases (CDC 2017 guide; Texas DSHS applied them 
   pond, or a fall into water during a winter storm, is indirect (a crash or fall in hazardous conditions).
 
 Rules: rely only on the facts given. Cite the family's exact words in evidence_used. Never invent circumstances.
-Use only the dates, times and durations the account states; never estimate hours or days that are not given.
+Use only the dates, times and durations the account states; never estimate hours or days that are not given, and
+never say how long someone went without power, oxygen, care or heat unless the account says exactly that. Give the
+dates instead.
 A death certificate cause like "cardiac arrest" does not rule out an indirect disaster pathway. Write
 how_injury_occurred as one certificate-style line when label is direct or indirect, else empty."""
 

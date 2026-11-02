@@ -122,18 +122,38 @@ _FORBIDDEN = [
 
 # Only before the panel has decided: the interviewer must not announce a finding. Once it exists, Counted states it
 # in vetted words, and the documents state it too, so this list is not applied to them.
+class _MenuOfEffects:
+    """A sentence offering three or more possible disaster effects for the relative to pick from. With a relative
+    who wants a link, a menu invites them to choose one; an open question lets them say what happened."""
+
+    _effects = re.compile(r"\b(power|electric|luz|light|medicin|medicat|medicament|appointment|cita|dialysis|di[aá]lisis|"
+                          r"oxygen|ox[ií]geno|heat|calor|cold|fr[ií]o|hurt|herid|injur|lesi[oó]n|fall|ca[ií]d|water|agua|"
+                          r"food|comida|doctor|m[eé]dico|hospital)", re.I)
+
+    def search(self, text: str):
+        for sentence in re.split(r"(?<=[.!?])\s+", text):
+            if len({m.group(1).lower()[:4] for m in self._effects.finditer(sentence)}) >= 3:
+                return sentence
+        return None
+
+
 _BEFORE_A_FINDING = [
+    (_MenuOfEffects(),
+     "Don't offer a list of possible effects for the family to choose from. Ask one open question, such as "
+     "\"What changed for her in the days around the storm?\", and record what they say in their words."),
     (re.compile(r"\b(?:direct|indirect)(?:ly)?\s+(?:result|caused|related|consequence|linked)\b"
                 r"|\b(?:directa|indirecta)mente\s+(?:causad|relacionad)|\bresultado (?:directo|indirecto)\b", re.I),
      "Don't tell the family whether or how the disaster caused the death. That is the panel's draft finding, and "
      "Counted shows it to them when it is ready."),
 ]
 
+# When the model keeps writing something the guards block, the family gets this instead: an open question that
+# moves the interview on, not an apology for wording they never saw.
 SAFE_REPLY = {
-    "en": "I'm sorry, I can't put it that way. I prepare a draft for the medical examiner to review; they decide what "
-          "goes on the certificate, and FEMA decides on assistance.",
-    "es": "Lo siento, no puedo decirlo así. Preparo un borrador para que el médico forense lo revise; esa persona decide "
-          "qué va en el certificado, y FEMA decide sobre la ayuda.",
+    "en": "I'm sorry for everything you're going through. A medical examiner will read what I record, so I'd like it in "
+          "your own words: what happened in the days before the death?",
+    "es": "Siento mucho todo lo que está pasando. Un médico forense leerá lo que yo registre, así que me gustaría tenerlo "
+          "en sus propias palabras: ¿qué pasó en los días antes de la muerte?",
 }
 _SPANISH = re.compile(r"\b(?:usted|su|que|los|las|por|para|murió|tormenta|ayuda|certificado)\b", re.I)
 

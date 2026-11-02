@@ -81,15 +81,14 @@ def message(facts: CaseFacts, ctx: DisasterContext | None, panel: PanelResult) -
         if es:
             return (f"Gracias por contármelo. Tengo que ser honesto con usted: con lo que me contó y los registros públicos, la "
                     f"revisión de Counted no encontró una relación entre {d} y la muerte. La asistencia funeraria de FEMA es solo "
-                    f"para muertes que un desastre causó, así que no puedo preparar una declaración que diga que lo causó. Si hay "
-                    f"algo de esos días que no me haya contado, como un corte de luz, una atención médica que se perdió o una "
-                    f"lesión, puede decírmelo ahora y Counted lo revisará de nuevo. Un médico forense también puede revisar la "
-                    f"muerte; esa persona toma la decisión final.")
+                    f"para muertes que un desastre causó, así que no puedo preparar una declaración que diga que lo causó. Si algo "
+                    f"de esos días no ha salido todavía, puede contármelo ahora con sus propias palabras, y Counted lo revisará de "
+                    f"nuevo. Un médico forense también puede revisar la muerte; esa persona toma la decisión final.")
         return (f"Thank you for telling me. I have to be honest with you: from what you described and the public records, "
                 f"Counted's review did not find a link between {d} and the death. FEMA funeral assistance is only for deaths a "
-                f"disaster caused, so I can't prepare a statement saying it did. If there is something about those days you "
-                f"haven't mentioned, like a power cut, missed medical care or an injury, you can tell me now and Counted will "
-                f"look again. A medical examiner can also review the death; they make the final decision.")
+                f"disaster caused, so I can't prepare a statement saying it did. If anything about those days hasn't come up "
+                f"yet, you can tell me now in your own words, and Counted will look again. A medical examiner can also review "
+                f"the death; they make the final decision.")
     if es:
         return (f"Gracias. Con lo que usted me contó y los registros públicos, la revisión de Counted no pudo decidir si {d} "
                 f"causó la muerte, así que no preparé un hallazgo en ningún sentido. Preparé un borrador que pide a un médico "

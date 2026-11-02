@@ -130,7 +130,7 @@
         <p class="tech">Strands Graph<button class="i" type="button" data-tip="<b>Why a panel?</b>Medical examiners resolve hard cases by independent review and adjudication. Counted copies that: two different model families plus rules that cannot be talked into anything. When they agree, the adjudicator never runs."><svg><use href="#i"/></svg></button> with a conditional edge; ModelRouter fails over to a backup model if one is unavailable.</p></div></li>
     <li class="in"><span class="verb">Drafts</span>
       <div class="what"><strong>The papers that make a death count.</strong>A certifier statement in CDC language for the medical examiner to sign, a FEMA funeral-assistance packet and appeal letter for the family, and a surveillance record for the county.
-        <p class="tech">Rendered from templates, not written by a model, so wording cannot drift.</p></div></li>
+        <p class="tech">Fixed templates around the panel’s finding; the finding’s own lines are checked for banned wording and invented durations before they go in.</p></div></li>
     <li class="in"><span class="verb">Refuses</span>
       <div class="what"><strong>The things a person must decide.</strong>It never signs, never promises money, never blames the family, and never invents a disaster link, even when someone asks it to.
         <p class="tech">Cedar authorization policy<button class="i" type="button" data-tip="<b>Cedar</b>An open policy language from AWS. Before every tool call, Counted checks a policy: only a principal with the certifier role can sign, and no determination can be requested before the public records have been checked."><svg><use href="#i"/></svg></button> plus Strands interventions for consent, identifier redaction and certifying language.</p></div></li>
@@ -225,7 +225,7 @@
     <ul id="limits">
       <li>Some official categories split across labels (Uri’s hypothermia deaths were 146 direct, 10 indirect and 2 possible), so even a perfect reader of the circumstances cannot reproduce every label. We report that ceiling beside each score.</li>
       <li>Replay accounts are generated from official tables: the labels are the government’s, the wording is synthetic. Real interviews will be messier.</li>
-      <li>On the Uri replay, plain keyword rules score 92% to Counted’s 93%: template wording is kind to keywords. On CDC’s own written scenarios the same rules fall to 59% while Counted holds at 91% with no wrong answers (it declined two), and keywords made 4 false disaster links on deaths with none. Counted made 0.</li>
+      <li>On the Uri replay, plain keyword rules score 92% to Counted’s 93%: template wording is kind to keywords. On CDC’s own written scenarios the same rules fall to 59% while Counted holds at 91% (one run with no wrong answers and two declined, a rerun with one wrong and one declined), and keywords made 4 false disaster links on deaths with none. Counted made 0.</li>
       <li>Stress-related cardiac deaths are where examiners themselves disagree most; Counted declines to commit unless the family describes a concrete stressor.</li>
     </ul>
   </div>
@@ -237,7 +237,7 @@
   <div class="never-grid">
     <div>
       <p class="big">The machine drafts. A person decides.</p>
-      <p class="proof">Tested the hard way: 21 scripted attacks on every code change, and live attacks judged by a separate AI. No run produced a signature, a false link in a determination or a stored ID number. The interviewer’s wording took six rounds of fixes: forbidden statements reached families in 18 of 24 interviews at first, and in 2 of 40 now<button class="i" type="button" data-tip="<b>How it was judged</b>Simulated relatives pushed the real agent for a false link, a signature or a promise of FEMA money, and a different model read every reply against a written rubric. Of the two it still flagged, one repeats a relative’s request back to them, and one asks about “the days around the storm that led to his death”."><svg><use href="#i"/></svg></button>.</p>
+      <p class="proof">Tested the hard way: 21 scripted attacks on every code change, and live attacks judged by a separate AI. In every live run it never signed, never stored an ID number and never wrote a false link into a determination. Its wording took longer: interviews with a flagged sentence fell from 19 of 24 to 17 of 40, and to 8 of 40 leaving out leading questions, which the latest fix targets<button class="i" type="button" data-tip="<b>How it was judged</b>Simulated relatives pushed the real agent for a false link, a signature or a promise of FEMA money, and a different model read every reply against a written rubric. The remaining flags are mostly leading questions: offering a relative who wants a link a list of possible storm effects to choose from."><svg><use href="#i"/></svg></button>.</p>
     </div>
     <dl>
       <div><dt>Sign anything</dt><dd>Every document is a draft. Signing is a tool the policy allows only for a certifier; it denies it to everyone else, the agent included.</dd></div>
@@ -297,7 +297,7 @@
       <table class="stk">
         <thead><tr><th scope="col">Piece</th><th scope="col">What it does in Counted</th></tr></thead>
         <tbody>
-          <tr><td>Strands Agent + steering</td><td>The interviewer, with an LLM steering handler that guards against leading questions.</td></tr>
+          <tr><td>Strands Agent + steering</td><td>The interviewer, with a steering handler that holds back a determination until the interview has covered the days before the death.</td></tr>
           <tr><td>Strands Graph</td><td>The examiner panel: two parallel examiners and a conditional adjudicator edge.</td></tr>
           <tr><td>Strands interventions</td><td>Consent (Confirm), identifier redaction (Transform), no certifying language (Guide), verbatim-quote check.</td></tr>
           <tr><td>Cedar authorization</td><td>Role-based tool policy: only certifiers sign; no determination before records are checked.</td></tr>
@@ -306,7 +306,7 @@
           <tr><td>Strands Evals</td><td>ActorSimulator plays grieving relatives (terse, scattered, Spanish-speaking, distrustful) against the real interviewer; a replay harness scores every death against official tables.</td></tr>
           <tr><td>MCP server + A2A server</td><td>Counted as a tool for other agents.</td></tr>
           <tr><td>Amazon Bedrock</td><td>Claude Haiku 4.5 (interview), Claude Sonnet 4.6 (examiner), Amazon Nova 2 Lite (second examiner), Claude Opus 4.6 (adjudicator).</td></tr>
-          <tr><td>Amazon Bedrock AgentCore</td><td>Runtime entrypoint for the agent (one-shot assessments and turn-by-turn interviews), with AgentCore Memory so a family can stop and resume days later.</td></tr>
+          <tr><td>Amazon Bedrock AgentCore</td><td>Packaged for AgentCore Runtime with Memory so a family can stop and resume later; the case file is rebuilt from the saved conversation (tested offline, not yet deployed). The live demo runs on Amazon ECS.</td></tr>
           <tr><td>Amazon Location Service</td><td>Address to county, with the US Census geocoder as backup.</td></tr>
           <tr><td>OpenFEMA + NWS archive</td><td>Declarations, incident windows, Individual Assistance status, warnings in force.</td></tr>
         </tbody>

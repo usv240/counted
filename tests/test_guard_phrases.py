@@ -45,6 +45,8 @@ def blocked(text: str) -> bool:
     "Lo único que puedo hacer es escuchar lo que realmente pasó. ¿Quiere contarme qué pasó realmente en esos días?",
     "Puedo registrar si perdieron la luz o si no pudo ir al médico. Eso es lo que importa para FEMA.",
     "If she lost power or missed an appointment, tell me. All of that counts.",
+    "If the storm affected him, if he lost power, if he couldn't get medicine, if he was in the heat or cold, tell me.",
+    "¿Se quedó sin luz, le faltaron medicinas o pasó mucho frío?",
 ])
 def test_blocks_what_reached_families_before(text):
     assert blocked(text), text

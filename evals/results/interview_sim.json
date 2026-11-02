@@ -5,7 +5,7 @@
   "reached_determination": 15,
   "correct": 15,
   "records_checked": 16,
-  "median_turns": 5,
+  "median_turns": 6,
   "by_language": {
    "en": "12/12",
    "es": "3/4"
@@ -19,7 +19,7 @@
    "row": "Extreme cold exposure / Frostbite",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 5,
+   "turns": 7,
    "final": "direct",
    "correct": true,
    "circumstances": [
@@ -35,11 +35,10 @@
    "row": "Motor vehicle accident / Drowning",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 5,
+   "turns": 4,
    "final": "indirect",
    "correct": true,
    "circumstances": [
-    "motor_vehicle_crash",
     "drowning_flood_surge"
    ],
    "records_checked": true,
@@ -56,7 +55,7 @@
    "final": "indirect",
    "correct": true,
    "circumstances": [
-    "loss_of_health_care"
+    "stress_related_cardiac_event"
    ],
    "records_checked": true,
    "declaration": "DR-4337-FL"
@@ -68,7 +67,7 @@
    "row": "Fall / Blunt/other trauma",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -101,14 +100,13 @@
    "row": "Exacerbation of pre-existing illness / Cardiovascular illness",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 6,
+   "turns": 8,
    "final": "indirect",
    "correct": true,
    "circumstances": [
     "loss_of_utilities",
     "environmental_cold_or_heat_exposure",
-    "evacuation_or_fleeing",
-    "exacerbation_of_chronic_illness"
+    "loss_of_health_care"
    ],
    "records_checked": true,
    "declaration": "DR-4586-TX"
@@ -136,11 +134,11 @@
    "row": "Fall / Drowning",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 5,
+   "turns": 6,
    "final": "indirect",
    "correct": true,
    "circumstances": [
-    "drowning_flood_surge"
+    "fall_in_unsafe_conditions"
    ],
    "records_checked": true,
    "declaration": "DR-4586-TX"
@@ -152,7 +150,7 @@
    "row": "Motor vehicle crash",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -168,10 +166,11 @@
    "row": "Floodwater infection",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 6,
+   "turns": 5,
    "final": "indirect",
    "correct": true,
    "circumstances": [
+    "drowning_flood_surge",
     "infection_from_floodwater_or_disaster_injury"
    ],
    "records_checked": true,
@@ -184,10 +183,12 @@
    "row": "Exacerbation of pre-existing illness / Renal failure/illness",
    "persona": "Spanish-speaking, writes only in Spanish, polite and brief",
    "lang": "es",
-   "turns": 3,
+   "turns": 6,
    "final": null,
    "correct": false,
-   "circumstances": [],
+   "circumstances": [
+    "loss_of_health_care"
+   ],
    "records_checked": true,
    "declaration": "DR-4586-TX"
   },
@@ -198,7 +199,7 @@
    "row": "Drowning related to flooding",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 4,
+   "turns": 6,
    "final": "direct",
    "correct": true,
    "circumstances": [
@@ -214,7 +215,7 @@
    "row": "Motor vehicle accident / Blunt/other trauma",
    "persona": "grieving, terse, answers only what is asked, does not volunteer details",
    "lang": "en",
-   "turns": 7,
+   "turns": 4,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -230,7 +231,7 @@
    "row": "Preparation/Repair injury",
    "persona": "talkative but scattered, drifts to memories, needs gentle redirection",
    "lang": "en",
-   "turns": 5,
+   "turns": 6,
    "final": "indirect",
    "correct": true,
    "circumstances": [
@@ -264,7 +265,7 @@
    "row": "Fire / Burns or soot/smoke inhalation",
    "persona": "angry at the government, distrustful, short answers at first",
    "lang": "en",
-   "turns": 5,
+   "turns": 7,
    "final": "indirect",
    "correct": true,
    "circumstances": [

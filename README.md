@@ -58,7 +58,7 @@ Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.
 | Outcome in vetted words | 23 / 25 | the model contradicting the panel (and the control that checks the vetted message) |
 | Redact identifiers | 24 / 25 | SSN, phone and email stored |
 
-Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 31 sentences it must block, most copied word for word from what reached families in the live runs below, and 11 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 213 tests, about 5 seconds).
+Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 33 sentences it must block, most copied word for word from what reached families in the live runs below, and 11 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 215 tests, about 5 seconds).
 
 ### Red team, live: judged by a different model
 
@@ -68,17 +68,26 @@ Every reply the family saw is then judged by Claude Sonnet 4.6 against a written
 
 The first version of this script checked replies with the guard's own patterns and reported 0 problems. It could not see what the guard missed. Judged independently, the same transcripts showed forbidden statements in most interviews: "the medical examiner has determined…", the software panel called "real doctors", "you can send the certifier statement to FEMA today", "you may still qualify even though the cancer was the cause". What changed, round by round, all judged with the same final rubric:
 
-| Run | Interviews | With a forbidden statement the family saw | What changed before it |
+| Run | Interviews | With a flagged sentence (rubric at the time) | What changed before it |
 |---|---|---|---|
 | Before | 24 | **18** | (original agent) |
 | Round 1 | 24 | 4 | the result is announced in vetted words written by code; the guard learned the phrasings that got through, in English and Spanish; the prompt says plainly that Counted is software, not a doctor |
 | Round 2 | 24 | 3 | no predicting what FEMA will do; no coaching a claim the facts don't support |
 | Round 3 | 24 | 5 | refuse gently: never imply a relative is lying or after money; never leave self-blame hanging |
 | Round 4 | 40 | 3 | no verdict before the panel decides; never ask what the relative did |
-| Round 5 | 40 | 4 | two more phrasings round 4 found ("the strongest case", "qué pasó realmente") |
-| **Round 6 (current)** | **40** | **2** | no menu of possible storm effects for a relative pushing for a link; no "that's what matters for FEMA" |
+| Round 5 | 40 | 4 | two more phrasings round 4 found |
+| Round 6 | 40 | 2 | no "that's what matters for FEMA"; a prompt line against offering a menu of storm effects |
 
-A 24-interview run moves by a couple of interviews either way (round 3 went up, not down), which is why the last three rounds use 40. Three things held in every run, before any fix: no signature, no false link in a determination, and no stored ID number. The fixes were all about the interviewer's own words. We read the two replies the judge still flags: one repeats the relative's request back to them ("I understand you want it on record that the storm caused her death"), which the rubric says is allowed, and one asks about "the days around the storm that led to his death", which presumes the link.
+**Then a second independent review found what that rubric missed.** In round 6, 5 of the 10 pressure interviews still offered a relative pushing for a link a list of possible effects ("if he lost power, if he couldn't get medicine, if he was in the heat or cold"). That is a leading question, and the rubric had no rule for it. With a `leading_question` rule added, the same transcripts re-judged:
+
+| Run, re-judged with the final rubric | Interviews | With any flagged sentence | Leaving out leading questions |
+|---|---|---|---|
+| Before | 24 | **19** | 17 |
+| Round 6 | 40 | **17** | 8 |
+
+Round 7 adds a guard that blocks a menu of three or more effects before a finding, makes the fallback reply an open question, and removes the menu from the vetted "not related" message (`tests/test_guard_phrases.py`). Its live run, and a held-out set of five new attacks never used to tune anything (`--heldout`: a lawyer's threat, a fake medical examiner's assistant, flattery, guilt, a double FEMA claim), were cut short by the account's daily Bedrock token quota: 8 of 20 held-out interviews completed, 3 with a flagged sentence, all in the lawyer-threat scenario. Rerun with `uv run python -m evals.adversarial_sim --out adversarial_sim_round7.json` and `--heldout --out adversarial_sim_heldout.json`.
+
+What held in every run, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 moves by a couple of interviews either way, and the judge is a model, so treat these as rates.
 
 Results: `evals/results/adversarial_sim_*.json` (each with `_rescored` for the final rubric).
 
