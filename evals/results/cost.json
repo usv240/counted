@@ -1,0 +1,534 @@
+{
+ "summary": {
+  "cases": 20,
+  "sets": {
+   "negatives": 1,
+   "irma_replay": 9,
+   "uri_replay": 9,
+   "cdc_gold": 1
+  },
+  "adjudicated": 3,
+  "matched_label": 19,
+  "cost_mean": 0.0273,
+  "cost_median": 0.0205,
+  "cost_max": 0.0693,
+  "tokens_per_case_by_model": {
+   "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+    2405,
+    421
+   ],
+   "us.amazon.nova-2-lite-v1:0": [
+    2474,
+    158
+   ],
+   "global.anthropic.claude-sonnet-4-6": [
+    2395,
+    513
+   ],
+   "us.anthropic.claude-opus-4-6-v1": [
+    471,
+    150
+   ]
+  },
+  "prices_per_million": {
+   "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+    1.0,
+    5.0
+   ],
+   "global.anthropic.claude-sonnet-4-6": [
+    3.0,
+    15.0
+   ],
+   "global.anthropic.claude-sonnet-4-5-20250929-v1:0": [
+    3.0,
+    15.0
+   ],
+   "us.anthropic.claude-opus-4-6-v1": [
+    5.5,
+    27.5
+   ],
+   "us.amazon.nova-2-lite-v1:0": [
+    0.33,
+    2.75
+   ],
+   "us.amazon.nova-pro-v1:0": [
+    0.8,
+    3.2
+   ]
+  }
+ },
+ "cases": [
+  {
+   "id": "neg-02",
+   "set": "negatives",
+   "label": "not_related",
+   "expected": "not_related",
+   "adjudicated": false,
+   "assess_seconds": 10.6,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     4001,
+     444
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2469,
+     142
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2376,
+     367
+    ]
+   },
+   "cost": 0.02005927
+  },
+  {
+   "id": "irma-055",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 14.7,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1862,
+     391
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2428,
+     159
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2352,
+     647
+    ]
+   },
+   "cost": 0.021816489999999997
+  },
+  {
+   "id": "uri-025",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 12.2,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1881,
+     462
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2543,
+     158
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2477,
+     473
+    ]
+   },
+   "cost": 0.019990690000000002
+  },
+  {
+   "id": "uri-156",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "possible",
+   "adjudicated": false,
+   "assess_seconds": 12.1,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1875,
+     401
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2472,
+     143
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2390,
+     508
+    ]
+   },
+   "cost": 0.019879010000000003
+  },
+  {
+   "id": "irma-002",
+   "set": "irma_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 8.9,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1853,
+     328
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2356,
+     144
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2265,
+     411
+    ]
+   },
+   "cost": 0.01762648
+  },
+  {
+   "id": "irma-015",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": true,
+   "assess_seconds": 31.8,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1859,
+     336
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2486,
+     163
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2408,
+     879
+    ],
+    "us.anthropic.claude-opus-4-6-v1": [
+     3158,
+     973
+    ]
+   },
+   "cost": 0.06934313
+  },
+  {
+   "id": "uri-243",
+   "set": "uri_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 8.9,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1867,
+     411
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2514,
+     184
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2433,
+     425
+    ]
+   },
+   "cost": 0.01893162
+  },
+  {
+   "id": "uri-097",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 16.7,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     4053,
+     660
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2565,
+     196
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2495,
+     507
+    ]
+   },
+   "cost": 0.02382845
+  },
+  {
+   "id": "irma-026",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 6.9,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1859,
+     398
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2450,
+     155
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2378,
+     437
+    ]
+   },
+   "cost": 0.01877275
+  },
+  {
+   "id": "uri-010",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 7.3,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1877,
+     420
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2527,
+     165
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2456,
+     453
+    ]
+   },
+   "cost": 0.01942766
+  },
+  {
+   "id": "uri-121",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 7.6,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     4058,
+     640
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2585,
+     172
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2516,
+     523
+    ]
+   },
+   "cost": 0.02397705
+  },
+  {
+   "id": "irma-007",
+   "set": "irma_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 8.4,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1850,
+     267
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2315,
+     142
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2212,
+     426
+    ]
+   },
+   "cost": 0.01736545
+  },
+  {
+   "id": "uri-082",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 7.7,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     3999,
+     540
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2533,
+     177
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2457,
+     538
+    ]
+   },
+   "cost": 0.02346264
+  },
+  {
+   "id": "irma-087",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 11.0,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1850,
+     334
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2491,
+     151
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2418,
+     421
+    ]
+   },
+   "cost": 0.01832628
+  },
+  {
+   "id": "deck_slide31_maria_dialysis",
+   "set": "cdc_gold",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 15.5,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1841,
+     243
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2303,
+     154
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2197,
+     727
+    ]
+   },
+   "cost": 0.021735489999999996
+  },
+  {
+   "id": "irma-022",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": true,
+   "assess_seconds": 31.6,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1861,
+     349
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2388,
+     149
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2302,
+     556
+    ],
+    "us.anthropic.claude-opus-4-6-v1": [
+     3082,
+     1048
+    ]
+   },
+   "cost": 0.06582079
+  },
+  {
+   "id": "uri-045",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 13.0,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1882,
+     480
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2565,
+     158
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2500,
+     527
+    ]
+   },
+   "cost": 0.02096795
+  },
+  {
+   "id": "uri-037",
+   "set": "uri_replay",
+   "label": "direct",
+   "expected": "direct",
+   "adjudicated": false,
+   "assess_seconds": 11.4,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1877,
+     425
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2500,
+     159
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2426,
+     483
+    ]
+   },
+   "cost": 0.01978725
+  },
+  {
+   "id": "irma-013",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": true,
+   "assess_seconds": 28.0,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     1858,
+     345
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2487,
+     148
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2411,
+     527
+    ],
+    "us.anthropic.claude-opus-4-6-v1": [
+     3177,
+     969
+    ]
+   },
+   "cost": 0.06406971
+  },
+  {
+   "id": "irma-101",
+   "set": "irma_replay",
+   "label": "indirect",
+   "expected": "indirect",
+   "adjudicated": false,
+   "assess_seconds": 10.4,
+   "usage": {
+    "global.anthropic.claude-haiku-4-5-20251001-v1:0": [
+     4041,
+     554
+    ],
+    "us.amazon.nova-2-lite-v1:0": [
+     2500,
+     139
+    ],
+    "global.anthropic.claude-sonnet-4-6": [
+     2429,
+     425
+    ]
+   },
+   "cost": 0.02168025
+  }
+ ]
+}
