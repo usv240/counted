@@ -10,15 +10,37 @@ from __future__ import annotations
 
 from datetime import date
 
-from .schemas import CaseFacts, DisasterContext, Label, PanelResult
+from .schemas import CaseFacts, DisasterContext, Label, Mechanism, PanelResult
 
 FEMA_GUIDE = "https://www.fema.gov/sites/default/files/documents/fema_ia_qrg_help_with_funerals_and_burials_20250715.pdf"
 CDC_GUIDE = "https://www.cdc.gov/nchs/data/nvss/vsrg/vsrg01.pdf"
+NAME_PAPER = "https://pubmed.ncbi.nlm.nih.gov/37527356/"
+
+# Indirect deaths whose manner is usually natural. "How injury occurred" (Item 43) may not be available for a natural
+# death, so the CDC guide and the National Association of Medical Examiners (2023) put the disaster in Part II, by name.
+_PART_II = {
+    Mechanism.POWER_DEPENDENT_DEVICE: "Loss of electric power to a medical device",
+    Mechanism.HEALTHCARE_DISRUPTION: "Interruption of medical care",
+    Mechanism.CHRONIC_EXACERBATION: "Exacerbation of chronic illness under disaster conditions",
+    Mechanism.STRESS_CARDIAC: "Physical and emotional stress",
+    Mechanism.UTILITY_LOSS: "Loss of utilities",
+    Mechanism.INFECTION: "Infection from floodwater or a disaster injury",
+}
 
 
 def _disaster(facts: CaseFacts, ctx: DisasterContext) -> str:
     name = facts.disaster_name or ctx.declaration_title or "the declared disaster"
     return f"{name} ({ctx.declaration})" if ctx.declaration else name
+
+
+def part_ii(facts: CaseFacts, ctx: DisasterContext, verdict) -> str:
+    """Draft Part II line for a natural-manner indirect death, naming the disaster and its month; empty otherwise."""
+    phrase = _PART_II.get(verdict.mechanism) if verdict.label == Label.INDIRECT else None
+    if not phrase:
+        return ""
+    name = facts.disaster_name or ctx.declaration_title or "the declared disaster"
+    when = ctx.incident_begin or facts.date_of_death
+    return f"{phrase} during {name}" + (f" ({when:%B %Y})" if when else "")
 
 
 def certifier_statement(facts: CaseFacts, ctx: DisasterContext, panel: PanelResult) -> str:
@@ -59,6 +81,8 @@ def certifier_statement(facts: CaseFacts, ctx: DisasterContext, panel: PanelResu
 
 **Proposed "How injury occurred" (Item 43):** {v.how_injury_occurred or "n/a"}
 
+**Proposed Part II, other significant conditions** (use if the manner of death is natural): {part_ii(facts, ctx, v) or "n/a"}
+
 **Proposed wording for FEMA Funeral Assistance** (FEMA rejects "may have been caused by"):
 > {fema}
 
@@ -77,7 +101,7 @@ I have reviewed the information above. [ ] I concur  [ ] I do not concur  [ ] Am
 
 Signature: ______________________  Name / title: ______________________  Date: __________
 
-<sub>Sources: CDC/NCHS Reference Guide ({CDC_GUIDE}); FEMA Help with Funerals and Burials, July 2025 ({FEMA_GUIDE}); OpenFEMA; NWS archive.</sub>
+<sub>Sources: CDC/NCHS Reference Guide ({CDC_GUIDE}); National Association of Medical Examiners position paper on disaster-related deaths, 2023 ({NAME_PAPER}); FEMA Help with Funerals and Burials, July 2025 ({FEMA_GUIDE}); OpenFEMA; NWS archive.</sub>
 """
 
 

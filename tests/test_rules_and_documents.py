@@ -85,6 +85,24 @@ def test_documents_never_use_wording_the_guards_forbid(mechanism, language):
         assert not pattern.search(text), f"{pattern.pattern} found in documents for {mechanism}/{language}"
 
 
+def test_natural_manner_indirect_death_names_the_disaster_in_part_ii():
+    f = facts(OXYGEN, date_of_death=date(2021, 2, 17))
+    v = classify(f, URI)
+    panel = PanelResult(final=v, rules=v, unanimous=True, adjudicated=False, context=URI)
+    statement = build_documents(f, URI, panel)["certifier_statement"]
+    assert "Part II, other significant conditions** (use if the manner of death is natural): Loss of electric power " \
+           "to a medical device during Winter Storm Uri (February 2021)" in statement
+
+
+def test_injury_death_has_no_part_ii_line():
+    co = (Mechanism.CARBON_MONOXIDE, "Generator running in the garage", "the generator was in the garage")
+    f = facts(co)
+    v = classify(f, URI)
+    panel = PanelResult(final=v, rules=v, unanimous=True, adjudicated=False, context=URI)
+    assert v.label == Label.INDIRECT
+    assert "(use if the manner of death is natural): n/a" in build_documents(f, URI, panel)["certifier_statement"]
+
+
 def test_redaction():
     out = redact("SSN 123-45-6789, call (512) 555-0199 or +1 512.555.0199, mail ana.r@example.org")
     assert "6789" not in out and "0199" not in out and "@" not in out

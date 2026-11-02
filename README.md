@@ -58,7 +58,7 @@ Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.
 | Outcome in vetted words | 23 / 25 | the model contradicting the panel (and the control that checks the vetted message) |
 | Redact identifiers | 24 / 25 | SSN, phone and email stored |
 
-Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 33 sentences it must block, most copied word for word from what reached families in the live runs below, and 11 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 215 tests, about 5 seconds).
+Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 33 sentences it must block, most copied word for word from what reached families in the live runs below, and 11 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 217 tests, about 7 seconds).
 
 ### Red team, live: judged by a different model
 
@@ -116,6 +116,8 @@ Outcome told to the family in vetted words (EN/ES), not the model's
 Documents: certifier statement draft · FEMA family packet (EN/ES, read aloud by Amazon Polly) · surveillance record
 ```
 
+The certifier draft follows where the CDC guide and the National Association of Medical Examiners' 2023 position paper say the disaster belongs: a "How injury occurred" line, and for an indirect death whose manner is usually natural (a powered medical device, interrupted care, a chronic illness made worse), a Part II line that names the disaster and its month, because Item 43 may not be available for a natural death. No model writes these documents; they are templates filled from the checked facts and the panel's verdict.
+
 | Piece | Where |
 |---|---|
 | Interviewer, tools, steering, verbatim-quote intervention | `src/counted/agents/interviewer.py` |
@@ -150,7 +152,7 @@ curl -X POST localhost:8080/v1/assess -H "x-api-key: ct_..." -H "content-type: a
 
 MCP client config: `{"mcpServers": {"counted": {"type": "http", "url": "https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws/mcp/"}}}` (or `http://localhost:8080/mcp/` locally)
 
-The public demo runs this image (`Dockerfile`) on Amazon ECS Express Mode (Fargate behind HTTPS), with a task role limited to Bedrock invoke, Amazon Location geocoding, Polly speech and the API-key table, and daily caps on model runs (`COUNTED_DAILY_RUNS`) and read-aloud requests (`COUNTED_DAILY_SPEECH`). The REST, MCP and A2A paths run the panel, vetting and documents; the interview path adds the Cedar policy, consent and the language guards.
+The public demo runs this image (`Dockerfile`) on Amazon ECS Express Mode (Fargate behind HTTPS), with a task role limited to Bedrock invoke, Amazon Location geocoding, Polly speech and the API-key table, and daily caps on model runs (`COUNTED_DAILY_RUNS`) and read-aloud requests (`COUNTED_DAILY_SPEECH`). The REST, MCP and A2A paths run the panel, vetting and documents; the interview path adds the Cedar policy, consent and the language guards. `uv run python deploy/ecs_redeploy.py` builds the image, pushes it to ECR tagged with the commit, and rolls the service onto it.
 
 Deploy the interviewer to Amazon Bedrock AgentCore Runtime with AgentCore Memory (direct code deploy, no container):
 
