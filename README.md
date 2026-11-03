@@ -26,6 +26,19 @@ What these show, and what they don't:
 - **Indirect deaths, both storms:** officials classed 207 deaths as indirect (Irma 115, Uri 92). FEMA funeral assistance covers indirect deaths too, if the paperwork names the disaster. The direct-only convention recognises 28 of them as storm deaths. One LLM call recognises 205 but labels only 82 of them indirect, which would put the wrong word on the certificate and in the state's count. Counted recognises all 207 and labels 196 exactly.
 - **Template wording.** Each replay death is rendered from one of 34 scene templates (19 for Irma's 15 circumstance rows, 15 for Uri's 13) with a different relative, age, county and date (`evals/build_cases.py`). The replays test the labelling logic on fixed wording, where keyword rules come within a point; the CDC set tests it on the CDC's own prose, where they fall to 59%.
 - **Ceiling.** Some official circumstance rows split across labels (Uri hypothermia: 146 direct, 10 indirect, 2 possible), so no reader of the circumstances can reproduce every label.
+- **Intervals, paired tests and each seat alone.** `uv run python -m evals.stats` recomputes these offline from the saved predictions (`evals/results/stats.json`; notebook: `notebooks/reproduce.ipynb`):
+  - **Intervals (95% Wilson):** Irma 129/129 (97.1–100%); Uri 229/246 (89.2–95.6%).
+  - **Exact McNemar, panel vs the direct-only convention:** on the deaths where they disagree, the panel alone is right on 118 (Irma) and 81 (Uri), and the convention alone never is (p < 10⁻²⁴). Against one LLM call: 61 and 56 to 0.
+  - **Each seat alone,** from its verdicts inside the panel:
+
+    | Seat | Irma | Uri | CDC examples |
+    |---|---|---|---|
+    | Rules | 93.8% | 87.0% | 81.8% |
+    | Nova | 98.5% | 90.2% | 90.9% |
+    | Claude | 100% | 93.1% | 86.4% |
+
+  - **Agreement:** Claude and Nova agree on 383 of 397 labelled cases (Cohen's κ = 0.93). The panel was unanimous on 91% of cases (95.6% right) and adjudicated 34 (91.2% right).
+  - **False links:** the rules seat alone made 3 on the 26 no-link deaths (neg-03, near-01, near-07). Both model seats and the adjudicator said "not related" each time, and the panel made none. 0 of 26 still allows a true rate up to 12.9%, so the set is too small to claim more.
 - **Cost and time per case.** `uv run python -m evals.cost --n 20` meters every Bedrock call on a random sample of benchmark cases: a mean of $0.027 a case (median $0.021, max $0.069 when the Opus adjudicator runs), at the per-token prices this account is billed (`evals/results/cost.json`). Over the 413 cases of the full run, the median time from checked facts to a draft was 9.6 s (90th percentile 14.4 s; 27.5 s when adjudicated).
 - **Ground truth you can check.** `uv run python data/check_tables.py` recomputes every total in the transcribed tables against the source (32 of 33 pass; the one failure is an inconsistency in the MMWR table itself).
 

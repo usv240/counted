@@ -1,0 +1,255 @@
+{
+ "sets": {
+  "irma_replay": {
+   "title": "Hurricane Irma (CDC labels)",
+   "n": 129,
+   "systems": {
+    "direct_only": {
+     "correct": 11,
+     "accuracy": 0.0853,
+     "ci95": [
+      0.0483,
+      0.1462
+     ]
+    },
+    "single_llm": {
+     "correct": 68,
+     "accuracy": 0.5271,
+     "ci95": [
+      0.4414,
+      0.6113
+     ]
+    },
+    "rules": {
+     "correct": 121,
+     "accuracy": 0.938,
+     "ci95": [
+      0.8824,
+      0.9682
+     ]
+    },
+    "claude": {
+     "correct": 129,
+     "accuracy": 1.0,
+     "ci95": [
+      0.9711,
+      1.0
+     ]
+    },
+    "nova": {
+     "correct": 127,
+     "accuracy": 0.9845,
+     "ci95": [
+      0.9452,
+      0.9957
+     ]
+    },
+    "panel": {
+     "correct": 129,
+     "accuracy": 1.0,
+     "ci95": [
+      0.9711,
+      1.0
+     ]
+    }
+   },
+   "mcnemar_vs_panel": {
+    "direct_only": {
+     "only_panel_right": 118,
+     "only_baseline_right": 0,
+     "p": 6.018531076210112e-36
+    },
+    "single_llm": {
+     "only_panel_right": 61,
+     "only_baseline_right": 0,
+     "p": 8.673617379884035e-19
+    }
+   }
+  },
+  "uri_replay": {
+   "title": "Winter Storm Uri (Texas DSHS labels)",
+   "n": 246,
+   "systems": {
+    "direct_only": {
+     "correct": 148,
+     "accuracy": 0.6016,
+     "ci95": [
+      0.5393,
+      0.6608
+     ]
+    },
+    "single_llm": {
+     "correct": 173,
+     "accuracy": 0.7033,
+     "ci95": [
+      0.6434,
+      0.7569
+     ]
+    },
+    "rules": {
+     "correct": 214,
+     "accuracy": 0.8699,
+     "ci95": [
+      0.8221,
+      0.9063
+     ]
+    },
+    "claude": {
+     "correct": 229,
+     "accuracy": 0.9309,
+     "ci95": [
+      0.8921,
+      0.9564
+     ]
+    },
+    "nova": {
+     "correct": 222,
+     "accuracy": 0.9024,
+     "ci95": [
+      0.8589,
+      0.9336
+     ]
+    },
+    "panel": {
+     "correct": 229,
+     "accuracy": 0.9309,
+     "ci95": [
+      0.8921,
+      0.9564
+     ]
+    }
+   },
+   "mcnemar_vs_panel": {
+    "direct_only": {
+     "only_panel_right": 81,
+     "only_baseline_right": 0,
+     "p": 8.271806125530277e-25
+    },
+    "single_llm": {
+     "only_panel_right": 56,
+     "only_baseline_right": 0,
+     "p": 2.7755575615628914e-17
+    }
+   }
+  },
+  "cdc_gold": {
+   "title": "CDC worked examples",
+   "n": 22,
+   "systems": {
+    "direct_only": {
+     "correct": 8,
+     "accuracy": 0.3636,
+     "ci95": [
+      0.1973,
+      0.5705
+     ]
+    },
+    "single_llm": {
+     "correct": 17,
+     "accuracy": 0.7727,
+     "ci95": [
+      0.5656,
+      0.8988
+     ]
+    },
+    "rules": {
+     "correct": 18,
+     "accuracy": 0.8182,
+     "ci95": [
+      0.6148,
+      0.9269
+     ]
+    },
+    "claude": {
+     "correct": 19,
+     "accuracy": 0.8636,
+     "ci95": [
+      0.6667,
+      0.9525
+     ]
+    },
+    "nova": {
+     "correct": 20,
+     "accuracy": 0.9091,
+     "ci95": [
+      0.7219,
+      0.9747
+     ]
+    },
+    "panel": {
+     "correct": 20,
+     "accuracy": 0.9091,
+     "ci95": [
+      0.7219,
+      0.9747
+     ]
+    }
+   },
+   "mcnemar_vs_panel": {
+    "direct_only": {
+     "only_panel_right": 12,
+     "only_baseline_right": 0,
+     "p": 0.00048828125
+    },
+    "single_llm": {
+     "only_panel_right": 5,
+     "only_baseline_right": 2,
+     "p": 0.453125
+    }
+   }
+  }
+ },
+ "no_link": {
+  "direct_only": {
+   "false_links": 1,
+   "n": 26,
+   "upper95": 0.1889
+  },
+  "single_llm": {
+   "false_links": 0,
+   "n": 26,
+   "upper95": 0.1287
+  },
+  "rules": {
+   "false_links": 3,
+   "n": 26,
+   "upper95": 0.2898
+  },
+  "claude": {
+   "false_links": 0,
+   "n": 26,
+   "upper95": 0.1287
+  },
+  "nova": {
+   "false_links": 0,
+   "n": 26,
+   "upper95": 0.1287
+  },
+  "panel": {
+   "false_links": 0,
+   "n": 26,
+   "upper95": 0.1287
+  }
+ },
+ "panel": {
+  "claude_nova_kappa": 0.93,
+  "claude_nova_agree": [
+   383,
+   397
+  ],
+  "unanimous": {
+   "cases": 363,
+   "share": 0.9144,
+   "correct": 347,
+   "accuracy": 0.9559
+  },
+  "adjudicated": {
+   "cases": 34,
+   "share": 0.0856,
+   "correct": 31,
+   "accuracy": 0.9118
+  },
+  "declined_to_examiner": 5,
+  "accuracy_when_committed": 0.9566
+ }
+}
