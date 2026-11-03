@@ -23,6 +23,23 @@ REPO = "counted"
 URL = "https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws"
 ROOT = Path(__file__).resolve().parents[1]
 
+# Strands traces (agent, graph, model and tool spans, with token counts) go straight to CloudWatch over OTLP, signed with
+# the task role; no collector sidecar. Logs export is off, so prompts and the family's words stay out of CloudWatch:
+# spans carry timings, models and token counts only. Transaction Search must be on in the account (it is).
+TRACING = {
+    "OTEL_SDK_DISABLED": "false",
+    "AGENT_OBSERVABILITY_ENABLED": "true",
+    "OTEL_PYTHON_DISTRO": "aws_distro",
+    "OTEL_PYTHON_CONFIGURATOR": "aws_configurator",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT": f"https://xray.{REGION}.amazonaws.com/v1/traces",
+    "OTEL_LOGS_EXPORTER": "none",
+    "OTEL_METRICS_EXPORTER": "none",
+    "OTEL_RESOURCE_ATTRIBUTES": "service.name=counted,deployment.environment=ecs-express",
+    "OTEL_PYTHON_FASTAPI_EXCLUDED_URLS": "v1/health",
+}
+
 
 def run(*cmd: str, **kw) -> str:
     return subprocess.run(cmd, check=True, capture_output=True, text=True, cwd=ROOT, **kw).stdout.strip()
@@ -46,6 +63,8 @@ def main() -> None:
     current = ecs.describe_express_gateway_service(serviceArn=SERVICE)["service"]["activeConfigurations"][0]
     container = {k: v for k, v in current["primaryContainer"].items()
                  if k in ("containerPort", "awsLogsConfiguration", "command", "environment", "secrets")}
+    env = {e["name"]: e["value"] for e in container.get("environment", [])} | TRACING
+    container["environment"] = [{"name": k, "value": v} for k, v in env.items()]
     ecs.update_express_gateway_service(serviceArn=SERVICE, primaryContainer={**container, "image": image})
     print(f"rolling out {image}", flush=True)
 

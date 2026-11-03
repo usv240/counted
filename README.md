@@ -159,6 +159,14 @@ MCP client config: `{"mcpServers": {"counted": {"type": "http", "url": "https://
 
 The public demo runs this image (`Dockerfile`) on Amazon ECS Express Mode (Fargate behind HTTPS), with a task role limited to Bedrock invoke, Amazon Location geocoding, Polly speech and the API-key table, and daily caps on model runs (`COUNTED_DAILY_RUNS`) and read-aloud requests (`COUNTED_DAILY_SPEECH`). The REST, MCP and A2A paths run the panel, vetting and documents; the interview path adds the Cedar policy, consent and the language guards. `uv run python deploy/ecs_redeploy.py` builds the image, pushes it to ECR tagged with the commit, and rolls the service onto it.
 
+**Tracing.** The container runs under `opentelemetry-instrument` with the AWS Distro for OpenTelemetry, so Strands' own spans go straight to CloudWatch (Transaction Search and the GenAI Observability view) over OTLP, signed with the task role, with no collector sidecar:
+- the request;
+- fact extraction;
+- the Amazon Location geocode and the OpenFEMA and NWS calls;
+- the review panel's Graph, with both examiner seats running in parallel, every model call with its token counts, and the adjudicator when it runs.
+
+Log export is off, so prompts and the family's words never reach CloudWatch; spans carry timings, model IDs and token counts only (checked: no account text in any span). Tracing is off in the image by default (`OTEL_SDK_DISABLED=true`); `deploy/ecs_redeploy.py` turns it on, and `deploy/enable_tracing.py` gives the task role its one extra permission.
+
 Deploy the interviewer to Amazon Bedrock AgentCore Runtime with AgentCore Memory (direct code deploy, no container):
 
 ```bash
