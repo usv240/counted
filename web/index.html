@@ -306,7 +306,7 @@
           <tr><td>Strands Evals</td><td>ActorSimulator plays grieving relatives (terse, scattered, Spanish-speaking, distrustful) against the real interviewer; a replay harness scores every death against official tables.</td></tr>
           <tr><td>MCP server + A2A server</td><td>Counted as a tool for other agents.</td></tr>
           <tr><td>Amazon Bedrock</td><td>Claude Haiku 4.5 (interview), Claude Sonnet 4.6 (examiner), Amazon Nova 2 Lite (second examiner), Claude Opus 4.6 (adjudicator).</td></tr>
-          <tr><td>Amazon Bedrock AgentCore</td><td>Packaged for AgentCore Runtime with Memory so a family can stop and resume later; the case file is rebuilt from the saved conversation (tested offline, not yet deployed). The live demo runs on Amazon ECS.</td></tr>
+          <tr><td>Amazon Bedrock AgentCore</td><td>The interviewer runs on AgentCore Runtime with AgentCore Memory, so a family can stop and come back days later: a second session in a fresh microVM rebuilds the case file from Memory and carries on without asking anything twice. The website itself runs on Amazon ECS.</td></tr>
           <tr><td>Amazon CloudWatch</td><td>Every live case is traced through the AWS Distro for OpenTelemetry: the Graph, both examiner seats, each model call and its tokens. Prompts and the family's words are never exported.</td></tr>
           <tr><td>Amazon Location Service</td><td>Address to county, with the US Census geocoder as backup.</td></tr>
           <tr><td>OpenFEMA + NWS archive</td><td>Declarations, incident windows, Individual Assistance status, warnings in force.</td></tr>

@@ -187,7 +187,14 @@ uv run python deploy/agentcore_package.py   # arm64 wheels + the counted package
 uv run python deploy/agentcore_deploy.py    # memory, least-privilege role, runtime; then a two-session resume test
 ```
 
-When a family resumes in a new session, Memory restores the conversation and `rebuild_case()` rebuilds the case file by replaying the tool calls that succeeded, so nothing is asked twice and calls a guard blocked stay out (`tests/test_resume.py`). The public demo runs on ECS; the AgentCore path is packaged and tested offline.
+When a family resumes in a new session, Memory restores the conversation and `rebuild_case()` rebuilds the case file by replaying the tool calls that succeeded, so nothing is asked twice and calls a guard blocked stay out (`tests/test_resume.py`).
+
+**Deployed and tested live (Nov 3).** The interviewer runs on AgentCore Runtime (`counted_interviewer`) with AgentCore Memory (`counted_interviews`, 30-day expiry), under a least-privilege role limited to its own memory, package and log groups. The deploy script's resume test:
+1. A relative describes the death in one runtime session.
+2. A second turn arrives in a **new** runtime session, which is a fresh microVM with nothing in memory.
+3. The conversation comes back from AgentCore Memory, the case file is rebuilt from it, and the interview reaches the panel's determination ("indirect", power-dependent medical device) without asking anything twice.
+
+The deploy script packages the current commit before every update, and the runtime reports that commit in every reply (`build`), so a judge can see it runs the same code as this repo. `main.py` starts the AWS Distro for OpenTelemetry, so AgentCore Observability traces each invocation; logs export stays off, as on ECS. The public website runs on ECS; the AgentCore runtime serves the resumable interview and the one-call assessment.
 
 ## What it will never do
 
