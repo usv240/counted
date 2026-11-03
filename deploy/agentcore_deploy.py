@@ -20,9 +20,12 @@ Teardown: delete the runtime, the memory, the role and its inline policy, and th
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import time
 import uuid
+
+from pathlib import Path
 
 import boto3
 
@@ -63,7 +66,7 @@ def ensure_role(memory_arn: str) -> str:
         {"Effect": "Allow", "Action": ["logs:DescribeLogGroups"], "Resource": f"arn:aws:logs:{REGION}:{ACCOUNT}:log-group:*"},
         {"Effect": "Allow", "Action": ["logs:CreateLogStream", "logs:PutLogEvents"], "Resource": runtime_logs + "*:log-stream:*"},
         {"Effect": "Allow", "Action": ["xray:PutTraceSegments", "xray:PutTelemetryRecords", "xray:GetSamplingRules",
-                                       "xray:GetSamplingTargets"], "Resource": "*"},
+                                       "xray:GetSamplingTargets", "xray:PutSpans", "xray:PutSpansForIndexing"], "Resource": "*"},
         {"Effect": "Allow", "Action": "cloudwatch:PutMetricData", "Resource": "*",
          "Condition": {"StringEquals": {"cloudwatch:namespace": "bedrock-agentcore"}}},
         {"Effect": "Allow", "Action": ["bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForJWT",
@@ -90,7 +93,13 @@ def ensure_role(memory_arn: str) -> str:
 def ensure_runtime(role_arn: str, memory_id: str) -> str:
     artifact = {"codeConfiguration": {"code": {"s3": {"bucket": BUCKET, "prefix": KEY}},
                                       "runtime": "PYTHON_3_12", "entryPoint": ["main.py"]}}
-    env = {"COUNTED_MEMORY_ID": memory_id, "AWS_REGION": REGION, "COUNTED_STEERING": "1"}
+    # AgentCore Observability: main.py starts ADOT, which traces every invocation (agent, Graph, model and tool spans).
+    # Log export is off, so prompts and the family's words stay out of CloudWatch, as on ECS.
+    env = {"COUNTED_MEMORY_ID": memory_id, "AWS_REGION": REGION, "COUNTED_STEERING": "1",
+           "AGENT_OBSERVABILITY_ENABLED": "true", "OTEL_PYTHON_DISTRO": "aws_distro",
+           "OTEL_PYTHON_CONFIGURATOR": "aws_configurator", "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+           "OTEL_TRACES_EXPORTER": "otlp", "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT": f"https://xray.{REGION}.amazonaws.com/v1/traces",
+           "OTEL_LOGS_EXPORTER": "none", "OTEL_METRICS_EXPORTER": "none"}
     existing = [r for r in ctl.list_agent_runtimes().get("agentRuntimes", []) if r["agentRuntimeName"] == RUNTIME]
     if existing:
         rid = existing[0]["agentRuntimeId"]
@@ -123,6 +132,7 @@ def resume_test(arn: str) -> None:
     r1 = invoke(arn, first, {"action": "interview", "session_id": case, "consent": True, "message":
                 "My mother died after the February 2021 freeze. She was 78 and lived in Houston, Texas, and she died at "
                 "home on 2021-02-17. She used a home oxygen machine and it stopped when the power went out."})
+    print("build on the runtime:", r1.get("build"))
     print("session 1 reply:", r1["reply"][:200])
     print("session 1 facts on file:", len(r1["facts"]["evidence"]), "circumstance(s)")
     r2 = invoke(arn, second, {"action": "interview", "session_id": case, "consent": True, "message":
@@ -132,8 +142,16 @@ def resume_test(arn: str) -> None:
           "determination:", (r2.get("determination") or {}).get("label"))
 
 
+def build_and_upload() -> None:
+    """Package the current commit and upload it, so the runtime never runs stale code."""
+    root = Path(__file__).resolve().parents[1]
+    subprocess.run([sys.executable, str(root / "deploy/agentcore_package.py")], check=True, cwd=root)
+    s3.upload_file(str(root / "build/agentcore/counted_agentcore.zip"), BUCKET, KEY, ExtraArgs={"ExpectedBucketOwner": ACCOUNT})
+    print("uploaded package for", (root / "build/agentcore/package/BUILD.txt").read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
-    s3.head_object(Bucket=BUCKET, Key=KEY)  # built and uploaded by agentcore_package.py + upload
+    build_and_upload()
     memory = ensure_memory()
     role = ensure_role(memory["arn"])
     runtime = ensure_runtime(role, memory["id"])

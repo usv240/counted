@@ -20,11 +20,17 @@ PKG = BUILD / "package"
 OUT = BUILD / "counted_agentcore.zip"
 PYTHON = "3.12"
 REQUIREMENTS = ["strands-agents==1.63.0", "bedrock-agentcore==1.25.2", "cedarpy==4.12.2", "boto3==1.43.123",
-                "httpx==0.28.1", "pydantic==2.14.2"]
+                "httpx==0.28.1", "pydantic==2.14.2", "aws-opentelemetry-distro==0.22.0"]
 SKIP = {"service", "__pycache__"}  # the web service (FastAPI, MCP, A2A) runs on ECS, not here
 
 MAIN = '''"""AgentCore Runtime entry point for Counted."""
-from counted.agentcore_app import app
+# AgentCore Observability: start the AWS Distro for OpenTelemetry in-process, exactly what `opentelemetry-instrument`
+# does through sitecustomize, so no launcher script is needed in the zip. Tracing must never stop the agent.
+from opentelemetry.instrumentation.auto_instrumentation import initialize
+
+initialize(swallow_exceptions=True)
+
+from counted.agentcore_app import app  # noqa: E402
 
 if __name__ == "__main__":
     app.run()
@@ -44,6 +50,8 @@ def main() -> None:
             dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, dest)
     (PKG / "main.py").write_text(MAIN, encoding="utf-8")
+    build = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+    (PKG / "BUILD.txt").write_text(build, encoding="utf-8")
 
     with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
         for path in sorted(PKG.rglob("*")):

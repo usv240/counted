@@ -12,6 +12,7 @@ so a family can stop mid-interview and resume days later, from any device.
 from __future__ import annotations
 
 import os
+from pathlib import Path
 
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 
@@ -21,6 +22,8 @@ from .pipeline import assess
 app = BedrockAgentCoreApp()
 MEMORY_ID = os.getenv("COUNTED_MEMORY_ID")
 _cases: dict[str, CaseSession] = {}
+_BUILD_FILE = Path(__file__).resolve().parents[1] / "BUILD.txt"  # written by deploy/agentcore_package.py
+BUILD = _BUILD_FILE.read_text(encoding="utf-8").strip() if _BUILD_FILE.exists() else "dev"
 
 
 def _session_manager(session_id: str):
@@ -37,7 +40,7 @@ def _session_manager(session_id: str):
 def invoke(payload: dict, context=None) -> dict:
     action = payload.get("action", "assess")
     if action == "assess":
-        return assess(payload["account"], language=payload.get("language", "en"))
+        return {**assess(payload["account"], language=payload.get("language", "en")), "build": BUILD}
 
     sid = payload.get("session_id") or getattr(context, "session_id", None) or "default"
     agent = build_interviewer(session_manager=_session_manager(sid))  # restores the conversation from Memory
@@ -52,6 +55,7 @@ def invoke(payload: dict, context=None) -> dict:
         "facts": case.facts.model_dump(mode="json"),
         "determination": case.panel.final.model_dump(mode="json") if case.panel else None,
         "documents": case.documents or None,
+        "build": BUILD,
     }
 
 
