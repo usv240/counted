@@ -64,6 +64,10 @@ def test_blocks_what_reached_families_before(text):
     "A medical examiner will review the facts and decide.",
     "FEMA decides whether to help with funeral costs.",
     "Did the power go out at her home during the storm?",
+    # what the interviewer said on the AgentCore resume test, which the old rule blocked: the declaration is official
+    "The disaster is confirmed: Harris County was under a Winter Storm Warning, and the freeze was officially declared.",
+    "Harris County was under an official FEMA disaster declaration at the time.",
+    "El desastre fue declarado oficialmente para el condado de Harris.",
 ])
 def test_allows_safe_phrasing(text):
     assert not blocked(text), text

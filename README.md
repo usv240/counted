@@ -72,7 +72,7 @@ Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.
 | Outcome in vetted words | 23 / 25 | the model contradicting the panel (and the control that checks the vetted message) |
 | Redact identifiers | 24 / 25 | SSN, phone and email stored |
 
-Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 33 sentences it must block, most copied word for word from what reached families in the live runs below, and 11 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 217 tests, about 7 seconds).
+Every guard stops something no other guard does. `tests/test_guard_phrases.py` checks the language guard against 33 sentences it must block, most copied word for word from what reached families in the live runs below, and 14 it must allow. Everything here runs offline, with no AWS credentials, on every push (`uv run pytest tests`, 220 tests, about 7 seconds).
 
 ### Red team, live: judged by a different model
 

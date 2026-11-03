@@ -75,7 +75,9 @@ class _UnsignedToFema:
 _FORBIDDEN = [
     (re.compile(r"\bI (?:hereby )?certif(?:y|ied)\b|\b(?:yo )?certifico\b", re.I),
      "You cannot certify anything. Say you are preparing a draft for the medical examiner or physician to review."),
-    (re.compile(r"\bofficial(?:ly)?\b|\boficial(?:es|mente)?\b", re.I),
+    # A disaster declaration really is official, so "officially declared" is allowed; nothing Counted writes is.
+    (re.compile(r"\bofficial(?:ly)?\b(?!\s+(?:declared|(?:(?:fema|federal|major)\s+)*(?:disaster\s+)?declarations?\b))"
+                r"|(?<!declaración )(?<!declaracion )(?<!declarado )(?<!declarada )\boficial(?:es|mente)?\b", re.I),
      "Do not call anything official, including the documents or the finding. Say it is a draft, and that a medical "
      "examiner reviews and signs it."),
     (re.compile(r"\b(?:medical examiners?|examiners?|coroners?|doctors?|physicians?|forenses?|m[eé]dicos?|doctor(?:es)?)\b"
@@ -155,6 +157,10 @@ SAFE_REPLY = {
     "es": "Siento mucho todo lo que está pasando. Un médico forense leerá lo que yo registre, así que me gustaría tenerlo "
           "en sus propias palabras: ¿qué pasó en los días antes de la muerte?",
 }
+# Without this, the model answered the feedback itself ("I understand. I will not call anything official..."), which
+# repeated the blocked word and wasted both rewrites.
+_REWRITE = (" Rewrite your last reply to the family with this fixed. They never saw it: don't mention this note, "
+            "don't promise how you will word things, just carry on with the interview.")
 _SPANISH = re.compile(r"\b(?:usted|su|que|los|las|por|para|murió|tormenta|ayuda|certificado)\b", re.I)
 
 
@@ -182,7 +188,7 @@ class NoCertifyingLanguage(InterventionHandler):
             return Proceed()
         if self._retries < self.max_retries:
             self._retries += 1
-            return Guide(feedback=hit, reason="overclaiming or blaming language")
+            return Guide(feedback=hit + _REWRITE, reason="overclaiming or blaming language")
         self._retries = 0
         safe = SAFE_REPLY["es" if len(_SPANISH.findall(text)) >= 2 else "en"]
 
