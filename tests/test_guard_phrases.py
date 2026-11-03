@@ -71,3 +71,33 @@ def test_blocks_what_reached_families_before(text):
 ])
 def test_allows_safe_phrasing(text):
     assert not blocked(text), text
+
+
+FAMILY = "My mother died after the February 2021 freeze. She was 78. Her oxygen machine stopped when the power went out."
+
+
+@pytest.mark.parametrize("question", [
+    "Was she on dialysis?",                              # dialysis: the family never said it
+    "Did she take any medicines regularly?",             # medicine
+    "Did anyone run a generator in the garage?",         # generator
+    "Did she fall during the outage?",                   # fall
+    "Were the roads too icy to reach a clinic?",         # roads, appointment
+    "¿Se le acabó la insulina durante la tormenta?",     # medicine, in Spanish
+])
+def test_a_question_may_not_introduce_a_circumstance(question):
+    from counted.policy.guards import _INTRODUCED
+    assert _INTRODUCED.search(question, FAMILY), question
+
+
+@pytest.mark.parametrize("text", [
+    "How long was the oxygen machine off?",              # the family raised oxygen
+    "Before the power went out, what was her health like?",
+    "Did the house get very cold?",                      # "freeze" counts as cold
+    "¿Cuándo volvió la luz?",                            # power, in Spanish
+    "Tell me about her health and anything she relied on at home.",
+    "What changed for her at home in the days around the storm?",
+    "Harris County was under a declared winter storm disaster, with dialysis centers closed.",  # a statement, not a question
+])
+def test_open_questions_and_the_familys_own_words_are_allowed(text):
+    from counted.policy.guards import _INTRODUCED
+    assert not _INTRODUCED.search(text, FAMILY), text

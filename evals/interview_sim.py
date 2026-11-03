@@ -68,6 +68,7 @@ def run_one(case: dict, persona: str, lang: str, max_turns: int = 12) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=12)
+    ap.add_argument("--out", default="interview_sim.json", help="file name under evals/results/")
     args = ap.parse_args()
     rng = random.Random(7)
     pool = []
@@ -91,7 +92,7 @@ def main() -> None:
         "median_turns": sorted(r["turns"] for r in ok)[len(ok) // 2] if ok else None,
         "by_language": {lang: f"{sum(1 for r in ok if r['lang'] == lang and r['correct'])}/{sum(1 for r in ok if r['lang'] == lang)}" for lang in ("en", "es")},
     }
-    out = ROOT / "evals/results/interview_sim.json"
+    out = ROOT / "evals/results" / args.out
     out.write_text(json.dumps({"summary": summary, "cases": results}, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(summary, indent=1))
 

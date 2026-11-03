@@ -139,6 +139,54 @@ class _MenuOfEffects:
         return None
 
 
+class _IntroducedCircumstance:
+    """A question that names a disaster effect the family has not mentioned themselves. Death investigators ask open
+    questions and never introduce a circumstance: a relative who wants a link will simply say yes to one. The menu
+    guard above caught lists of three; the live red team showed a single named effect ("did he lose power?") still
+    leads, so any effect the family didn't raise first is sent back."""
+
+    _concepts = {
+        "power": r"power|electric|outage|\blights?\b|\bluz\b|electricidad|apag[oó]n|\bcorriente\b",
+        "oxygen": r"oxygen|concentrator|ox[ií]geno|concentrador",
+        "dialysis": r"dialysis|di[aá]lisis",
+        "medicine": r"medicin|medicat|insulin|prescription|\bpills?\b|medicament|insulina|receta|pastilla",
+        "heat": r"\bheat|\bhot\b|calor|caliente",
+        "cold": r"\bcold|freez|hypotherm|fr[ií]o|congel|helad",
+        "generator": r"generator|generador|carbon monoxide|mon[oó]xido",
+        "flood": r"flood|inundaci|storm surge|marejada",
+        "roads": r"\broads?\b|\bice\b|\bicy\b|carretera|hielo",
+        "evacuation": r"evacuat|shelter|evacu|refugio",
+        "fall": r"\bfall\b|\bfell\b|\bfallen\b|ca[ií]d[ao]\b|se cay",
+        "appointment": r"appointment|clinic|\bcita\b|cl[ií]nica",
+    }
+    _compiled = {k: re.compile(v, re.I) for k, v in _concepts.items()}
+
+    def search(self, text: str, family_text: str) -> tuple[str, str] | None:
+        for sentence in re.split(r"(?<=[.!?¿])\s+", text):
+            if "?" not in sentence:
+                continue  # a statement of checked records is not a question to the family
+            for concept, pattern in self._compiled.items():
+                if pattern.search(sentence) and not pattern.search(family_text):
+                    return sentence, concept
+        return None
+
+
+_INTRODUCED = _IntroducedCircumstance()
+_INTRODUCED_FEEDBACK = (
+    "Don't name a circumstance the family hasn't mentioned themselves; a grieving relative may simply agree with it. "
+    "Ask one open question instead, such as \"What changed for her at home in the days around the storm?\", or "
+    "\"Tell me about her health and anything she relied on at home.\", and let them describe it.")
+
+
+def family_text(agent) -> str:
+    """Everything the family has typed in this conversation (tool results and the agent's own words excluded)."""
+    said = []
+    for m in getattr(agent, "messages", None) or []:
+        if m.get("role") == "user":
+            said += [b["text"] for b in m.get("content", []) if isinstance(b, dict) and isinstance(b.get("text"), str)]
+    return " ".join(said)
+
+
 _BEFORE_A_FINDING = [
     (_MenuOfEffects(),
      "Don't offer a list of possible effects for the family to choose from. Ask one open question, such as "
@@ -181,8 +229,11 @@ class NoCertifyingLanguage(InterventionHandler):
             for block in message.message.get("content", []):
                 text += block.get("text", "")
         s = (getattr(event, "invocation_state", None) or {}).get("session")
-        checks = _FORBIDDEN if getattr(s, "panel", None) is not None else _FORBIDDEN + _BEFORE_A_FINDING
+        before_finding = getattr(s, "panel", None) is None
+        checks = _FORBIDDEN + _BEFORE_A_FINDING if before_finding else _FORBIDDEN
         hit = next((feedback for pattern, feedback in checks if text and pattern.search(text)), None)
+        if hit is None and before_finding and text and _INTRODUCED.search(text, family_text(getattr(event, "agent", None))):
+            hit = _INTRODUCED_FEEDBACK
         if hit is None:
             self._retries = 0
             return Proceed()
