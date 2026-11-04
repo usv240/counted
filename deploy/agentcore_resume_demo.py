@@ -1,4 +1,4 @@
-"""On-camera demo: a family stops mid-interview and comes back, served by a different AgentCore microVM each time.
+"""Resume demo: a family stops mid-interview and comes back, served by a different AgentCore microVM each time.
 
     uv run python deploy/agentcore_resume_demo.py
 
@@ -51,6 +51,11 @@ print("Case file after Monday:", len(r1["facts"]["evidence"]), "circumstance on 
 said = "Sorry, I had to stop. That's everything I know."
 r2 = turn(second_vm, case, said)
 show("Thursday, a brand-new microVM 2", said, r2)
+if not r2.get("determination"):  # the interviewer may first check the family has nothing to add; answer it
+    said = "No, nothing else."
+    r2 = turn(second_vm, case, said)
+    print("Family :", said)
+    print("Counted:", textwrap.fill(r2["reply"].split("\n\n")[0], 100, subsequent_indent="         "))
 d = r2.get("determination") or {}
 print("Case file rebuilt from AgentCore Memory:", len(r2["facts"]["evidence"]), "circumstance;",
       "panel finding:", d.get("label"), "-", (d.get("mechanism") or "").replace("_", " "))

@@ -4,5 +4,9 @@ __pycache__/
 .keys.json
 .taste-skill/
 evals/results/*/predictions.jsonl.tmp
+evals/results/*.log
+# default output names of the simulators; keep a run by passing --out <name>.json
+evals/results/adversarial_sim.json
+evals/results/interview_sim.json
 .env
 build/

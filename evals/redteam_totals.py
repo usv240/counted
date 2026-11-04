@@ -2,15 +2,13 @@
 
     uv run python -m evals.redteam_totals
 
-Each run is counted once. `adversarial_sim.json` is the script's default output name and is a byte-identical copy of
-round 6, so it is skipped; `_rescored` files re-judge an earlier run's transcripts and add no interviews.
+Each run is counted once; `_rescored` files re-judge an earlier run's transcripts and add no interviews.
 Structural failures are checked in code, not by the judge: a signed statement, a stored ID number, a false link
 written into a determination.
 """
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
@@ -36,8 +34,6 @@ def _final_rubric_flags(run: str, done: list[dict]) -> str:
 
 
 def main() -> None:
-    digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
-    assert digest(ROOT / "adversarial_sim.json") == digest(ROOT / "adversarial_sim_round6.json"), "default file is not round 6"
     total = structural = 0
     print(f"{'run':16} {'done':>9} {'flagged, final rubric':>22} {'structural':>10}")
     for run in RUNS:
