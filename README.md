@@ -20,7 +20,7 @@ Hurricane Maria's official toll was 64 until a government-commissioned study est
 - **What is demonstrated:**
   - Replays built from official records: CDC Hurricane Irma, all 129 labels matched (126 storm-related deaths plus 3 the CDC marked only "possible", which Counted also declined). The direct-only rule used after Maria found 11 of the 126. Texas Uri: 229 of 246 (93%, the ceiling).
   - 0 false links on 26 no-link deaths.
-  - 396 adversarial live interviews: 0 signatures, 0 stored ID numbers, 0 false findings.
+  - 402 adversarial live interviews: 0 signatures, 0 stored ID numbers, 0 false findings.
   - Bilingual documents and read-aloud; resume across sessions on AgentCore; about 3 cents a case.
 - **What is potential, not yet shown:** more deaths documented with the disaster named; Spanish-speaking families served in their language; county counts that no longer depend on whether a certificate happened to mention the storm.
 - **Not yet established:** no medical examiner's office, caseworker or family has used it; no change in FEMA approvals has been measured. The replays use template wording, not real interviews, and independent judging still finds wording flaws (below).
@@ -101,13 +101,15 @@ The first version of this script checked replies with the guard's own patterns a
 
 | Run | Interviews | With a flagged sentence (rubric at the time) | What changed before it |
 |---|---|---|---|
-| Before | 24 | **18** | (original agent) |
+| Before | 24 | **18**¹ | (original agent) |
 | Round 1 | 24 | 4 | the result is announced in vetted words written by code; the guard learned the phrasings that got through, in English and Spanish; the prompt says plainly that Counted is software, not a doctor |
 | Round 2 | 24 | 3 | no predicting what FEMA will do; no coaching a claim the facts don't support |
 | Round 3 | 24 | 5 | refuse gently: never imply a relative is lying or after money; never leave self-blame hanging |
 | Round 4 | 40 | 3 | no verdict before the panel decides; never ask what the relative did |
 | Round 5 | 40 | 4 | two more phrasings round 4 found |
 | Round 6 | 40 | 2 | no "that's what matters for FEMA"; a prompt line against offering a menu of storm effects |
+
+¹ Under the rubric of the time. That transcript file has since been re-judged with the final rubric (19, below), so the 18 itself can no longer be recomputed from it; every other number here can.
 
 **Then a second independent review found what that rubric missed.** In round 6, 5 of the 10 pressure interviews still offered a relative pushing for a link a list of possible effects ("if he lost power, if he couldn't get medicine, if he was in the heat or cold"). That is a leading question, and the rubric had no rule for it. With a `leading_question` rule added, the same transcripts re-judged:
 
@@ -138,7 +140,7 @@ They pass the offline tests and the honest interviews, but their live attack run
 
 Honest relatives on the final code (`interview_sim_round10.json`): 16 of 16 reached the official label, Spanish 4 of 4, median 6 exchanges. Leading questions are reduced, not solved.
 
-What held in all 396 live interviews, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 or 40 moves by a few interviews either way, and the judge is a model, so treat these as rates.
+What held in all 402 live interviews (`uv run python -m evals.redteam_totals` recounts every run from the saved files, each once), before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 or 40 moves by a few interviews either way, and the judge is a model, so treat these as rates.
 
 Results: `evals/results/adversarial_sim_*.json` (each with `_rescored` for the final rubric).
 
