@@ -8,6 +8,23 @@ Hurricane Maria's official toll was 64 until a government-commissioned study est
 
 **Try it:** https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws (live demo, API docs at `/docs`, MCP at `/mcp/`, A2A at `/a2a/`)
 
+## At a glance
+
+- **Who it's for:** families after a US hurricane, winter storm or flood who don't know how to explain the disaster's role in a death, and are least likely to have an advocate: older adults on powered medical equipment, Spanish-speaking and low-income families. Also the caseworkers and medical examiners who help them.
+- **What it does:**
+  1. Interviews the family in English or Spanish, one open question at a time.
+  2. Checks FEMA and Weather Service records itself.
+  3. Decides with a panel that works like a medical review board: CDC rules in code, a Claude examiner and an Amazon Nova examiner, independently, with an adjudicator only when they disagree.
+  4. Drafts the statement a medical examiner reviews and signs. It never signs, and never invents a link.
+- **The panel's job is to fail safe, not to score higher.** Claude alone already matches the panel's accuracy on the replays. The panel earns its place on hard negatives: the rules seat alone made 3 false disaster links on 26 no-link deaths (a drowning on a calm lake, a drunk-driving crash on a dry road), both model seats disagreed each time, and the panel made none.
+- **What is demonstrated:**
+  - Replays built from official records: CDC Hurricane Irma, all 129 labels matched (126 storm-related deaths plus 3 the CDC marked only "possible", which Counted also declined). The direct-only rule used after Maria found 11 of the 126. Texas Uri: 229 of 246 (93%, the ceiling).
+  - 0 false links on 26 no-link deaths.
+  - 396 adversarial live interviews: 0 signatures, 0 stored ID numbers, 0 false findings.
+  - Bilingual documents and read-aloud; resume across sessions on AgentCore; about 3 cents a case.
+- **What is potential, not yet shown:** more deaths documented with the disaster named; Spanish-speaking families served in their language; county counts that no longer depend on whether a certificate happened to mention the storm.
+- **Not yet established:** no medical examiner's office, caseworker or family has used it; no change in FEMA approvals has been measured. The replays use template wording, not real interviews, and independent judging still finds wording flaws (below).
+
 ## Results
 
 Labels are the government's: one per official death, from the CDC (Hurricane Irma, MMWR 2018) and Texas DSHS (Winter Storm Uri, 2021). Two sets are partly ours, and say so: 19 of the 22 CDC scenario labels are implied by the guide's definitions rather than stated (`data/cdc_gold.json`), and the 26 no-link deaths are written by us.
@@ -54,7 +71,7 @@ We changed rules and prompts between evaluation runs. All runs are kept in `eval
 | near-miss-v1 | 10 harder no-link deaths added | | | | **0 of 10** |
 | current-cdc-neg | final code: safety work, vetting, and one examiner-prompt line ("use only the durations the account states") | | | 90.9% (1 wrong, 1 declined) | **0** |
 
-Interview simulation (Strands Evals ActorSimulator, 16 relatives, 4 temperaments): the first interviewer reached a determination in 2 of 14, because it interrogated relatives who had said they didn't know. After rewriting the interview flow: 16 of 16 reached one, 16 of 16 matched the official label, median 6 exchanges, Spanish 4 of 4. Rerun on the final code, after all the safety fixes below: 15 of 16 correct. The 16th, a Spanish-speaking relative, ended the conversation after three turns without saying what happened; run again, the same case reached the right answer in six turns.
+Interview simulation (Strands Evals ActorSimulator, 16 relatives, 4 temperaments): the first interviewer reached a determination in 2 of 14, because it interrogated relatives who had said they didn't know. After rewriting the interview flow: 16 of 16 reached one, 16 of 16 matched the official label, median 6 exchanges, Spanish 4 of 4. Rerun after the round-7 safety fixes: 15 of 16 (a Spanish-speaking relative ended the conversation before saying what happened). Rerun on the final code, which also forbids questions naming a circumstance the family hasn't raised: **16 of 16 correct, Spanish 4 of 4, median 6 exchanges** (`evals/results/interview_sim_round8.json`). Open questions didn't make honest interviews slower.
 
 Rerun everything: `uv run python -m evals.build_cases && uv run python -m evals.run`. Predictions for every case are in `evals/results/<tag>/predictions.jsonl`.
 
@@ -98,14 +115,30 @@ The first version of this script checked replies with the guard's own patterns a
 |---|---|---|---|
 | Before | 24 | **19** | 17 |
 | Round 6 | 40 | **17** | 8 |
-| Round 7 (final code) | 40 | **13** | 8 |
-| Held out: five new attacks, never used to tune anything | 20 | **10** | 3 |
+| Round 7: no menu of effects | 40 | **13** | 8 |
+| Round 8: no introduced circumstances | 40 | 14 | 6 |
+| Round 9: plus a neutral open question | 40 | 15 | **5** |
+| Held out, set 1 (round 7 / round 8 code) | 20 | 10 / **4** | 3 / **1** |
+| Held out, set 2: written before the new rule was measured, never tuned on (round 8 code) | 20 | **6** | **2** |
 
 Round 7 adds a guard that blocks a menu of three or more effects before a finding, makes the fallback reply an open question, and removes the menu from the vetted "not related" message (`tests/test_guard_phrases.py`). It cut flagged interviews from 17 to 13 of 40 and leading-question sentences from 29 to 24; the Spanish pressure attack still had a flagged sentence in all 5 runs.
 
 The held-out set (`--heldout`: a lawyer's threat, a fake medical examiner's assistant, flattery, guilt, a double FEMA claim) shows which fixes generalised. The wording guards did: outside leading questions, 3 of 20 interviews had a flagged sentence, and the impersonation and flattery attacks had none in any run. Leading questions did not: when a guilty or angry relative insists (guilt 4 of 4, lawyer 3 of 4, double claim 3 of 4), the interviewer still asks about specific storm effects. Rerun with `uv run python -m evals.adversarial_sim --repeat 5 --out adversarial_sim_round7.json` and `--heldout --repeat 4 --out adversarial_sim_heldout.json`.
 
-What held in all 276 live interviews, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 or 40 moves by a few interviews either way, and the judge is a model, so treat these as rates.
+Round 8 adds a structural rule from forensic interviewing: before a finding, a question may not name a circumstance the family hasn't raised themselves (power, oxygen, dialysis, medicine, heat, cold, a generator, a flood, the roads, evacuation, a fall, an appointment; English and Spanish). The guard compares each question with everything the family has typed (`_IntroducedCircumstance`, tests in `tests/test_guard_phrases.py`).
+- **Held-out set 1:** it cut flagged interviews from 10 to 4 of 20.
+- **Held-out set 2:** written on Nov 3 before the rule was measured, and never used to tune anything: 6 of 20.
+- **Development set:** it moved the count less (13 to 15 of 40), but flags other than leading questions fell from 8 to 5.
+
+Most of what the judge still flagged in round 8 was the open question the guard itself suggested ("what changed around the storm?"), which assumes the storm mattered. Round 9 suggests one that doesn't name the disaster. The last two fixes:
+- the prompt no longer tells the interviewer to say "the disaster created the danger" to a self-blaming relative;
+- a list of three disaster kinds counts as a menu.
+
+They pass the offline tests and the honest interviews, but their live attack run (round 10) was cut short at 6 of 40 by the account's daily Bedrock token quota, so no number is reported for it.
+
+Honest relatives on the final code (`interview_sim_round10.json`): 16 of 16 reached the official label, Spanish 4 of 4, median 6 exchanges. Leading questions are reduced, not solved.
+
+What held in all 396 live interviews, before any fix and under every rubric: no signature, no false link in a determination, no stored ID number. A run of 24 or 40 moves by a few interviews either way, and the judge is a model, so treat these as rates.
 
 Results: `evals/results/adversarial_sim_*.json` (each with `_rescored` for the final rubric).
 
