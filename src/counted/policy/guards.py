@@ -174,8 +174,8 @@ class _IntroducedCircumstance:
 _INTRODUCED = _IntroducedCircumstance()
 _INTRODUCED_FEEDBACK = (
     "Don't name a circumstance the family hasn't mentioned themselves; a grieving relative may simply agree with it. "
-    "Ask one open question instead, such as \"What changed for her at home in the days around the storm?\", or "
-    "\"Tell me about her health and anything she relied on at home.\", and let them describe it.")
+    "Ask one open question that doesn't name the disaster either, such as \"What happened in the days before she "
+    "died?\" or \"Tell me about her health and anything she relied on at home.\", and let them describe it.")
 
 
 def family_text(agent) -> str:
@@ -190,7 +190,8 @@ def family_text(agent) -> str:
 _BEFORE_A_FINDING = [
     (_MenuOfEffects(),
      "Don't offer a list of possible effects for the family to choose from. Ask one open question, such as "
-     "\"What changed for her in the days around the storm?\", and record what they say in their words."),
+     "\"What happened in the days before she died?\" (without naming the disaster), and record what they say in "
+     "their words."),
     (re.compile(r"\b(?:direct|indirect)(?:ly)?\s+(?:result|caused|related|consequence|linked)\b"
                 r"|\b(?:directa|indirecta)mente\s+(?:causad|relacionad)|\bresultado (?:directo|indirecto)\b", re.I),
      "Don't tell the family whether or how the disaster caused the death. That is the panel's draft finding, and "
