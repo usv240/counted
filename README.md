@@ -7,7 +7,7 @@
 
 Counted interviews a grieving family in English or Spanish and checks FEMA and National Weather Service records. A review panel then applies the CDC's death-certification guidance, and Counted drafts the statement a medical examiner reviews and signs. It never signs anything itself.
 
-**Live demo:** https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws (API docs at `/docs`, MCP at `/mcp/`, A2A at `/a2a/`) · **Video (2:46):** https://youtu.be/-d6Z9vy2XaM · **Full evaluation:** [docs/EVALUATION.md](docs/EVALUATION.md)
+**Live demo:** https://co-435ce50e27c4441da1f6e8104db5cb23.ecs.us-east-1.on.aws (API docs at `/docs`, MCP at `/mcp/`, A2A at `/a2a/`) · **Video (2:46):** https://youtu.be/-d6Z9vy2XaM · **Project post:** [AWS Builder Center](https://builder.aws.com/project/3LeU2rVXxuHRfMuDVYNbUlPB8Nl/counted-a-strands-agent-that-finds-the-disaster-deaths-official-counts-miss) · **Full evaluation:** [docs/EVALUATION.md](docs/EVALUATION.md)
 
 ---
 
