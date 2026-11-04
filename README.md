@@ -44,20 +44,20 @@ Most of the long-term toll in [2] can't be traced to one certificate. Counted wo
 ```mermaid
 flowchart TD
     family["Family or caseworker<br/>English or Spanish"]
-    interviewer["Interviewer agent<br/>one open question at a time"]
-    guards["Guards on every turn<br/>Cedar policy · consent · ID redaction<br/>verbatim quotes · no overclaiming"]
-    records["Public records<br/>Amazon Location · OpenFEMA declarations · NWS warnings"]
+    interviewer["Interviewer agent"]
+    guards["Guards<br/>Cedar policy, consent,<br/>redaction, wording"]
+    records["Public records<br/>FEMA declarations,<br/>NWS warnings"]
     subgraph panel["Review panel: a Strands Graph"]
-        rules["CDC decision tree<br/>plain code"]
-        claude["Claude examiner"]
-        nova["Amazon Nova examiner"]
-        chair["Claude Opus adjudicator<br/>runs only if the three disagree"]
+        rules["CDC rules<br/>in code"]
+        claude["Claude<br/>examiner"]
+        nova["Amazon Nova<br/>examiner"]
+        chair["Adjudicator<br/>only if they disagree"]
         rules -.-> chair
         claude -.-> chair
         nova -.-> chair
     end
-    vetting["Vetting<br/>model-written lines checked for<br/>forbidden words and made-up durations"]
-    documents["Draft documents, filled from templates<br/>certifier statement · FEMA family packet · county record"]
+    vetting["Vetting<br/>of model-written lines"]
+    documents["Draft documents<br/>certifier statement,<br/>family packet,<br/>county record"]
     signer["Medical examiner<br/>reviews and signs"]
 
     family <--> interviewer
@@ -85,24 +85,15 @@ The REST, MCP and A2A endpoints skip the interview. They take a written account 
 
 ```mermaid
 flowchart LR
-    users["Browser · MCP client · A2A agent"] --> ecs
-    sdk["AWS SDK caller"] --> agentcore
-    subgraph aws["AWS, us-east-1"]
-        ecs["Amazon ECS Express Mode<br/>Fargate behind HTTPS<br/>website · REST · MCP · A2A"]
-        agentcore["Amazon Bedrock AgentCore Runtime<br/>resumable interview"]
-        memory["AgentCore Memory"]
-        bedrock["Amazon Bedrock<br/>Claude · Amazon Nova"]
-        location["Amazon Location"]
-        polly["Amazon Polly<br/>read-aloud"]
-        dynamo["DynamoDB<br/>hashed API keys"]
-        cw["CloudWatch<br/>traces"]
-    end
-    public["OpenFEMA · NWS warnings<br/>public APIs"]
-    ecs --> bedrock & location & polly & dynamo & cw
-    agentcore --> bedrock & memory & location & cw
-    ecs --> public
-    agentcore --> public
+    web["Browser, MCP<br/>or A2A client"] --> ecs["Amazon ECS<br/>Express Mode<br/>website and APIs"]
+    sdk["AWS SDK<br/>caller"] --> agentcore["Bedrock AgentCore<br/>Runtime<br/>resumable interview"]
+    ecs --> shared["Amazon Bedrock<br/>Amazon Location<br/>CloudWatch traces<br/>OpenFEMA, NWS"]
+    agentcore --> shared
+    ecs --> ecsonly["Amazon Polly<br/>DynamoDB"]
+    agentcore --> memory["AgentCore<br/>Memory"]
 ```
+
+Both deployments run the same code and call Bedrock (Claude and Amazon Nova), Amazon Location, CloudWatch and the public FEMA and Weather Service APIs. Only the website uses Polly (read-aloud) and DynamoDB (hashed API keys). Only AgentCore keeps the interview in AgentCore Memory.
 
 | Role | Model on Amazon Bedrock | Backup (via `ModelRouter`) |
 |---|---|---|
