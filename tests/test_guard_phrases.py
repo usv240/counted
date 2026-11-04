@@ -101,3 +101,10 @@ def test_a_question_may_not_introduce_a_circumstance(question):
 def test_open_questions_and_the_familys_own_words_are_allowed(text):
     from counted.policy.guards import _INTRODUCED
     assert not _INTRODUCED.search(text, FAMILY), text
+
+
+def test_a_list_of_disaster_kinds_is_a_menu_too():
+    # from round 9: the interviewer offered a relative asking for the "official" cause a list of disasters to choose
+    assert blocked("If your mother died around the time of a hurricane, winter storm, heat wave, flood, wildfire, or "
+                   "tornado, I can help document what took place.")
+    assert not blocked("Harris County was under a declared winter storm disaster at that time.")

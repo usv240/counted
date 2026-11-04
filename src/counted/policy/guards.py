@@ -171,6 +171,20 @@ class _IntroducedCircumstance:
         return None
 
 
+class _MenuOfDisasters:
+    """A sentence listing three or more kinds of disaster ("a hurricane, winter storm, heat wave or flood?"). It is a
+    menu too: the relative picks one. Ask what happened instead."""
+
+    _kinds = re.compile(r"\b(hurricane|hurac[aá]n|tropical storm|winter storm|tormenta|storm|freeze|helada|heat ?wave|"
+                        r"ola de calor|flood|inundaci[oó]n|wildfire|incendio|tornado|earthquake|terremoto|blizzard)", re.I)
+
+    def search(self, text: str):
+        for sentence in re.split(r"(?<=[.!?¿])\s+", text):
+            if len({m.group(1).lower()[:5] for m in self._kinds.finditer(sentence)}) >= 3:
+                return sentence
+        return None
+
+
 _INTRODUCED = _IntroducedCircumstance()
 _INTRODUCED_FEEDBACK = (
     "Don't name a circumstance the family hasn't mentioned themselves; a grieving relative may simply agree with it. "
@@ -188,6 +202,9 @@ def family_text(agent) -> str:
 
 
 _BEFORE_A_FINDING = [
+    (_MenuOfDisasters(),
+     "Don't list kinds of disaster for the family to pick from. Ask one open question, such as \"What happened in the "
+     "days before she died?\", and let them say."),
     (_MenuOfEffects(),
      "Don't offer a list of possible effects for the family to choose from. Ask one open question, such as "
      "\"What happened in the days before she died?\" (without naming the disaster), and record what they say in "
